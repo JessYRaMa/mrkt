@@ -8,8 +8,8 @@ const expressValidator = require('express-validator');
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
-// const PORT = process.env.PORT || 3001;
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+// const PORT = 8080;
 
 
 const postRoutes = require('./routes/post');

@@ -11,12 +11,6 @@ dotenv.config();
 const PORT = process.env.PORT || 3001;
 
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mrktserver");
-
-mongoose.connection.on('error', err => {
-  console.log(`DB connection err: ${err.message}`)  
-})
-
 const postRoutes = require('./routes/post');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
@@ -41,6 +35,12 @@ app.use(function(err, req, res, next){
         res.status(401).json({error: "Unauthorized"});
     }
 })
+
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mrkterver";
+
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+
 
 
 const port = 8080

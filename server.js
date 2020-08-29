@@ -30,20 +30,12 @@ if (process.env.NODE_ENV === "production") {
 app.use('/', postRoutes);
 app.use('/', authRoutes);
 app.use('/', userRoutes);
-app.use(function(err, req, res, next){
-    if(err.name === "UnauthorizedError"){
-        res.status(401).json({error: "Unauthorized"});
-    }
-})
 
-let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mrktserver";
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_1w6tpvh5:jessyrama5@ds061506.mlab.com:61506/heroku_1w6tpvh5";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
-
-
-const port = 8080
 app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   });

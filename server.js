@@ -36,7 +36,7 @@ app.use(function(err, req, res, next){
     }
 })
 
-let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mrkterver";
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mrktserver";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});

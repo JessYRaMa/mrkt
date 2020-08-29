@@ -57,7 +57,7 @@ export class Signup extends Component {
             <div className = "container">
                 <h2 className = "mt-5 mb-5">Signup</h2>
                 <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
-                <div className = "alert alert-info" style = {{display: open ? "" : "none"}}>New account was successfully created.<Link to ="/signin">Please sign in.</Link> </div>
+                <div className = "alert alert-info" style = {{display: open ? "" : "none"}}>New account was successfully created.<Link to ="/">Please sign in.</Link> </div>
                 {this.signupForm(name, email, password)}
             </div>
         )

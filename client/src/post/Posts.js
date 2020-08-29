@@ -29,7 +29,8 @@ export class Posts extends Component {
                     const posterName = post.postedBy
                         ? post.postedBy.name
                         : " Unknown";
-                    const photoUrl = post._id ? `${process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}` : DefaultPost;
+                    const photoUrl = post._id ? `${(process.env.NODE_ENV 
+=== 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}` : DefaultPost;
 
                     return (
                         <div className="card col-md-4" key={i}>

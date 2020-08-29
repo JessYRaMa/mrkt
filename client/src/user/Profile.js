@@ -84,7 +84,8 @@ export class Profile extends Component {
         const {redirectToSignin, user, posts} = this.state
         if(redirectToSignin) return <Redirect to= "/signin"/>
 
-        const photoUrl = user._id ? `${process.env.REACT_APP_API_URL}/user/photo/${user._id }?${new Date().getTime()}` : DefaultProfile;
+        const photoUrl = user._id ? `${(process.env.NODE_ENV 
+=== 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${user._id }?${new Date().getTime()}` : DefaultProfile;
 
         return (
             <div className = "container">

@@ -125,7 +125,8 @@ export class EditProfile extends Component {
             )
         }
 
-        const photoUrl = id ? `${process.env.REACT_APP_API_URL}/user/photo/${id}?${new Date().getTime()}` : DefaultProfile;
+        const photoUrl = id ? `${(process.env.NODE_ENV 
+=== 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${id}?${new Date().getTime()}` : DefaultProfile;
 
         return (
             <div className = "container">

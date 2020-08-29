@@ -138,7 +138,9 @@ class EditPost extends Component {
             return <Redirect to={`/user/${isAuthenticated().user._id}`} />;
         }
 
-        // const photoUrl = id ? `${process.env.REACT_APP_API_URL}/posts/photo/${id}?${new Date().getTime()}` : DefaultPost;
+//         // const photoUrl = id ? 
+//         `${(process.env.NODE_ENV 
+// === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${id}?${new Date().getTime()}` : DefaultPost;
 
         return (
             <div className="container">
@@ -162,7 +164,8 @@ class EditPost extends Component {
                 <img
                     style={{ height: "200px", width: "auto" }}
                     className="img-thumbnail"
-                    src={`${process.env.REACT_APP_API_URL}/posts/photo/${this.props.match.params.postId}?${new Date().getTime()}`}
+                    src={`${(process.env.NODE_ENV 
+=== 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${this.props.match.params.postId}?${new Date().getTime()}`}
                     onError={i => (i.target.src = `${DefaultPost}`)}
                     alt={title}
                 />

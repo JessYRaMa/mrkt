@@ -5,7 +5,7 @@ import {getBraintreeClientToken, processPayment} from './apiPost'
 import {emptyCart, itemTotal} from './cartFunctions'
 import DropIn from 'braintree-web-drop-in-react'
 
-const Checkout = ({items}) => {
+const Checkout = ({items, setRun = f => f, run = undefined}) => {
 
     const [data,setData] = useState({
         success: false,
@@ -64,11 +64,12 @@ const Checkout = ({items}) => {
 
             processPayment(userId, token, paymentData)
             .then(response => {
-                setData({...data, success: response.success})
+                setData({success:true})
                 emptyCart(() => {
+                    setRun(!run); // run useEffect in parent Cart
                     console.log('payment success and empty cart')
+                    itemTotal()
                 })
-                itemTotal()
 
             })
             .catch(error => console.log(error))

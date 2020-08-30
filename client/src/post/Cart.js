@@ -5,6 +5,7 @@ import DefaultPost from '../images/simba.jpg'
 import Checkout from './Checkout';
 
 const Cart = () => {
+    
     const [items, setItems] = useState([])
     const [run, setRun] = useState(false);
 

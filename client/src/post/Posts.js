@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {list} from './apiPost'
 import DefaultPost from '../images/simba.jpg'
+import { addItem } from './cartFunctions';
 
 export class Posts extends Component {
     state = {
-        posts:[]
+        posts:[],
+        redirectToCart: false
     }
 
     componentDidMount = () => {
@@ -18,11 +20,24 @@ export class Posts extends Component {
         })
     }
 
+
+    showStock = quantity => {
+        return quantity > 0 ? (
+          <span className="badge badge-primary badge-pill">In Stock </span>
+        ) : (
+          <span className="badge badge-primary badge-pill">Out of Stock </span>
+        );
+      };
+
     renderPosts = posts => {
         
         return (
             <div className="row">
                 {posts.map((post, i) => {
+
+                     const addToCart = () => {
+                        addItem(post,this.setState({ redirectToCart: true }))
+                    }
                     const posterId = post.postedBy
                         ? `/user/${post.postedBy._id}`
                         : "";
@@ -46,8 +61,13 @@ export class Posts extends Component {
                                 />
                                 <h5 className="card-title">{post.title}</h5>
                                 <p className="card-text">
-                                    {post.body.substring(0, 100)}
+                                    {post.body.substring(0, 100)}...
                                 </p>
+                                <div className = "d-inline-block">
+                                {this.showStock(post.quantity)}
+                                {post.price ? (<p>Price: ${post.price}</p>): (<p>Price: Contact Lister</p>)}
+                                {post.category ? (<p>Category: {post.category}</p>) : (<p>Category: None</p>)}
+                                </div>
                                 <br />
                                 <p className="font-italic">
                                     Posted by{" "}
@@ -56,12 +76,15 @@ export class Posts extends Component {
                                     </Link>
                                     on {new Date(post.created).toDateString()}
                                 </p>
+                                <div className = "d-inline-block">
                                 <Link
                                     to={`/post/${post._id}`}
-                                    className="btn btn-raised btn-primary btn-sm"
+                                    className="btn btn-raised btn-primary btn-sm mr-2"
                                 >
-                                    View Post
+                                    View Listing
                                 </Link>
+                                <button onClick = {addToCart} className="btn btn-raised btn-secondary btn-sm mr-5">Add to Cart</button>
+                                </div>
                             </div>
                         </div>
                     );
@@ -72,10 +95,15 @@ export class Posts extends Component {
 
 
     render() {
-        const {posts} = this.state
+        const {posts, redirectToCart} = this.state
+
+        if(redirectToCart){
+            return(<Redirect to = "/cart" />)
+        }
+        
         return (
             <div className = "container">
-               <h2>Recent Posts</h2> 
+               <h2>Recent Listings</h2> 
                {this.renderPosts(posts)}
             </div>
         )

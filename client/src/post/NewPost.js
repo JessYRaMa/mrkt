@@ -9,6 +9,9 @@ class NewPost extends Component {
         this.state = {
             title: "",
             body: "",
+            price: "",
+            category: "",
+            quantity: "",
             photo: "",
             error: "",
             user: {},
@@ -64,6 +67,9 @@ class NewPost extends Component {
                         loading: false,
                         title: "",
                         body: "",
+                        price: "",
+                        category: "",
+                        quantity: "",
                         redirectToProfile: true
                     });
                 }
@@ -71,10 +77,10 @@ class NewPost extends Component {
         }
     };
 
-    newPostForm = (title, body) => (
+    newPostForm = (title, body, price, category, quantity) => (
         <form>
             <div className="form-group">
-                <label className="text-muted">Post Photo</label>
+                <label className="text-muted">Product Photo</label>
                 <input
                     onChange={this.handleChange("photo")}
                     type="file"
@@ -83,7 +89,7 @@ class NewPost extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Title</label>
+                <label className="text-muted">Product Name</label>
                 <input
                     onChange={this.handleChange("title")}
                     type="text"
@@ -93,7 +99,7 @@ class NewPost extends Component {
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Body</label>
+                <label className="text-muted">Description</label>
                 <textarea
                     onChange={this.handleChange("body")}
                     type="text"
@@ -102,11 +108,51 @@ class NewPost extends Component {
                 />
             </div>
 
+            <div className="form-group">
+                <label className="text-muted">Price</label>
+                <input
+                    onChange={this.handleChange("price")}
+                    type="number"
+                    className="form-control"
+                    value={price}
+                />
+            </div>
+
+            <div className = "form-group">
+                <label className = "text-muted">Category</label>
+                <select onChange = {this.handleChange("category")}
+                        className = "form-control" value = {category}>
+                <option>Please Select a Category</option> 
+                 <option>Clothing, Shoes, &amp; Jewelry</option> 
+                 <option>Food &amp; Grocery</option>
+                 <option>Books</option>
+                 <option>Movies, Music &amp; Games</option>
+                 <option>Electronics &amp; Computers</option>
+                 <option>Home, Garden &amp; Tools</option>
+                 <option>Pet Supplies</option> 
+                 <option>Beauty &amp; Health</option> 
+                 <option>Sports &amp; Outdoors</option>
+                 <option>Handmade Goods</option> 
+                 <option>Toys, Kids, &amp; Baby Items</option>
+                 <option>Automotive &amp; Industrial</option>       
+                </select>
+            </div>
+
+            <div className="form-group">
+                <label className="text-muted">Quantity</label>
+                <input
+                    onChange={this.handleChange("quantity")}
+                    type="number"
+                    className="form-control"
+                    value={quantity}
+                />
+            </div>
+
             <button
                 onClick={this.clickSubmit}
                 className="btn btn-raised btn-primary"
             >
-                Create Post
+                Create Listing
             </button>
         </form>
     );
@@ -115,7 +161,9 @@ class NewPost extends Component {
         const {
             title,
             body,
-            photo,
+            price,
+            category,
+            quantity,
             user,
             error,
             loading,
@@ -128,7 +176,7 @@ class NewPost extends Component {
 
         return (
             <div className="container">
-                <h2 className="mt-5 mb-5">Create a new post</h2>
+                <h2 className="mt-5 mb-5">Create a New Listing</h2>
                 <div
                     className="alert alert-danger"
                     style={{ display: error ? "" : "none" }}
@@ -144,7 +192,7 @@ class NewPost extends Component {
                     ""
                 )}
 
-                {this.newPostForm(title, body)}
+                {this.newPostForm(title, body, price, category, quantity)}
             </div>
         );
     }

@@ -18,6 +18,18 @@ const postSchema = new mongoose.Schema({
         type: ObjectId,
         ref: "User"
     },
+    price: {
+        type: Number,
+        trim: true
+    },
+    category: {
+        type: String,
+        trim: true
+    },
+    quantity: {
+        type: Number,
+        trim:true
+    },
     created: {
         type: Date,
         default: Date.now

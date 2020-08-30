@@ -4,6 +4,7 @@ import {isAuthenticated} from '../auth'
 import DefaultPost from '../images/avatar.png'
 import {Link, Redirect} from 'react-router-dom'
 import Comment from './Comment'
+import { addItem} from './cartFunctions';
 
 export class SinglePost extends Component {
     state = {
@@ -12,6 +13,7 @@ export class SinglePost extends Component {
         likes: 0,
         redirectToHome: false,
         redirectToSignin: false,
+        redirectToCart: false,
         comments: []
     }
 
@@ -83,6 +85,18 @@ export class SinglePost extends Component {
         }
     };
 
+    addToCart = () => {
+        addItem(this.state.post,this.setState({ redirectToCart: true }))
+    }
+
+    showStock = quantity => {
+        return quantity > 0 ? (
+          <span className="badge badge-primary badge-pill">In Stock </span>
+        ) : (
+          <span className="badge badge-primary badge-pill">Out of Stock </span>
+        );
+      };
+
 
     renderPost = (post) => {
 
@@ -103,7 +117,7 @@ export class SinglePost extends Component {
                             (i.target.src = `${DefaultPost}`)
                         }
                         className="img-thunbnail mb-3"
-                        style={{ height: "500px", width: "100%", objectFit: "cover" }}
+                        style={{ height: "auto", width: "auto", objectFit: "cover" }}
                     />
 
                         
@@ -129,6 +143,11 @@ export class SinglePost extends Component {
                     <p className="card-text">
                         {post.body}
                     </p>
+                    <div className = "d-inline-block">
+                    {this.showStock(post.quantity)}
+                    {post.price && (<p>Price: ${post.price}</p>)}
+                    {post.category && (<p>Category: {post.category}</p>)}
+                    </div>
                     <br />
                     <p className="font-italic">
                         Posted by{" "}
@@ -139,21 +158,22 @@ export class SinglePost extends Component {
                     </p>
                     <div className = "d-inline-block">
                     <Link
-                        to={`/`}
+                        to={`/allposts`}
                         className="btn btn-raised btn-primary btn-sm mr-5"
                     >
-                        Back to Posts
+                        Back to Listings
                     </Link>
-                    {isAuthenticated().user && isAuthenticated().user._id === id && (
+
+                    {isAuthenticated().user && isAuthenticated().user._id === id ? (
                         <>
                             <Link to={`/post/edit/${post._id}`} className="btn btn-raised btn-warning btn-sm mr-5">
-                                Update Post
+                                Update Listing
                             </Link>
                             <button onClick={this.deleteConfirmed} className="btn btn-raised btn-danger btn-sm">
-                                Delete Post
+                                Delete Listing
                             </button>
                         </>
-                    )}
+                    ) : (<button onClick = {this.addToCart}className="btn btn-raised btn-secondary btn-sm mr-5">Add to Cart</button>)}
                     </div>
                 </div>
         );
@@ -162,12 +182,14 @@ export class SinglePost extends Component {
 
     render() {
 
-        const {post, redirectToHome, redirectToSignin, comments} = this.state
+        const {post, redirectToHome, redirectToSignin, comments, redirectToCart} = this.state
 
         if (redirectToHome) {
-            return <Redirect to={`/`} />;
+            return <Redirect to={`/allposts`} />;
         } else if (redirectToSignin) {
-            return <Redirect to={`/signin`} />;
+            return <Redirect to={`/`} />;
+        }else if (redirectToCart) {
+            return <Redirect to={`/cart`} />;
         }
 
         return (

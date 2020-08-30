@@ -24,7 +24,7 @@ exports.getPosts = (req, res) => {
    .populate("postedBy", "_id name")
    .populate('comments', 'text created')
    .populate('comments.postedBy', '_id name')
-   .select("_id title body created likes")
+   .select("_id title body price quantity category created likes")
    .sort({created: -1})
    .then((posts) => {
        res.json(posts)
@@ -70,7 +70,7 @@ exports.createPost = (req, res, next) => {
 exports.postByUser = (req,res) => {
     Post.find({postedBy: req.profile._id})
     .populate("postedBy", "_id name")
-    .select("_id title body created likes")
+    .select("_id title body price quantity category created likes")
     .sort("_created")
     .exec((err, posts) => {
         if(err) {

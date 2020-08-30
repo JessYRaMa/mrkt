@@ -11,6 +11,9 @@ class EditPost extends Component {
             id: "",
             title: "",
             body: "",
+            price: "",
+            category: "",
+            quantity: "",
             redirectToProfile: false,
             error: "",
             fileSize: 0,
@@ -27,6 +30,9 @@ class EditPost extends Component {
                     id: data.postedBy._id,
                     title: data.title,
                     body: data.body,
+                    price: data.price,
+                    category: data.category,
+                    quantity: data.quantity,
                     error: ""
                 });
             }
@@ -84,10 +90,10 @@ class EditPost extends Component {
         }
     };
 
-    editPostForm = (title, body) => (
+    editPostForm = (title, body, price, category, quantity) => (
         <form>
             <div className="form-group">
-                <label className="text-muted">Post Photo</label>
+                <label className="text-muted">Product Photo</label>
                 <input
                     onChange={this.handleChange("photo")}
                     type="file"
@@ -96,7 +102,7 @@ class EditPost extends Component {
                 />
             </div>
             <div className="form-group">
-                <label className="text-muted">Title</label>
+                <label className="text-muted">Product Name</label>
                 <input
                     onChange={this.handleChange("title")}
                     type="text"
@@ -106,12 +112,52 @@ class EditPost extends Component {
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Body</label>
+                <label className="text-muted">Description</label>
                 <textarea
                     onChange={this.handleChange("body")}
                     type="text"
                     className="form-control"
                     value={body}
+                />
+            </div>
+
+            <div className="form-group">
+                <label className="text-muted">Price</label>
+                <input
+                    onChange={this.handleChange("price")}
+                    type="number"
+                    className="form-control"
+                    value={price}
+                />
+            </div>
+
+            <div className = "form-group">
+                <label className = "text-muted">Category</label>
+                <select onChange = {this.handleChange("category")}
+                        className = "form-control" value = {category}>
+                <option>Please Select a Category</option> 
+                 <option>Clothing, Shoes, &amp; Jewelry</option> 
+                 <option>Food &amp; Grocery</option>
+                 <option>Books</option>
+                 <option>Movies, Music &amp; Games</option>
+                 <option>Electronics &amp; Computers</option>
+                 <option>Home, Garden &amp; Tools</option>
+                 <option>Pet Supplies</option> 
+                 <option>Beauty &amp; Health</option> 
+                 <option>Sports &amp; Outdoors</option>
+                 <option>Handmade Goods</option> 
+                 <option>Toys, Kids, &amp; Baby Items</option>
+                 <option>Automotive &amp; Industrial</option>       
+                </select>
+            </div>
+
+            <div className="form-group">
+                <label className="text-muted">Quantity</label>
+                <input
+                    onChange={this.handleChange("quantity")}
+                    type="number"
+                    className="form-control"
+                    value={quantity}
                 />
             </div>
 
@@ -129,6 +175,9 @@ class EditPost extends Component {
             id,
             title,
             body,
+            price,
+            category,
+            quantity,
             redirectToProfile,
             error,
             loading
@@ -137,10 +186,6 @@ class EditPost extends Component {
         if (redirectToProfile) {
             return <Redirect to={`/user/${isAuthenticated().user._id}`} />;
         }
-
-//         // const photoUrl = id ? 
-//         `${(process.env.NODE_ENV 
-// === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${id}?${new Date().getTime()}` : DefaultPost;
 
         return (
             <div className="container">
@@ -174,7 +219,7 @@ class EditPost extends Component {
                     this.editPostForm(title, body)} */}
 
                 {isAuthenticated().user._id === id &&
-                    this.editPostForm(title, body)}
+                    this.editPostForm(this.newPostForm(title, body, price, category, quantity))}
             </div>
         );
     }

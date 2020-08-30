@@ -109,9 +109,8 @@ export class SinglePost extends Component {
                 <div className="card-body">
                    
                     <img
-                        src={`${
-                            process.env.REACT_APP_API_URL
-                        }/posts/photo/${post._id}`}
+                        src={`${(process.env.NODE_ENV 
+                            === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}`}
                         alt={post.title}
                         onError={i =>
                             (i.target.src = `${DefaultPost}`)

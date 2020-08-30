@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getCart, removeItem, itemTotal } from './cartFunctions';
-import DefaultPost from '../images/avatar.png'
+import DefaultPost from '../images/simba.jpg'
 import Checkout from './Checkout';
 
 const Cart = () => {

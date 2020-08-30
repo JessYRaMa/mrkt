@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import DefaultProfile from '../images/avatar.png'
+import DefaultProfile from '../images/simba.jpg'
 
 export class ProfileTabs extends Component {
     render() {
@@ -65,7 +65,8 @@ export class ProfileTabs extends Component {
                                             onError={i =>
                                                 (i.target.src = `${DefaultProfile}`)
                                             }
-                                            src={`${
+                                            src={`${(process.env.NODE_ENV 
+                                                === 'production') ? '' : 
                                                 process.env.REACT_APP_API_URL
                                             }/user/photo/${person._id}`}
                                             alt={person.name}
@@ -86,6 +87,17 @@ export class ProfileTabs extends Component {
                         {posts.map((post, i) => (
                             <div key={i}>
                                 <div>
+                                <img 
+                        src={`${(process.env.NODE_ENV 
+                            === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}`}
+                        alt={post.title}
+                        style = {{width: "150px"}}
+                        onError={i =>
+                            (i.target.src = `${DefaultProfile}`)
+                        }
+                        className="img-thunbnail mb-3"
+                        style={{ height: "auto", width: "auto", objectFit: "cover" }}
+                    />
                                     <Link to={`/post/${post._id}`}>
                                         <div>
                                             <p className="lead">{post.title}</p>

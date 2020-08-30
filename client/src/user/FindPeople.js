@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {findPeople, follow} from './apiUser'
-import DefaultProfile from '../images/avatar.png'
+import DefaultProfile from '../images/simba.jpg'
 import {isAuthenticated} from '../auth'
 
 export class FindPeople extends Component {
@@ -47,7 +47,7 @@ export class FindPeople extends Component {
         <div className="row">
             {users.map((user, i) => (
                 <div className="card col-md-4" key={i}>
-                    <img style = {{height: "200px", width: "auto"}} className = "img-thumbnail" src = {`${(process.env.NODE_ENV 
+                    <img style = {{height: "185px", width: "auto"}} className = "img-thumbnail" src = {`${(process.env.NODE_ENV 
 === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${user._id }`} 
                     onError = {i => (i.target.src = `${DefaultProfile}`)}
                     alt = {user.name}

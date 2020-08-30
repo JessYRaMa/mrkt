@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { singlePost, update } from "./apiPost";
 import { isAuthenticated } from "../auth";
 import { Redirect } from "react-router-dom";
-import DefaultPost from "../images/avatar.png";
+import DefaultPost from "../images/simba.jpg";
 
 class EditPost extends Component {
     constructor() {
@@ -219,7 +219,7 @@ class EditPost extends Component {
                     this.editPostForm(title, body)} */}
 
                 {isAuthenticated().user._id === id &&
-                    this.editPostForm(this.newPostForm(title, body, price, category, quantity))}
+                    this.editPostForm(title, body, price, category, quantity)}
             </div>
         );
     }

@@ -26,6 +26,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "braintree": "^2.24.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",

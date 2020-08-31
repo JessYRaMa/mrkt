@@ -47,17 +47,19 @@ export class FindPeople extends Component {
         <div className="row">
             {users.map((user, i) => (
                 <div className="card col-md-4" key={i}>
-                    <img style = {{height: "185px", width: "auto"}} className = "img-thumbnail" src = {`${(process.env.NODE_ENV 
+                    <div className = "mt-2 d-flex justify-content-center"> 
+                    <img style = {{height: "150px", width: "150px", padding: '5px', objectFit: "cover", borderRadius: "50%"}} className = "img-thumbnail"  className = "img-thumbnail" src = {`${(process.env.NODE_ENV 
 === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${user._id }`} 
                     onError = {i => (i.target.src = `${DefaultProfile}`)}
                     alt = {user.name}
                      />
-                    <div className="card-body">
+                     </div>
+                    <div className="card-body text-center">
                         <h5 className="card-title">{user.name}</h5>
                         <p className="card-text">{user.email}</p>
                         <Link
                             to={`/user/${user._id}`}
-                            className="btn btn-raised btn-primary btn-sm"
+                            className="btn btn-raised btn-primary float-left btn-sm"
                         >
                             View Profile
                         </Link>

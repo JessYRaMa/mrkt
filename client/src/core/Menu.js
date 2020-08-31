@@ -8,12 +8,12 @@ import './menu.css'
 const Menu = ({history}) => {
     return (
         <ul className = "nav nav-tabs">
-            {!isAuthenticated() && (
+            {/* {!isAuthenticated() && (
                  <React.Fragment>
                 <li className = "nav-item"><Link className = "nav-link" to= "/">Signin</Link></li>
                 <li className = "nav-item"> <Link className = "nav-link" to= "/signup">Signup</Link></li>
                 </React.Fragment>
-            )}
+            )} */}
 
              {isAuthenticated() && (
                  <>

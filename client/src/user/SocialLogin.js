@@ -41,10 +41,10 @@ class SocialLogin extends Component {
         }
 
         return (
-            <div className="container">
+            <div className="container d-flex justify-content-center">
                 <GoogleLogin
                     clientId="527080015110-0eo293hen5k9ktemtg3clehvucm51ihk.apps.googleusercontent.com"
-                    buttonText="Login with Google"
+                    buttonText="Google"
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogle}
                 />

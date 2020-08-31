@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import DefaultProfile from '../images/simba.jpg'
+import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
+import DefaultPost from '../images/logoshirt.png'
 
 export class ProfileTabs extends Component {
     render() {
@@ -30,7 +31,8 @@ export class ProfileTabs extends Component {
                                             onError={i =>
                                                 (i.target.src = `${DefaultProfile}`)
                                             }
-                                            src={`${
+                                            src={`${ (process.env.NODE_ENV 
+                                                === 'production') ? '' :
                                                 process.env.REACT_APP_API_URL
                                             }/user/photo/${person._id}`}
                                             alt={person.name}
@@ -91,12 +93,11 @@ export class ProfileTabs extends Component {
                         src={`${(process.env.NODE_ENV 
                             === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}`}
                         alt={post.title}
-                        style = {{width: "150px"}}
                         onError={i =>
-                            (i.target.src = `${DefaultProfile}`)
+                            (i.target.src = `${DefaultPost}`)
                         }
                         className="img-thunbnail mb-3"
-                        style={{ height: "auto", width: "auto", objectFit: "cover" }}
+                        style = {{width: "200px", objectFit: "cover", borderRadius: "10%"}}
                     />
                                     <Link to={`/post/${post._id}`}>
                                         <div>

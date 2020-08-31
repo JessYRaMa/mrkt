@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {singlePost, remove, like, unlike} from './apiPost'
 import {isAuthenticated} from '../auth'
-import DefaultPost from '../images/avatar.png'
+import DefaultPost from '../images/logoshirt.png'
 import {Link, Redirect} from 'react-router-dom'
 import Comment from './Comment'
 import { addItem} from './cartFunctions';

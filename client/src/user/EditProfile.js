@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
 import {isAuthenticated} from '../auth'
 import {read, update, updateUser} from './apiUser'
-import DefaultProfile from '../images/avatar.png'
+import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 
 export class EditProfile extends Component {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {list} from './apiUser'
-import DefaultProfile from '../images/simba.jpg'
+import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 
 export class Users extends Component {
     state = {

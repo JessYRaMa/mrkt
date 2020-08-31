@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import {list} from './apiPost'
-import DefaultPost from '../images/simba.jpg'
+import DefaultPost from '../images/logoshirt.png'
 import { addItem } from './cartFunctions';
 
 export class Posts extends Component {

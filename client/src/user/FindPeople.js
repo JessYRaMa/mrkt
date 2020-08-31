@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {findPeople, follow} from './apiUser'
-import DefaultProfile from '../images/simba.jpg'
+import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 import {isAuthenticated} from '../auth'
 
 export class FindPeople extends Component {

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getCart, removeItem, itemTotal } from './cartFunctions';
 import DefaultPost from '../images/logoshirt.png'
 import Checkout from './Checkout';
+import Badge from '../core/Badge';
 
 const Cart = () => {
 

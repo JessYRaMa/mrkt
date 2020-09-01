@@ -5,9 +5,7 @@ import { Redirect } from "react-router-dom";
 import DefaultPost from "../images/logoshirt.png";
 
 class EditPost extends Component {
-    constructor() {
-        super();
-        this.state = {
+    state = {
             id: "",
             title: "",
             body: "",
@@ -18,8 +16,7 @@ class EditPost extends Component {
             error: "",
             fileSize: 0,
             loading: false
-        };
-    }
+        }
 
     init = postId => {
         singlePost(postId).then(data => {

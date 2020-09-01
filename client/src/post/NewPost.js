@@ -4,9 +4,7 @@ import { create } from "./apiPost";
 import { Redirect } from "react-router-dom";
 
 class NewPost extends Component {
-    constructor() {
-        super();
-        this.state = {
+    state = {
             title: "",
             body: "",
             price: "",
@@ -19,7 +17,6 @@ class NewPost extends Component {
             loading: false,
             redirectToProfile: false
         };
-    }
 
     componentDidMount() {
         this.postData = new FormData();
@@ -85,7 +82,7 @@ class NewPost extends Component {
                     onChange={this.handleChange("photo")}
                     type="file"
                     accept="image/*"
-                    className="form-control"
+                    className="form-control pb-5"
                 />
             </div>
             <div className="form-group">

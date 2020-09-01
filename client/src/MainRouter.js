@@ -13,6 +13,8 @@ import NewPost from './post/NewPost';
 import SinglePost from './post/SinglePost';
 import EditPost from './post/EditPost';
 import Cart from './post/Cart';
+import Appy from './post/Chat';
+
 
 const MainRouter = () => (
     <div>
@@ -29,6 +31,7 @@ const MainRouter = () => (
             <PrivateRoute exact path = "/user/edit/:userId" component = {EditProfile}></PrivateRoute>
             <PrivateRoute exact path = "/findpeople" component = {FindPeople}></PrivateRoute>
             <PrivateRoute exact path = "/cart" component = {Cart}></PrivateRoute>
+            <PrivateRoute exact path = "/chat" component = {Appy}></PrivateRoute>
         </Switch>
     </div>
 )

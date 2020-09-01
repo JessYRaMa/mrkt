@@ -10,7 +10,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
 const PORT = process.env.PORT || 8080;
-// const PORT = 8080;
+const stream = require('getstream');
 
 
 const postRoutes = require('./routes/post');
@@ -49,6 +49,8 @@ let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mrktserver";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+
+client = stream.connect('prf8v8eqmgvs', '7jvr8rajh3b3q5mk7eavt85ehqa7k7h8k3ezktgs9798c97gc7gcbvy3esebapy2', '91354');
 
 
 app.listen(PORT, function() {

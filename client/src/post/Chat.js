@@ -7,6 +7,7 @@ import { StreamChat } from 'stream-chat';
 
 import 'stream-chat-react/dist/css/index.css';
 
+
 const chatClient = new StreamChat('gx5a64bj4ptz');
 const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZnJhZ3JhbnQtZHJlYW0tOCJ9.rJtnznKXjIOOaVAyFsMVZAVe3XRbUtbI3cRUOizMygc';
 

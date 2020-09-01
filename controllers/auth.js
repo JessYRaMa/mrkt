@@ -73,6 +73,7 @@ exports.requireSignin = expressJwt({
             // return response with user and token to frontend client
             const { _id, name, email } = user;
             return res.json({ token, user: { _id, name, email } });
+            
         } else {
             // update existing user with new social info and login
             req.profile = user;

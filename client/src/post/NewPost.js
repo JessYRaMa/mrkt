@@ -120,18 +120,18 @@ class NewPost extends Component {
                 <select onChange = {this.handleChange("category")}
                         className = "form-control" value = {category}>
                 <option>Please Select a Category</option> 
-                 <option>Clothing, Shoes, &amp; Jewelry</option> 
-                 <option>Food &amp; Grocery</option>
+                 <option>Clothing,Shoes,&amp;Jewelry</option> 
+                 <option>Food&amp;Grocery</option>
                  <option>Books</option>
-                 <option>Movies, Music &amp; Games</option>
-                 <option>Electronics &amp; Computers</option>
-                 <option>Home, Garden &amp; Tools</option>
-                 <option>Pet Supplies</option> 
-                 <option>Beauty &amp; Health</option> 
-                 <option>Sports &amp; Outdoors</option>
-                 <option>Handmade Goods</option> 
-                 <option>Toys, Kids, &amp; Baby Items</option>
-                 <option>Automotive &amp; Industrial</option>       
+                 <option>Movies,Music&amp;Games</option>
+                 <option>Electronics&amp;Computers</option>
+                 <option>Home,Garden &amp;Tools</option>
+                 <option>Pet</option> 
+                 <option>Beauty&amp;Health</option> 
+                 <option>Sports&amp;Outdoors</option>
+                 <option>Handmade</option> 
+                 <option>Toys,Kids,&amp;Baby Items</option>
+                 <option>Automotive&amp;Industrial</option>       
                 </select>
             </div>
 

@@ -202,5 +202,3 @@ export const processPayment = (userId, token, paymentData) => {
             .catch(err => console.log(err))
     )
 }
-
-

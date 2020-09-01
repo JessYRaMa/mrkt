@@ -1,26 +1,34 @@
 import React from 'react';
-import { Chat, Channel, ChannelHeader, Thread, Window } from 'stream-chat-react';
-import { MessageList, MessageInput } from 'stream-chat-react';
+import { Chat, Channel, ChannelList, Window } from 'stream-chat-react';
+import { ChannelHeader, MessageList } from 'stream-chat-react';
+import { MessageInput, Thread } from 'stream-chat-react';
 import { StreamChat } from 'stream-chat';
+// import { isAuthenticated } from '../auth';
+
 import 'stream-chat-react/dist/css/index.css';
+
 const chatClient = new StreamChat('gx5a64bj4ptz');
-const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoic2h5LXVuaW9uLTMifQ.eKLGWmMIP0MmL2QVUBbDcFfCo8kHTpNX-TMzvKg7ohY';
+const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZnJhZ3JhbnQtZHJlYW0tOCJ9.rJtnznKXjIOOaVAyFsMVZAVe3XRbUtbI3cRUOizMygc';
+
 chatClient.setUser(
   {
-       id: 'shy-union-3',
-       name: 'Shy union',
-       image: 'https://getstream.io/random_png/?id=shy-union-3&name=Shy+union'
-  },
+    id: 'fragrant-dream-8',
+    name: 'Fragrant dream',
+    image: 'https://getstream.io/random_png/?id=fragrant-dream-8&name=Fragrant+dream'  },
   userToken,
 );
-const channel = chatClient.channel('messaging', 'godevs', {
-  // add as many custom fields as you'd like
-  image: 'https://cdn.chrisshort.net/testing-certificate-chains-in-go/GOPHER_MIC_DROP.png',
-  name: 'Talk about Go',
-});
+
+const filters = { type: 'messaging', members: { $in: ['fragrant-dream-8'] } };
+const sort = { last_message_at: -1 };
+const channels = chatClient.queryChannels(filters, sort);
+
 const Appy = () => (
   <Chat client={chatClient} theme={'messaging light'}>
-    <Channel channel={channel}>
+    <ChannelList
+      filters={filters}
+      sort={sort}
+    />
+    <Channel>
       <Window>
         <ChannelHeader />
         <MessageList />
@@ -30,4 +38,5 @@ const Appy = () => (
     </Channel>
   </Chat>
 );
-export default Appy;
+
+export default Appy; 

@@ -3,6 +3,7 @@ import { Chat, Channel, ChannelList, Window } from 'stream-chat-react';
 import { ChannelHeader, MessageList } from 'stream-chat-react';
 import { MessageInput, Thread } from 'stream-chat-react';
 import { StreamChat } from 'stream-chat';
+// import { isAuthenticated } from '../auth';
 
 import 'stream-chat-react/dist/css/index.css';
 

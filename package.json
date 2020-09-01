@@ -40,6 +40,8 @@
     "lodash": "^4.17.20",
     "mongoose": "^5.10.2",
     "morgan": "^1.10.0",
+    "stream-chat": "^2.1.1",
+    "stream-chat-react": "^2.2.2",
     "uuidv1": "^1.6.14"
   }
 }

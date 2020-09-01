@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom'
 import {list} from './apiPost'
 import DefaultPost from '../images/logoshirt.png'
 import { addItem } from './cartFunctions';
+import {isAuthenticated} from '../auth';
 
 export class Posts extends Component {
     state = {
@@ -77,13 +78,23 @@ export class Posts extends Component {
                                     on {new Date(post.created).toDateString()}
                                 </p>
                                 <div className = "d-inline-block">
+                                {isAuthenticated().user && isAuthenticated().user._id === post.postedBy._id ? (<Link
+                                    to={`/post/${post._id}`}
+                                    className="btn btn-raised btn-primary btn-sm mr-2"
+                                >
+                                    View My Listing
+                                </Link>) : (
+                                    <>
                                 <Link
                                     to={`/post/${post._id}`}
                                     className="btn btn-raised btn-primary btn-sm mr-2"
                                 >
                                     View Listing
                                 </Link>
-                                <button onClick = {addToCart} className="btn btn-raised btn-secondary btn-sm mr-5">Add to Cart</button>
+                                 <button onClick = {addToCart} className="btn btn-raised btn-secondary btn-sm mr-5">Add to Cart</button>
+                                 </>
+                                )
+                               }
                                 </div>
                             </div>
                         </div>

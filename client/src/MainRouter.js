@@ -20,13 +20,13 @@ const MainRouter = () => (
     <div>
         <Menu />
         <Switch>
-            <Route exact path = "/allposts" component = {Home}></Route>
+            <Route exact path = "/" component = {Home}></Route>
             <PrivateRoute exact path = "/post/create" component = {NewPost}></PrivateRoute>
             <Route exact path = "/post/:postId" component = {SinglePost}></Route>
             <PrivateRoute exact path = "/post/edit/:postId" component = {EditPost}></PrivateRoute>
             <Route exact path = "/users" component = {Users}></Route>
             <Route exact path = "/signup" component = {Signup}></Route>
-            <Route exact path = "/" component = {Signin}></Route>
+            <Route exact path = "/signin" component = {Signin}></Route>
             <PrivateRoute exact path = "/user/:userId" component = {Profile}></PrivateRoute>
             <PrivateRoute exact path = "/user/edit/:userId" component = {EditProfile}></PrivateRoute>
             <PrivateRoute exact path = "/findpeople" component = {FindPeople}></PrivateRoute>

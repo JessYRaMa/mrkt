@@ -158,7 +158,7 @@ export class SinglePost extends Component {
                     </p>
                     <div className = "d-inline-block">
                     <Link
-                        to={`/allposts`}
+                        to={`/`}
                         className="btn btn-raised btn-primary btn-sm mr-5"
                     >
                         Back to Listings
@@ -185,9 +185,9 @@ export class SinglePost extends Component {
         const {post, redirectToHome, redirectToSignin, comments, redirectToCart} = this.state
 
         if (redirectToHome) {
-            return <Redirect to={`/allposts`} />;
-        } else if (redirectToSignin) {
             return <Redirect to={`/`} />;
+        } else if (redirectToSignin) {
+            return <Redirect to={`/signin`} />;
         }else if (redirectToCart) {
             return <Redirect to={`/cart`} />;
         }

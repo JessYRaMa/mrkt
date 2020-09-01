@@ -52,7 +52,7 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
     const buy = () => {
         //send nonce to server (nonce = data.instance.requestPaymentMethod())
         let nonce; //card type, card number
-        let getNonce = data.instance.requestPaymentMethod()
+        data.instance.requestPaymentMethod()
         .then(data => {
             console.log(data)
             nonce = data.nonce

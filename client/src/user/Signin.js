@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import {signin, authenticate} from '../auth'
 import SocialLogin from './SocialLogin'
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBModalFooter } from 'mdbreact';
 import './signin.css';
 import Logo from '../images/inlinewhitebgMRKT.4.png'
 
@@ -128,7 +128,7 @@ export class Signin extends Component {
         const {email, password, error, redirectToReferer, loading} = this.state
 
         if(redirectToReferer){
-            return <Redirect to= "/allposts" />
+            return <Redirect to= "/" />
         }
         return (
             <div className = "container">

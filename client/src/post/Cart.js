@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getCart, removeItem, itemTotal } from './cartFunctions';
+import { getCart, removeItem} from './cartFunctions';
 import DefaultPost from '../images/logoshirt.png'
 import Checkout from './Checkout';
-import Badge from '../core/Badge';
 
 const Cart = () => {
 
@@ -56,7 +55,7 @@ const Cart = () => {
 
     const noItemsMessage = () => {
         return(
-        <h2>Your cart is empty. <br/><Link to = "/allposts">Continue Shopping</Link></h2>
+        <h2>Your cart is empty. <br/><Link to = "/">Continue Shopping</Link></h2>
         )
     }
 

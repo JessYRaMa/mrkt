@@ -70,8 +70,8 @@ export class EditProfile extends Component {
         event.preventDefault();
 
         if(this.isValid()){
-            const { name, email, password } = this.state
-            const user = { name, email, password: password || undefined }
+            // const { name, email, password } = this.state
+            // const user = { name, email, password: password || undefined }
             // console.log(user);
             const userId = this.props.match.params.userId;
             const token = isAuthenticated().token

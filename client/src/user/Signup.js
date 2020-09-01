@@ -118,7 +118,7 @@ export class Signup extends Component {
                 <img src = {Logo} style = {{height: "150px"}}alt = "logo"/>
                 </div>
                 <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
-                <div className = "alert alert-info" style = {{display: open ? "" : "none"}}>New account was successfully created.<Link to ="/">Please sign in.</Link> </div>
+                <div className = "alert alert-info" style = {{display: open ? "" : "none"}}>New account was successfully created.<Link to ="/signin">Please sign in.</Link> </div>
                 {this.signupForm(name, email, password)}
             </div>
         )

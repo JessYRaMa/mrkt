@@ -37,7 +37,7 @@ export class DeleteUser extends Component {
 
     render() {
         if(this.state.redirect){
-            return <Redirect to = "/"/>
+            return <Redirect to = "/signin"/>
         }
         return (
                <button className = "btn btn-raised btn-danger" onClick = {this.deleteConfirmed}>Delete Profile</button> 

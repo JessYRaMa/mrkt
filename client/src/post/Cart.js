@@ -55,7 +55,7 @@ const Cart = () => {
 
     const noItemsMessage = () => {
         return(
-        <h2>Your cart is empty. <br/><Link to = "/">Continue Shopping</Link></h2>
+        <h2>Your cart is empty. <br/><Link to = "/allposts">Continue Shopping</Link></h2>
         )
     }
 

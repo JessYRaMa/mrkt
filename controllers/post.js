@@ -228,3 +228,23 @@ exports.uncomment = (req,res) => {
         }
     })
 }
+
+exports.postByCategory = (req,res, next, category) => {
+    let categoryName = req.body.category
+    Post.find({category: categoryName })
+    .populate("postedBy", "_id name")
+    .populate('comments', 'text created')
+    .populate('comments.postedBy', '_id name')
+    .exec((err, post) => {
+        if(err){
+            return res.status(400).json({
+                error: err
+            })
+        }
+        req.post = post
+        next()
+    })
+}
+exports.singleCategory = (req,res) => {
+    return res.json(req.post)
+}

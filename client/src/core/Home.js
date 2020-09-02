@@ -12,11 +12,7 @@ export class Home extends Component {
     renderHome = () => {
         return(
             <>
-            <div className = "jumbotron">
-            <h2>All Posts</h2>
-            <p className = "lead">This is my tester MRKT APP!</p>
-            </div>
-            <div className = "container">
+            <div className = "container mt-5">
             <Posts />
             </div>
             </>

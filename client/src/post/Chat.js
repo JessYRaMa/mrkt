@@ -7,10 +7,7 @@ import { isAuthenticated } from '../auth';
 
 import 'stream-chat-react/dist/css/index.css';
 
-
-
 const chatClient = new StreamChat('gx5a64bj4ptz');
-// const userToken = chatClient.devToken(isAuthenticated().user._id);
 
 var token;
 var userID;
@@ -34,7 +31,7 @@ chatClient.setUser(
   userToken,
 );
 
-if(localStorage.getItem('chatID') !== userID){
+if(localStorage.getItem('chatID') !== userID && localStorage.getItem('chatID') !== null){
   const conversation = chatClient.channel('messaging', {
     name: localStorage.getItem('chatName'),
     image: 'https://picsum.photos/',

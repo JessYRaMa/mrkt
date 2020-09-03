@@ -8,12 +8,16 @@ import { isAuthenticated } from '../auth';
 
 import 'stream-chat-react/dist/css/index.css';
 
+const Appy = () => {
+
 const chatClient = new StreamChat('gx5a64bj4ptz');
 
 var token;
 var userID;
 var userName;
 var setUser;
+var setChannels;
+
 try {
   token = chatClient.devToken(isAuthenticated().user._id);
   userID = isAuthenticated().user._id;
@@ -54,13 +58,17 @@ if(localStorage.getItem('chatID') !== userID && localStorage.getItem('chatID') !
 
 const filters = { type: 'messaging', members: { $in: [userID] } };
 const sort = { last_message_at: -1 };
-const channels = chatClient.queryChannels(filters, sort, {
-  watch: true,
-  state: true,
-});
+setChannels = async() => {
+  const channels = await chatClient.queryChannels(filters, sort, {
+    watch: true,
+    state: true,
+  });
+  return channels;
+}
 
+setChannels();
 
-const Appy = () => (
+  return(
   <Chat client={chatClient} theme={'messaging light'}>
     <ChannelList
       filters={filters}
@@ -75,6 +83,7 @@ const Appy = () => (
       <Thread />
     </Channel>
   </Chat>
-);
+  )
+};
 
 export default Appy; 

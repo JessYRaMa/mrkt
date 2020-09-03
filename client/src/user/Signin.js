@@ -6,6 +6,32 @@ import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, M
 import './signin.css';
 import Logo from '../images/inlinewhitebgMRKT.4.png'
 
+import { StreamChat } from 'stream-chat';
+import { isAuthenticated } from '../auth';
+
+const chatClient = new StreamChat('gx5a64bj4ptz');
+var token;
+var userID;
+var userName;
+try {
+  token = chatClient.devToken(isAuthenticated().user._id);
+  userID = isAuthenticated().user._id;
+  userName = isAuthenticated().user.name;
+} catch (error) {
+  token = chatClient.devToken('john');
+  userID = 'john';
+  userName = 'john';
+}
+const userToken = token;
+
+chatClient.setUser(
+  {
+    id: userID,
+    name: userName,
+    image: 'https://picsum.photos/'  },
+  userToken,
+);
+
 
 export class Signin extends Component {
     state = {

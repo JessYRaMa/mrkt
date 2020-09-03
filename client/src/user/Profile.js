@@ -112,10 +112,15 @@ export class Profile extends Component {
                             <DeleteUser userId = {user._id} />
                         </div>
                     ) : (
+                      <>
                         <FollowProfileButton
                         following={this.state.following}
                         onButtonClick={this.clickFollowButton}
                       />
+                      <Link className = "btn btn-raised btn-info mr-5" to ={`/chat`} onclick = {localStorage.setItem('chatID', this.props.match.params.userId), localStorage.setItem('chatName', this.state.user.name)}>
+                      Chat
+                      </Link>
+                      </>
                         )}
 
                         

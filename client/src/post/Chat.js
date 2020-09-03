@@ -11,6 +11,7 @@ import 'stream-chat-react/dist/css/index.css';
 
 const chatClient = new StreamChat('gx5a64bj4ptz');
 // const userToken = chatClient.devToken(isAuthenticated().user._id);
+
 var token;
 var userID;
 var userName;
@@ -33,18 +34,22 @@ chatClient.setUser(
   userToken,
 );
 
-const conversation = chatClient.channel('messaging', {
-  name: 'Founder Chat 2',
-  image: 'https://picsum.photos/',
-  members: ['Elon', userID],
-});
-conversation.create();
+if(localStorage.getItem('chatID') !== userID){
+  const conversation = chatClient.channel('messaging', {
+    name: localStorage.getItem('chatName'),
+    image: 'https://picsum.photos/',
+    members: [localStorage.getItem('chatID'), userID],
+  });
+  
+  conversation.create();
+  const state = conversation.watch();
+}
 
-const state = conversation.watch();
 
-const filters = { type: 'messaging', members: { $in: ['fragrant-dream-8'] } };
+
+const filters = { type: 'messaging', members: { $in: [userID] } };
 const sort = { last_message_at: -1 };
-const Channels = chatClient.queryChannels(filters, sort, {
+const channels = chatClient.queryChannels(filters, sort, {
   watch: true,
   state: true,
 });

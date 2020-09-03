@@ -11,7 +11,7 @@ import 'stream-chat-react/dist/css/index.css';
 
 const chatClient = new StreamChat('gx5a64bj4ptz');
 // const userToken = chatClient.devToken(isAuthenticated().user._id);
-
+//
 var token;
 var userID;
 var userName;

@@ -42,8 +42,6 @@ if(localStorage.getItem('chatID') !== userID && localStorage.getItem('chatID') !
   const state = conversation.watch();
 }
 
-
-
 const filters = { type: 'messaging', members: { $in: [userID] } };
 const sort = { last_message_at: -1 };
 const channels = chatClient.queryChannels(filters, sort, {

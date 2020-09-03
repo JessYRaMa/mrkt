@@ -38,7 +38,12 @@ export const authenticate = (jwt, next) => {
 };
 
 export const signout = next => {
-    if (typeof window !== 'undefined') localStorage.removeItem('jwt');
+    if (typeof window !== 'undefined'){
+        localStorage.removeItem('jwt');
+        localStorage.removeItem('chatID');
+        localStorage.removeItem('chatName');
+
+    } 
     next();
     return fetch(`${(process.env.NODE_ENV 
 === 'production') ? '' : process.env.REACT_APP_API_URL}/signout`, {

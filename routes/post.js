@@ -23,9 +23,6 @@ router.get("/posts/by/:userId", postByUser);
 router.put("/posts/:postId", requireSignin, isPoster, updatePosts)
 router.delete("/posts/:postId", requireSignin, isPoster, deletePost)
 router.get("/posts/photo/:postId", photo);
-router.get("/posts/category/:categoryName", singleCategory)
-
-router.param("categoryName", postByCategory);
 
 //any route containining :userId, our app will first execute userById()
 router.param("userId", userById);

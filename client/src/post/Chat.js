@@ -15,8 +15,10 @@ const chatClient = new StreamChat('gx5a64bj4ptz');
 var token;
 var userID;
 var userName;
-var setUser;
-var setChannels;
+
+let chatID = localStorage.getItem('chatID');
+let chatName = localStorage.getItem('chatName');
+let chatPic = localStorage.getItem('chatPhoto');
 
 try {
   token = chatClient.devToken(isAuthenticated().user._id);
@@ -28,45 +30,38 @@ try {
   userName = 'john';
 }
 const userToken = token;
-(setUser = async () => {
-  await chatClient.setUser(
+
+  chatClient.setUser(
     {
       id: userID,
       name: userName,
       image: 'https://picsum.photos/'},
     userToken,
   );
-  return chatClient;
-})
 
-setUser(); 
-
-if(localStorage.getItem('chatID') !== userID && localStorage.getItem('chatID') !== null){
+const createConversation = () => {
   const conversation = chatClient.channel('messaging', {
-    name: localStorage.getItem('chatName'),
-    image: localStorage.getItem('chatPhoto'),
-    members: [localStorage.getItem('chatID'), userID],
+    name: chatName,
+    image: chatPic,
+    members: [chatID, userID],
   });
   
   conversation.create();
   const state = conversation.watch();
 }
-
+if(chatID !== userID && chatID !== null){
+  createConversation();
+}
 // channel.on("message.new", event => {
 //   logEvent(event);
 // });
 
 const filters = { type: 'messaging', members: { $in: [userID] } };
 const sort = { last_message_at: -1 };
-setChannels = async() => {
-  const channels = await chatClient.queryChannels(filters, sort, {
+  const channels = chatClient.queryChannels(filters, sort, {
     watch: true,
     state: true,
   });
-  return channels;
-}
-
-setChannels();
 
   return(
   <Chat client={chatClient} theme={'messaging light'}>

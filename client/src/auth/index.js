@@ -42,6 +42,7 @@ export const signout = next => {
         localStorage.removeItem('jwt');
         localStorage.removeItem('chatID');
         localStorage.removeItem('chatName');
+        localStorage.removeItem('chatPhoto');
 
     } 
     next();

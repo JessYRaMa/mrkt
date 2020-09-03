@@ -25,6 +25,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@webscopeio/react-textarea-autocomplete": "^4.7.2",
     "body-parser": "^1.19.0",
     "braintree": "^2.24.0",
     "cookie-parser": "^1.4.5",
@@ -36,7 +37,7 @@
     "express-validator": "^5.3.1",
     "formidable": "^1.2.2",
     "get-stream": "^6.0.0",
-    "getstream": "^6.0.0",
+    "getstream": "^6.1.1",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",

@@ -3,25 +3,38 @@ import { Chat, Channel, ChannelList, Window } from 'stream-chat-react';
 import { ChannelHeader, MessageList } from 'stream-chat-react';
 import { MessageInput, Thread } from 'stream-chat-react';
 import { StreamChat } from 'stream-chat';
-// import { isAuthenticated } from '../auth';
+import { isAuthenticated } from '../auth';
 
 import 'stream-chat-react/dist/css/index.css';
 
 
 const chatClient = new StreamChat('gx5a64bj4ptz');
-const userToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZnJhZ3JhbnQtZHJlYW0tOCJ9.rJtnznKXjIOOaVAyFsMVZAVe3XRbUtbI3cRUOizMygc';
+const userToken = chatClient.devToken(isAuthenticated().user._id);
 
 chatClient.setUser(
   {
-    id: 'fragrant-dream-8',
-    name: 'Fragrant dream',
-    image: 'https://getstream.io/random_png/?id=fragrant-dream-8&name=Fragrant+dream'  },
+    id: isAuthenticated().user._id,
+    name: isAuthenticated().user.name,
+    image: 'https://picsum.photos/'  },
   userToken,
 );
 
-const filters = { type: 'messaging', members: { $in: ['fragrant-dream-8'] } };
+const conversation = chatClient.channel('messaging', {
+  name: 'Founder Chat 2',
+  image: 'https://picsum.photos/',
+  members: ['Elon', isAuthenticated().user._id],
+});
+conversation.create();
+
+const state = conversation.watch();
+
+const filters = { type: 'messaging', members: { $in: [isAuthenticated().user._id] } };
 const sort = { last_message_at: -1 };
-const channels = chatClient.queryChannels(filters, sort);
+const Channels = chatClient.queryChannels(filters, sort, {
+  watch: true,
+  state: true,
+});
+
 
 const Appy = () => (
   <Chat client={chatClient} theme={'messaging light'}>

@@ -8,13 +8,27 @@ import { isAuthenticated } from '../auth';
 import 'stream-chat-react/dist/css/index.css';
 
 
+
 const chatClient = new StreamChat('gx5a64bj4ptz');
-const userToken = chatClient.devToken(isAuthenticated().user._id);
+// const userToken = chatClient.devToken(isAuthenticated().user._id);
+var token;
+var userID;
+var userName;
+try {
+  token = chatClient.devToken(isAuthenticated().user._id);
+  userID = isAuthenticated().user._id;
+  userName = isAuthenticated().user.name;
+} catch (error) {
+  token = chatClient.devToken('john');
+  userID = 'john';
+  userName = 'john';
+}
+const userToken = token;
 
 chatClient.setUser(
   {
-    id: isAuthenticated().user._id,
-    name: isAuthenticated().user.name,
+    id: userID,
+    name: userName,
     image: 'https://picsum.photos/'  },
   userToken,
 );
@@ -22,13 +36,13 @@ chatClient.setUser(
 const conversation = chatClient.channel('messaging', {
   name: 'Founder Chat 2',
   image: 'https://picsum.photos/',
-  members: ['Elon', isAuthenticated().user._id],
+  members: ['Elon', userID],
 });
 conversation.create();
 
 const state = conversation.watch();
 
-const filters = { type: 'messaging', members: { $in: [isAuthenticated().user._id] } };
+const filters = { type: 'messaging', members: { $in: ['fragrant-dream-8'] } };
 const sort = { last_message_at: -1 };
 const Channels = chatClient.queryChannels(filters, sort, {
   watch: true,

@@ -3,7 +3,6 @@ import {Link, withRouter} from 'react-router-dom'
 import {signout, isAuthenticated} from '../auth'
 import './menu.css'
 import Badge from './Badge';
-import { itemTotal } from '../post/cartFunctions';
 
 
 const isActive = (history, path) => {

@@ -39,7 +39,7 @@ const userToken = token;
     userToken,
   );
 
-const createConversation = () => {
+const createConversation = (chatName, chatPic, chatID) => {
   const conversation = chatClient.channel('messaging', {
     name: chatName,
     image: chatPic,
@@ -50,7 +50,7 @@ const createConversation = () => {
   const state = conversation.watch();
 }
 if(chatID !== userID && chatID !== null){
-  createConversation();
+  createConversation(chatName, chatPic, chatID);
 }
 // channel.on("message.new", event => {
 //   logEvent(event);

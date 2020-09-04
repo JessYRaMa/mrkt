@@ -14,6 +14,7 @@ import SinglePost from './post/SinglePost';
 import EditPost from './post/EditPost';
 import Cart from './post/Cart';
 import Appy from './post/Chat';
+import Category from './post/Category';
 
 
 
@@ -24,6 +25,7 @@ const MainRouter = () => (
             <Route exact path = "/" component = {Home}></Route>
             <PrivateRoute exact path = "/post/create" component = {NewPost}></PrivateRoute>
             <Route exact path = "/post/:postId" component = {SinglePost}></Route>
+            <Route exact path = "/post/category/:categoryName" component = {Category}></Route>
             <PrivateRoute exact path = "/post/edit/:postId" component = {EditPost}></PrivateRoute>
             <Route exact path = "/users" component = {Users}></Route>
             <Route exact path = "/signup" component = {Signup}></Route>

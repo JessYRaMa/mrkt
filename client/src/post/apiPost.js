@@ -39,6 +39,18 @@ export const singlePost = (postId) => {
             .catch(err => console.log(err))
     )
 }
+export const singleCategory = (categoryName) => {
+    return(
+        fetch(`${(process.env.NODE_ENV 
+=== 'production') ? '' : process.env.REACT_APP_API_URL}/posts/category/${categoryName}`, {
+            method: "GET"
+        })
+            .then(response => {
+                return response.json();
+            })
+            .catch(err => console.log(err))
+    )
+}
 
 export const listByUser = (userId, token) => {
     return(
@@ -202,3 +214,5 @@ export const processPayment = (userId, token, paymentData) => {
             .catch(err => console.log(err))
     )
 }
+
+

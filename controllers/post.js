@@ -68,6 +68,7 @@ exports.createPost = (req, res, next) => {
 
 
 exports.postByUser = (req,res) => {
+    console.log(req.body);
     Post.find({postedBy: req.profile._id})
     .populate("postedBy", "_id name")
     .select("_id title body price quantity category created likes")
@@ -80,6 +81,31 @@ exports.postByUser = (req,res) => {
         }
         res.json(posts)
     })
+}
+
+exports.postByCategory = (req,res, next) => {
+    // console.log(req.params.category);
+    // console.log("test")
+    Post.find({category: req.params.category})
+    .populate("postedBy", "_id name")
+    .populate('comments', 'text created')
+    .populate('comments.postedBy', '_id name')
+    .select("_id title body price quantity category created likes")
+    .sort("_created")
+    .exec((err, posts) => {
+        if(err) {
+            return res.status(400).json({
+                error: err
+            })
+        }
+        res.json(posts)
+    })
+    .catch((err) => {
+        console.log(err);
+        res.send(err);
+    })
+    // res.send("hello from express")
+    next();
 }
 
 exports.isPoster = (req,res, next) => {

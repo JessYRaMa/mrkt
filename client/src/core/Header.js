@@ -62,7 +62,6 @@ class Header extends Component {
                     <Link color = "gray" to = "/"><HomeIcon fontSize = "large" /></Link>
                     <span>Home</span>
                     </MDBTooltip>
-                        {/* <Link color = "gray" to = "/"><HomeIcon fontSize = "large" /><span>Home</span></Link> */}
                     </div>
                     <div className = "header__option">
                     <MDBTooltip

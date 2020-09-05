@@ -116,7 +116,7 @@ export class Category extends Component {
         return (
             <div className = "container">
                <h2>{this.props.match.params.categoryName}</h2> 
-               {this.renderPosts(posts)}
+               {posts.length == 0 ? (<h2>No listings found</h2>) : this.renderPosts(posts)}
             </div>
         )
     }

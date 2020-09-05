@@ -6,3 +6,13 @@
     padding: 3px 5px 3px 3px;
     margin: 5px;
 }
+
+.header{
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.middle{
+    align-content: center;
+}

@@ -15,6 +15,7 @@ import EditPost from './post/EditPost';
 import Cart from './post/Cart';
 import Appy from './post/Chat';
 import Category from './post/Category';
+import Widgets from './core/Widgets';
 
 
 

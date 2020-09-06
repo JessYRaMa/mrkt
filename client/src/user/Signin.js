@@ -119,7 +119,7 @@ export class Signin extends Component {
                       </div>
                 <p className="font-small grey-text d-flex justify-content-end">
                      Not a member? 
-                      <Link to = "/signup"> Sign Up</Link>
+                      <Link className = "ml-2" to = "/signup"> Sign Up</Link>
                      </p>
                       </div>
                     </div>

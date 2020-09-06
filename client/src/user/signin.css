@@ -54,6 +54,22 @@
       height: auto;
       border-radius: 2rem;
     }
+
+    .form-label-group>label{
+      font-size: .75rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      margin-bottom: 0;
+      line-height: 1.5;
+      color: #495057;
+      cursor: text;
+      border: 1px solid transparent;
+      border-radius: .25rem;
+      transition: all .1s ease-in-out;
+    }
     
     .form-label-group>label {
       position: absolute;
@@ -62,11 +78,9 @@
       display: block;
       width: 100%;
       margin-bottom: 0;
-      /* Override default `<label>` margin */
       line-height: 1.5;
       color: #495057;
       cursor: text;
-      /* Match the input under the label */
       border: 1px solid transparent;
       border-radius: .25rem;
       transition: all .1s ease-in-out;

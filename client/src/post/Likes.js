@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {isAuthenticated} from '../auth';
 import {like, unlike, singlePost} from './apiPost';
+import {MDBIcon} from 'mdbreact'
 
 class Likes extends Component{
 
@@ -54,7 +55,7 @@ class Likes extends Component{
                 this.setState((props) =>{
                     return{
                         liked: !this.state.liked,
-                        likes: props.likes.length,
+                        likes: this.state.likes,
                         updated: !this.state.updated
                     }
                 })
@@ -65,7 +66,7 @@ class Likes extends Component{
     render(){
         return(
             <>
-            <p onClick = {this.updatedLikes}>{this.state.liked ? "unlike" : "like"}</p>
+            <p onClick = {this.updatedLikes}>{this.state.liked ? (<p><MDBIcon icon="heart" className = "red-text mr-2" />{" "}  Unlike</p>) : <p><MDBIcon icon="heart" className = "mr-2" />{" "} Like</p>}</p>
             </>
         )
     }

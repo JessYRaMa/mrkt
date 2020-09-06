@@ -17,6 +17,7 @@ import {isAuthenticated} from '../auth';
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 import Comment from './Comment';
 import Likes from './Likes';
+import './posts.css'
 
 export class Posts extends Component {
     state = {
@@ -58,30 +59,6 @@ export class Posts extends Component {
             <>
                 {posts.map((post, i) => {
 
-                // const likeToggle = () => {
-                //     if(!isAuthenticated()){
-                //         this.setState({redirectToSignin: true})
-                //         return false;
-                //     }
-                //     let callApi = this.state.like ? unlike : like
-
-                //     const userId = isAuthenticated().user._id
-                //     const postId = post._id
-                //     const token = isAuthenticated().token
-
-                //     callApi(userId, token, postId).then(data => {
-                //         if(data.error){
-                //             console.log(data.error)
-                //         }
-                //         else{
-                //             this.setState({
-                //                like: !this.state.like,
-                //                 likes: data.likes.length
-                //             })
-                //         }
-                //     })
-                // }
-
                      const addToCart = () => {
                         addItem(post,this.setState({ redirectToCart: true }))
                     }
@@ -100,7 +77,22 @@ export class Posts extends Component {
                                 <MDBCard news className = "my-5" style = {{borderRadius: "25px"}}>
                                     <MDBCardBody>
                                         <div className = "content">
-                                            <div className = 'float right d-inline block' style = {{float:"right"}}>{this.showStock(post.quantity)} <br/>{new Date(post.created).toDateString()}</div>
+                                            <div className = 'float right d-inline block align-items-center' style = {{float:"right"}}>
+                                            {this.showStock(post.quantity)}<br/>
+                                            {isAuthenticated().user && isAuthenticated().user._id === post.postedBy._id ? (
+                                                <>
+                                                <Link to={`/post/edit/${post._id}`}>
+                                                <MDBIcon far icon="edit" className = "ml-3 mt-2 mb-0" id = "editIcon"style = {{marginTop: "2px",fontSize: "1rem"}} />
+                                                Edit 
+                                                </Link>
+                                            </>
+                                            ) : (
+                                                <>
+                                                <p className = "addCart" onClick = {addToCart}><MDBIcon icon="cart-plus" className = "amber-text mt-2 mb-0" id = "cartIcon"style = {{marginTop: "2px",fontSize: "1rem"}} /> Add to Cart</p>
+                                            </>
+                                            )
+                                        }
+                                            </div>
                                             <div>
                                             <img src = {`${(process.env.NODE_ENV 
 === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${post.postedBy._id}?${new Date().getTime()}`}
@@ -110,15 +102,17 @@ export class Posts extends Component {
                                                 className='rounded-circle avatar-img z-depth-1-half'
                                                 style = {{height:"40px", width: "40px", objectFit: "cover"}}
                                                 alt = {post.title} />
-                                                 <Link to={`${posterId}`} className = "mt-5 text-dark" style = {{fontSize:"1.25rem"}}>
+                                                 <Link to={`${posterId}`} className = "mt-5 text-dark mb-0" style = {{fontSize:"1.25rem"}}>
                                                  {" "}{posterName}
                                                 </Link>
+                                                <p id = "date">{new Date(post.created).toDateString()}</p>
                                             </div>
+                                            <p className = "productDescription">{post.body}</p>
                                         </div>
                                     </MDBCardBody>
                                     <Link
                                     to={`/post/${post._id}`}>
-                                    <MDBCardImage top src={photoUrl}
+                                    <MDBCardImage className = "mt-0" top src={photoUrl}
                                     alt={post.title}
                                     onError={i =>
                                         (i.target.src = `${DefaultPost}`)
@@ -128,38 +122,27 @@ export class Posts extends Component {
                                 /></Link>
                                 <MDBCardBody>
                                     <div className = 'social-meta'>
+                                        <div className = "topDiv d-flex justify-content-center">
+                                            <h5 className = "mr-2">{post.likes.length} {" "} likes</h5>
+                                            <h5 className = "ml-4 mr-4">|</h5>
+                                        <Likes className = "mr-2" id = "likes" likes = {post.likes} postId = {post._id} /> 
+                                        <h5 className = "ml-4 mr-4">|</h5>
+                                            <h5 className = " ml-1" id = "comments">{post.comments.length}{""} Comments</h5>
+                                        </div>
+                                        <hr/>
                                         <div style = {{float: "left"}}>
                                         <h4>{post.title}</h4>
-                                        <p>{post.body.substring(0, 100)}...</p>
-                                        </div>
-                                        <div style = {{float:"right", marginRight: "10px"}}>
-                                        {post.price ? (<p style = {{fontSize: "1.2rem"}}>${post.price}</p>): (<p style = {{fontSize: "1.2rem"}}>Contact Lister</p>)}
                                         {post.category ? (<p style = {{color: "gray"}}>{post.category}</p>) : (<p style = {{color: "gray"}}>No Specified Category</p>)}
-                                        {isAuthenticated().user && isAuthenticated().user._id === post.postedBy._id ? ("") : (
-                                    <>
-                                     <MDBTooltip
-                                    domElement
-                                    tag="span"
-                                    material
-                                    placement="top"
-                                    >
-                                    <MDBIcon icon="cart-plus" style = {{fontSize: "2rem"}} onClick = {addToCart} />
-                                    <span>Add to Cart</span>
-                                    </MDBTooltip>
-                                 </>
-                                )
-                               }
                                         </div>
+                                        <div style = {{float:"right", marginTop: "15px" ,marginRight: "50px"}}>
+                                        {post.price ? (<h3 style = {{fontSize: "1.2rem"}}><b>${post.price}</b></h3>): (<h3 style = {{fontSize: "1.2rem"}}><b>Contact Lister</b></h3>)}                                        </div>
                                     </div>
                                     <br/>
-                                    <div style = {{clear:"left"}}>
-                               <br/>
-                               <div className = "d-inline-block">
-                              <Likes likes = {post.likes} postId = {post._id} />
-                               </div>
+                                    <div className = "mt-5" style = {{clear:"left"}}>
+                                        {""}
                                     </div>
                                     <hr />
-                                    <Comment postId={post._id} comments = {post.comments.reverse()} updateComments = {this.updateComments}/>
+                                    <Comment className = "mt-2" postId={post._id} comments = {post.comments.reverse()} updateComments = {this.updateComments}/>
                                 </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>

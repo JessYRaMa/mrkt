@@ -1,0 +1,16 @@
+.commentDiv{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: -10px;
+}
+
+.commentDiv>form{
+    width: 95%;
+    margin-left: 5px;
+}
+
+.commentDiv>img{
+    margin-top: -35px;
+}

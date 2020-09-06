@@ -1,0 +1,43 @@
+#date{
+    color: gray;
+    margin-left: 50px;
+    margin-top: -12px;
+    margin-bottom: 0px;
+}
+
+.badge{
+    padding: 10px;
+    font-size: 0.75rem;
+}
+
+.addCart{
+    margin-left: -20px;
+    font-weight: bold
+}
+
+.productDescription{
+    font-family: 'Questrial', sans-serif;
+    font-size: 1rem;
+    font-weight: lighter;
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
+
+.topDiv>p{
+    margin-bottom: -35px;
+    margin-top: -23px;
+    font-size: 16px;
+}
+
+.topDiv>p:hover{
+    background-color: lightgray;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.topDiv>h5{
+    margin-bottom: -35px;
+    margin-top: -20px;
+    font-size: 16px;
+}

@@ -3,6 +3,7 @@ import { comment, uncomment } from "./apiPost";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import DefaultProfile from "../images/avatar.png";
+import {MDBIcon, MDBBtn} from 'mdbreact'
 
 class Comment extends Component {
     state = {
@@ -83,8 +84,6 @@ class Comment extends Component {
 
         return (
             <div>
-                <h2 className="mt-5 mb-5">Leave a comment</h2>
-
                 <form onSubmit={this.addComment}>
                     <div className="form-group">
                         <input
@@ -93,10 +92,9 @@ class Comment extends Component {
                             value={this.state.text}
                             className="form-control"
                             placeholder="Leave a comment..."
+                            style = {{borderRadius: "25px"}}
                         />
-                        <button className="btn btn-raised btn-success mt-2">
-                            Post
-                        </button>
+                        <MDBBtn className = "btn-sm btn-raised mt-2" color="light-green" style = {{borderRadius: "25px", float: "right"}}>Add Comment</MDBBtn>
                     </div>
                 </form>
 
@@ -108,7 +106,7 @@ class Comment extends Component {
                 </div>
 
                 <div className="col-md-12">
-                    <h3 className="text-primary">{comments.length} Comments</h3>
+                    <p className="text-black"><MDBIcon className='mr-2' size = "2x" icon='comment' />{comments.length} Comments</p>
                     <hr />
                     {comments.map((comment, i) => (
                         <div key={i}>
@@ -132,8 +130,8 @@ class Comment extends Component {
                                     />
                                 </Link>
                                 <div>
-                                    <p className="lead">{comment.text}</p>
-                                    <p className="font-italic mark">
+                                    <p>{comment.text}</p>
+                                    <p className="font-italic">
                                         Posted by{" "}
                                         <Link
                                             to={`/user/${comment.postedBy._id}`}
@@ -157,7 +155,7 @@ class Comment extends Component {
                                                             }
                                                             className="text-danger float-right mr-1"
                                                         >
-                                                            Remove
+                                                            <MDBIcon far icon="trash-alt" />
                                                         </span>
                                                     </>
                                                 )}

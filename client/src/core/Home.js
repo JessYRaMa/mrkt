@@ -15,11 +15,11 @@ export class Home extends Component {
         return(
             <>
             <div className = "container-fluid">
-            <div className = "row mt-3">
+            <div className = "row mt-1">
             <div className = "col-lg-3">
             <Sidebar />  
             </div>
-            <div className = "col-lg-6">
+            <div className = "col-lg-6 ml-0">
             <Posts />
             </div>
             <div className = "col-lg-2 mt-3">

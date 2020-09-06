@@ -1,34 +1,28 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom'
-import {list} from './apiPost'
+import {list, like, unlike} from './apiPost'
 import {
-    MDBContainer,
     MDBRow,
     MDBCol,
     MDBCard,
     MDBCardBody,
-    MDBMask,
     MDBIcon,
-    MDBView,
     MDBTooltip,
-    MDBCollapse,
     MDBInput,
-    MDBCardImage,
-    MDBCardTitle,
-    MDBCardText,
-    MDBBtn
+    MDBCardImage
   } from 'mdbreact';
 import DefaultPost from '../images/logoshirt.png'
 import { addItem } from './cartFunctions';
 import {isAuthenticated} from '../auth';
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
+import Comment from './Comment';
 
 export class Posts extends Component {
     state = {
         posts:[],
         likes: 0,
         like: false,
-        comments: [],
+        comments: '',
         redirectToCart: false
     }
 
@@ -41,14 +35,10 @@ export class Posts extends Component {
             }
         })
     }
-
-    // likes: data.likes.length,like: this.checkLike(data.likes),
-    // checkLike = (likes) => {
-    //     const userId = posts.postedBy._id;
-    //     let match = likes.indexOf(userId) !== -1;
-    //     return match;
-    // }
-
+    
+     updateComments = comments => {
+        this.setState({ comments });
+    };
 
     showStock = quantity => {
         return quantity > 0 ? (
@@ -63,6 +53,31 @@ export class Posts extends Component {
         return (
             <>
                 {posts.map((post, i) => {
+
+                const likeToggle = () => {
+                    if(!isAuthenticated()){
+                        this.setState({redirectToSignin: true})
+                        return false;
+                    }
+                    let callApi = this.state.like ? unlike : like
+
+                    const userId = isAuthenticated().user._id
+                    const postId = post._id
+                    const token = isAuthenticated().token
+
+                    callApi(userId, token, postId).then(data => {
+                        if(data.error){
+                            console.log(data.error)
+                        }
+                        else{
+                            this.setState({
+                                like: !this.state.like,
+                                likes: data.likes.length
+                            })
+                        }
+                    })
+                }
+
 
                      const addToCart = () => {
                         addItem(post,this.setState({ redirectToCart: true }))
@@ -137,13 +152,21 @@ export class Posts extends Component {
                                     <div style = {{clear:"left"}}>
                                <br/>
                                <div className = "d-inline-block">
-                                   <p> <MDBIcon className='mr-2' icon='heart' />
-                                       {likes} likes</p>
-                                    <p><MDBIcon className='mr-2' icon='comment' />comments</p>    
+                               {like ? (
+                                <p onClick={likeToggle}>
+                                <MDBIcon className='mr-2' size = "2x" icon='heart' />{' '}
+                                    {likes} Likes
+                                </p>
+                            ) : (
+                                <p onClick={likeToggle}>
+                                <MDBIcon className = "mr-2" size = "2x" icon='heart' />{' '}
+                                    {likes} Likes
+                                </p>
+                            )}  
                                </div>
                                     </div>
                                     <hr />
-                                    <MDBInput icon='heart' hint='Add Comment...' />
+                                    <Comment postId={post._id} comments = {post.comments.reverse()} updateComments = {this.updateComments}/>
                                 </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>

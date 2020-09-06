@@ -92,9 +92,9 @@ export class SinglePost extends Component {
 
     showStock = quantity => {
         return quantity > 0 ? (
-          <span className="badge badge-primary badge-pill">In Stock </span>
+          <span className="badge badge-primary badge-pill p-3">In Stock </span>
         ) : (
-          <span className="badge badge-primary badge-pill">Out of Stock </span>
+          <span className="badge badge-primary badge-pill p-3">Out of Stock </span>
         );
       };
 

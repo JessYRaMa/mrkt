@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import {signin, authenticate} from '../auth'
 import SocialLogin from './SocialLogin'
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBModalFooter } from 'mdbreact';
+import { MDBBtn } from 'mdbreact';
 import './signin.css';
-import Logo from '../images/inlinewhitebgMRKT.4.png'
-
+import Logo from '../images/inlinebluebgMRKT.4.png'
+import LoadingImg from '../images/cart.svg'
 import { StreamChat } from 'stream-chat';
 import { isAuthenticated } from '../auth';
 
@@ -69,86 +69,68 @@ export class Signin extends Component {
         })
     }
 
-
-    // signinForm = (email, password) => {
-    //     return(
-    //         <form>
-    //             <div className="form-group">
-    //                 <label className="text-muted">Email</label>
-    //                 <input onChange={this.handleChange('email')} type="email" value={this.state.email} className="form-control" />
-    //             </div>
-    //             <div className="form-group">
-    //                 <label className="text-muted">Password</label>
-    //                 <input onChange={this.handleChange('password')} type="password" value={this.state.password} className="form-control" />
-    //             </div>
-    //             <button onClick={this.clickSubmit} className="btn btn-raised btn-primary">Submit</button>
-    //         </form>
-    //     )
-    // }
-
      signinForm = (email,password) => {
         return (
-          <MDBContainer>
-            <MDBRow className = "d-flex justify-content-center">
-              <MDBCol md="6">
-                <MDBCard className = "mb-5">
-                  <MDBCardBody className="mx-4 mt-4">
-                    <div className="text-center">
-                      <h3 className="dark-grey-text mb-5">
-                        <strong>Log in</strong>
-                      </h3>
-                    </div>
-                    <MDBInput
-                      label="Your email"
-                      group
-                      type="email"
-                      onChange={this.handleChange('email')}
-                      value={this.state.email}
-                      validate
-                      error="wrong"
-                      success="right"
-                    />
-                    <MDBInput
-                      label="Your password"
-                      group
-                      type="password"
-                      onChange={this.handleChange('password')}
-                      value={this.state.password}
-                      validate
-                      containerClass="mb-0"
-                    />
-                    <div className="text-center mb-3">
-                      <MDBBtn
-                        type="button"
-                        gradient="blue"
-                        onClick={this.clickSubmit}
-                        rounded
-                        className="btn-block z-depth-1a"
-                      >
-                        Sign in
-                      </MDBBtn>
-                    </div>
-                    <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
-      
-                      or Sign in with:
-                    </p>
-                    <div className="row my-3 d-flex justify-content-center">
-                    <SocialLogin />
-                    </div>
-                  </MDBCardBody>
-                  <MDBModalFooter className="mx-5 pt-3 mb-1">
-                    <p className="font-small grey-text d-flex justify-content-end">
-                      Not a member? 
+          <>
+          <div className="container-fluid">
+            <div className="row no-gutter">
+              <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+                <img src = {Logo} className = "mt-2" alt = "logo" style = {{height: "90px"}}/>
+                <div className = "justify-content-center social_description">
+                <h2>Your Social Marketplace</h2>
+                    <p>With MRKT, get the financial benefits of Etsy and Craigslist with the social benefits of Facebook. What else could you possibly need?</p>
+                </div>
+              </div>
+              <div className="col-md-8 col-lg-6">
+                <div className="login d-flex align-items-center py-5">
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-9 col-lg-8 mx-auto">
+                        <h3 className="login-heading mb-4">Welcome back!</h3>
+                        <form>
+                          <div className="form-label-group">
+                            <input type="email" id="inputEmail" className="form-control"  onChange={this.handleChange('email')}
+                                value={this.state.email} placeholder="Email address" required autofocus />
+                            <label for="inputEmail">Email address</label>
+                          </div>
+
+                          <div className="form-label-group">
+                            <input type="password" id="inputPassword" className="form-control"  onChange={this.handleChange('password')}
+                                value={this.state.password} placeholder="Password" required />
+                            <label for="inputPassword">Password</label>
+                          </div>
+                          <MDBBtn
+                                  type="button"
+                                  gradient="blue"
+                                  onClick={this.clickSubmit}
+                                  rounded
+                                  className="btn-block z-depth-1a"
+                                  style = {{borderRadius: "25px"}}
+                                >
+                                  Sign in
+                                </MDBBtn>
+                        </form>
+
+                        <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
+                            or Sign in with:
+                          </p>
+                        <div className="row my-3 d-flex justify-content-center">
+                        <SocialLogin />
+                      </div>
+                <p className="font-small grey-text d-flex justify-content-end">
+                     Not a member? 
                       <Link to = "/signup"> Sign Up</Link>
-                    </p>
-                  </MDBModalFooter>
-                </MDBCard>
-              </MDBCol>
-            </MDBRow>
-          </MDBContainer>
+                     </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </>
         );
       };
-
 
     render() {
         const {email, password, error, redirectToReferer, loading} = this.state
@@ -157,15 +139,14 @@ export class Signin extends Component {
             return <Redirect to= "/" />
         }
         return (
-            <div className = "container">
-                {/* <h2 className = "mt-5 mb-5">Signin</h2> */}
+          <>
                 <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
-                {loading ? <div className = "jumbotron-text-center"><h2>loading...</h2></div> : ""}
-                <div className = "row d-flex justify-content-center mt-4 mb-2">
-                <img src = {Logo} style = {{height: "150px"}}alt = "logo"/>
-                </div>
+                {loading ? <img src = {LoadingImg} alt = "loading" /> : (
+                  <>
                 {this.signinForm(email, password)}
-            </div>
+                </>
+                )}
+                 </>
         )
     }
 }

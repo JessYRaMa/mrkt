@@ -16,14 +16,19 @@ import { addItem } from './cartFunctions';
 import {isAuthenticated} from '../auth';
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 import Comment from './Comment';
+import Likes from './Likes';
 
 export class Posts extends Component {
     state = {
         posts:[],
-        likes: 0,
-        like: false,
         comments: '',
         redirectToCart: false
+    }
+
+    checkLike = (likes) => {
+        const userId = isAuthenticated() && isAuthenticated().user._id;
+        let match = likes.indexOf(userId) !== -1;
+        return match;
     }
 
     componentDidMount = () => {
@@ -49,35 +54,33 @@ export class Posts extends Component {
       };
 
     renderPosts = posts => {
-        const {likes, comments} = this.state
         return (
             <>
                 {posts.map((post, i) => {
 
-                const likeToggle = () => {
-                    if(!isAuthenticated()){
-                        this.setState({redirectToSignin: true})
-                        return false;
-                    }
-                    let callApi = this.state.like ? unlike : like
+                // const likeToggle = () => {
+                //     if(!isAuthenticated()){
+                //         this.setState({redirectToSignin: true})
+                //         return false;
+                //     }
+                //     let callApi = this.state.like ? unlike : like
 
-                    const userId = isAuthenticated().user._id
-                    const postId = post._id
-                    const token = isAuthenticated().token
+                //     const userId = isAuthenticated().user._id
+                //     const postId = post._id
+                //     const token = isAuthenticated().token
 
-                    callApi(userId, token, postId).then(data => {
-                        if(data.error){
-                            console.log(data.error)
-                        }
-                        else{
-                            this.setState({
-                                like: !this.state.like,
-                                likes: data.likes.length
-                            })
-                        }
-                    })
-                }
-
+                //     callApi(userId, token, postId).then(data => {
+                //         if(data.error){
+                //             console.log(data.error)
+                //         }
+                //         else{
+                //             this.setState({
+                //                like: !this.state.like,
+                //                 likes: data.likes.length
+                //             })
+                //         }
+                //     })
+                // }
 
                      const addToCart = () => {
                         addItem(post,this.setState({ redirectToCart: true }))
@@ -152,17 +155,7 @@ export class Posts extends Component {
                                     <div style = {{clear:"left"}}>
                                <br/>
                                <div className = "d-inline-block">
-                               {like ? (
-                                <p onClick={likeToggle}>
-                                <MDBIcon className='mr-2' size = "2x" icon='heart' />{' '}
-                                    {likes} Likes
-                                </p>
-                            ) : (
-                                <p onClick={likeToggle}>
-                                <MDBIcon className = "mr-2" size = "2x" icon='heart' />{' '}
-                                    {likes} Likes
-                                </p>
-                            )}  
+                              <Likes likes = {post.likes} postId = {post._id} />
                                </div>
                                     </div>
                                     <hr />

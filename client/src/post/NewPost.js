@@ -168,7 +168,7 @@ class NewPost extends Component {
         } = this.state;
 
         if (redirectToProfile) {
-            return <Redirect to={`/user/${user._id}`} />;
+            return <Redirect to="/" />;
         }
 
         return (
@@ -196,3 +196,5 @@ class NewPost extends Component {
 }
 
 export default NewPost;
+
+

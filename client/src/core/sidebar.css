@@ -1,0 +1,23 @@
+.sidebar{
+    /* -webkit-box-shadow: 4px 1px 21px 0px rgba(199,193,199,1);
+    -moz-box-shadow: 4px 1px 21px 0px rgba(199,193,199,1);
+    box-shadow: 4px 1px 21px 0px rgba(199,193,199,1); */
+    height: calc(100vh - 60px);
+    position: fixed;
+    left: 0;
+    font-family: 'Questrial', sans-serif;
+    overflow-x: scroll;
+    padding: 5px;
+}
+
+.profile>img{
+    align-items: center;
+}
+
+.user{
+    font-family: 'Questrial', sans-serif;
+}
+
+h5{
+    color: black; 
+}

@@ -32,7 +32,7 @@ export class Signup extends Component {
         signup(user)
         .then(data => {
             if(data.error)this.setState({error: data.error, loading: false})
-            else this.setState({error: "", name: "", email: "", password:"", open: true})
+            else this.setState({error: "", name: "", email: "", password:"", open: true, loading: false})
         })
     }
 
@@ -100,7 +100,7 @@ export class Signup extends Component {
         const {name, email, password, loading} = this.state
         return (
               <>
-              {loading ? <img src = {LoadingImg} alt = "loading" /> : (
+              {loading ? <img src = {LoadingImg} alt = "loading" id = "loadingImg" /> : (
                 <>
                 {this.signupForm(name, email, password)}
               </>

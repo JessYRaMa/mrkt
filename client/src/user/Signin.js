@@ -141,7 +141,7 @@ export class Signin extends Component {
         return (
           <>
                 <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
-                {loading ? <img src = {LoadingImg} alt = "loading" /> : (
+                {loading ? <img src = {LoadingImg} alt = "loading" id = "loadingImg" /> : (
                   <>
                 {this.signinForm(email, password)}
                 </>

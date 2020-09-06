@@ -1,3 +1,11 @@
 .root{
     font-family: 'Questrial', sans-serif;
+    position:relative;
+}
+
+#loadingImg{
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -50px 0px 0px -50px;
 }

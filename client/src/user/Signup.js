@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {signup} from '../auth'
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
-import Logo from '../images/inlinewhitebgMRKT.4.png'
+import {MDBBtn} from 'mdbreact';
+import './signin.css';
+import Logo from '../images/inlinebluebgMRKT.4.png'
+import LoadingImg from '../images/cart.svg'
 
 
 export class Signup extends Component {
@@ -12,7 +14,8 @@ export class Signup extends Component {
         email: '',
         password: '',
         error: '',
-        open: false
+        open: false,
+        loading: false
     }
 
     handleChange = (name) => (event) => {
@@ -22,105 +25,87 @@ export class Signup extends Component {
 
     clickSubmit = event => {
         event.preventDefault();
+        this.setState({loading: true})
         const {name, email, password} = this.state
         const user = {name, email, password}
         // console.log(user);
         signup(user)
         .then(data => {
-            if(data.error)this.setState({error: data.error})
+            if(data.error)this.setState({error: data.error, loading: false})
             else this.setState({error: "", name: "", email: "", password:"", open: true})
         })
     }
 
-
-    // signupForm = (name, email, password) => {
-    //     return(
-    //         <form>
-    //             <div className="form-group">
-    //                 <label className="text-muted">Name</label>
-    //                 <input onChange={this.handleChange('name')} type="text" value={this.state.name} className="form-control" />
-    //             </div>
-    //             <div className="form-group">
-    //                 <label className="text-muted">Email</label>
-    //                 <input onChange={this.handleChange('email')} type="email" value={this.state.email} className="form-control" />
-    //             </div>
-    //             <div className="form-group">
-    //                 <label className="text-muted">Password</label>
-    //                 <input onChange={this.handleChange('password')} type="password" value={this.state.password} className="form-control" />
-    //             </div>
-    //             <button onClick={this.clickSubmit} className="btn btn-raised btn-primary">Submit</button>
-    //         </form>
-    //     )
-    // }
-
    signupForm = (name, email, password) => {
+     const {open, error} = this.state
         return (
-          <MDBContainer>
-            <MDBRow className = "d-flex justify-content-center">
-              <MDBCol md="6">
-                <MDBCard className = "mb-5">
-                  <MDBCardBody>
-                    <form>
-                      <p className="h4 text-center py-4">Sign up</p>
-                      <div className="grey-text">
-                        <MDBInput
-                          label="Your name"
-                          icon="user"
-                          group
-                          type="text"
-                          onChange={this.handleChange('name')}
-                          value={this.state.name}
-                          validate
-                          error="wrong"
-                          success="right"
-                        />
-                        <MDBInput
-                          label="Your email"
-                          icon="envelope"
-                          group
-                          type="email"
-                          onChange={this.handleChange('email')}
-                          value={this.state.email} 
-                          validate
-                          error="wrong"
-                          success="right"
-                        />
-                        <MDBInput
-                          label="Your password"
-                          icon="lock"
-                          group
-                          onChange={this.handleChange('password')}
-                          value={this.state.password}
-                          type="password"
-                          validate
-                        />
+          <>
+          <div className="container-fluid">
+            <div className="row no-gutter">
+              <div className="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+                <img src = {Logo} className = "mt-2" alt = "logo" style = {{height: "90px"}}/>
+                <div className = "justify-content-center social_description">
+                <h2>Your Social Marketplace</h2>
+                    <p>With MRKT, get the financial benefits of Etsy and Craigslist with the social benefits of Facebook. What else could you possibly need?</p>
+                </div>
+              </div>
+              <div className="col-md-8 col-lg-6">
+                <div className="login d-flex align-items-center py-5">
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-md-9 col-lg-8 mx-auto">
+                        <h3 className="login-heading mb-4">Join the MRKT Family!</h3>
+                        <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
+                <div className = "alert alert-info" style = {{display: open ? "" : "none"}}>New account was successfully created.<Link to ="/signin">Please sign in.</Link> </div>
+                        <form>
+                        <div className="form-label-group">
+                            <input type="text"  id="inputName" className="form-control"  onChange={this.handleChange('name')}
+                                 value={this.state.name} placeholder="Enter your name" required autofocus />
+                            <label for="inputName">Name</label>
+                          </div>
+                          <div className="form-label-group">
+                            <input type="email" id="inputEmail" className="form-control"  onChange={this.handleChange('email')}
+                                value={this.state.email} placeholder="Email address" required autofocus />
+                            <label for="inputEmail">Email address</label>
+                          </div>
+                          <div className="form-label-group">
+                            <input type="password" id="inputPassword" className="form-control"  onChange={this.handleChange('password')}
+                                value={this.state.password} placeholder="Password" required />
+                            <label for="inputPassword">Password</label>
+                          </div>
+                          <MDBBtn
+                                  type="button"
+                                  gradient="blue"
+                                  onClick={this.clickSubmit}
+                                  rounded
+                                  className="btn-block z-depth-1a"
+                                  style = {{borderRadius: "25px"}}
+                                >
+                                  Register
+                                </MDBBtn>
+                        </form>
                       </div>
-                      <div className="text-center py-4 mt-3">
-                        <MDBBtn onClick={this.clickSubmit} gradient="blue" className="btn-block z-depth-1a" type="submit">
-                          Register
-                        </MDBBtn>
                       </div>
-                    </form>
-                  </MDBCardBody>
-                </MDBCard>
-              </MDBCol>
-            </MDBRow>
-          </MDBContainer>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
         );
       };
 
 
     render() {
-        const {name, email, password, open, error} = this.state
+        const {name, email, password, loading} = this.state
         return (
-            <div className = "container">
-                <div className = "row d-flex justify-content-center mt-4 mb-2">
-                <img src = {Logo} style = {{height: "150px"}}alt = "logo"/>
-                </div>
-                <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
-                <div className = "alert alert-info" style = {{display: open ? "" : "none"}}>New account was successfully created.<Link to ="/signin">Please sign in.</Link> </div>
+              <>
+              {loading ? <img src = {LoadingImg} alt = "loading" /> : (
+                <>
                 {this.signupForm(name, email, password)}
-            </div>
+              </>
+              )}
+                </>
         )
     }
 }

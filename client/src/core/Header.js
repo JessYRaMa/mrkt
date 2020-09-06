@@ -39,7 +39,7 @@ class Header extends Component {
 
             {isAuthenticated() && (
                 <>
- <MDBNavbar dark expand="md">
+            <MDBNavbar dark expand="md">
                 <div className = "header__left">
                     <img src = {DefaultProfile} style = {{height: "60px"}} alt = "logo" />
                 </div>

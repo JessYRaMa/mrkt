@@ -16,8 +16,12 @@
     
     .bg-image {
       background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
+      /* clip-path: polygon(100% 0, 75% 50%, 100% 100%, 0 100%, 0% 50%, 0 0); */
+      mask-image: linear-gradient(to left, transparent 2%, white 98%);
+      -webkit-mask-image: linear-gradient(to left, transparent 2%, white 98%);
       background-size: cover;
       background-position: center;
+      z-index: -1;
     }
     
     .login-heading {

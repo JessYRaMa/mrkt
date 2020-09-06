@@ -22,7 +22,7 @@ import './posts.css'
 export class Posts extends Component {
     state = {
         posts:[],
-        comments: '',
+        comments: [],
         redirectToCart: false
     }
 
@@ -32,19 +32,17 @@ export class Posts extends Component {
         return match;
     }
 
+
     componentDidMount = () => {
         list().then(data => {
             if(data.error){
                 console.log(data.error)
             } else{
-                this.setState({ posts: data})
+                this.setState({posts: data})
+                console.log(this.state.posts)
             }
         })
     }
-    
-     updateComments = comments => {
-        this.setState({ comments });
-    };
 
     showStock = quantity => {
         return quantity > 0 ? (
@@ -55,6 +53,9 @@ export class Posts extends Component {
       };
 
     renderPosts = posts => {
+
+        const {comments} = this.state
+
         return (
             <>
                 {posts.map((post, i) => {
@@ -62,6 +63,17 @@ export class Posts extends Component {
                      const addToCart = () => {
                         addItem(post,this.setState({ redirectToCart: true }))
                     }
+
+                    const updateComments = (comments) => {
+                        list().then(data => {
+                            if(data.error){
+                                console.log(data.error)
+                            } else{
+                                this.setState({posts: data})
+                            }
+                        })
+                    }
+
                     const posterId = post.postedBy
                         ? `/user/${post.postedBy._id}`
                         : "";
@@ -130,19 +142,19 @@ export class Posts extends Component {
                                             <h5 className = " ml-1" id = "comments">{post.comments.length}{""} Comments</h5>
                                         </div>
                                         <hr/>
-                                        <div style = {{float: "left"}}>
+                                        <div style = {{marginLeft: "30px", float: "left"}}>
                                         <h4>{post.title}</h4>
                                         {post.category ? (<p style = {{color: "gray"}}>{post.category}</p>) : (<p style = {{color: "gray"}}>No Specified Category</p>)}
                                         </div>
                                         <div style = {{float:"right", marginTop: "15px" ,marginRight: "50px"}}>
-                                        {post.price ? (<h3 style = {{fontSize: "1.2rem"}}><b>${post.price}</b></h3>): (<h3 style = {{fontSize: "1.2rem"}}><b>Contact Lister</b></h3>)}                                        </div>
+                                        {post.price ? (<h3 style = {{fontSize: "1.2rem"}}><b>${post.price}</b></h3>): (<h3 style = {{fontSize: "1.2rem"}}><b>Contact Lister</b></h3>)}</div>
                                     </div>
                                     <br/>
                                     <div className = "mt-5" style = {{clear:"left"}}>
                                         {""}
                                     </div>
                                     <hr />
-                                    <Comment className = "mt-2" postId={post._id} comments = {post.comments.reverse()} updateComments = {this.updateComments}/>
+                                    <Comment className = "mt-2" postId={post._id} comments = {post.comments} updateComments = {updateComments}/>
                                 </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>

@@ -36,6 +36,16 @@ export class Posts extends Component {
         })
     }
 
+   updateComments = (comments) => {
+        list().then(data => {
+            if(data.error){
+                console.log(data.error)
+            } else{
+                this.setState({posts: data})
+            }
+        })
+    }
+
     showStock = quantity => {
         return quantity > 0 ? (
           <span className="badge badge-primary badge-pill">In Stock </span>
@@ -54,16 +64,6 @@ export class Posts extends Component {
 
                      const addToCart = () => {
                         addItem(post,this.setState({ redirectToCart: true }))
-                    }
-
-                    const updateComments = (comments) => {
-                        list().then(data => {
-                            if(data.error){
-                                console.log(data.error)
-                            } else{
-                                this.setState({posts: data})
-                            }
-                        })
                     }
 
                     const posterId = post.postedBy
@@ -146,7 +146,7 @@ export class Posts extends Component {
                                         {""}
                                     </div>
                                     <hr />
-                                    <Comment className = "mt-2" postId={post._id} comments = {post.comments} updateComments = {updateComments}/>
+                                    <Comment className = "mt-2" postId={post._id} comments = {post.comments} updateComments = {this.updateComments}/>
                                 </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>

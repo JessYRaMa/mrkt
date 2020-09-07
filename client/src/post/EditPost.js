@@ -3,6 +3,8 @@ import { singlePost, update } from "./apiPost";
 import { isAuthenticated } from "../auth";
 import { Redirect } from "react-router-dom";
 import DefaultPost from "../images/logoshirt.png";
+import LoadingImg from '../images/cart.svg';
+import './postForm.css';
 
 class EditPost extends Component {
     state = {
@@ -89,23 +91,31 @@ class EditPost extends Component {
 
     editPostForm = (title, body, price, category, quantity) => (
         <form>
-            <div className="form-group">
+            <div className = "row">
+                <div className = "col-lg-3">
+                <div className="form-group">
                 <label className="text-muted">Product Photo</label>
                 <input
                     onChange={this.handleChange("photo")}
                     type="file"
                     accept="image/*"
-                    className="form-control"
+                    className="form-control pb-5"
+                    id = "fileInput"
                 />
-            </div>
-            <div className="form-group">
+                </div>
+                </div>
+                <div className = "col-lg-9">
+                <div className="form-group">
                 <label className="text-muted">Product Name</label>
                 <input
                     onChange={this.handleChange("title")}
                     type="text"
                     className="form-control"
                     value={title}
+                    id = "productName"
                 />
+            </div>
+                </div>
             </div>
 
             <div className="form-group">
@@ -117,8 +127,9 @@ class EditPost extends Component {
                     value={body}
                 />
             </div>
-
-            <div className="form-group">
+            <div className = "row">
+                <div className = "col-lg-3">
+                <div className="form-group">
                 <label className="text-muted">Price</label>
                 <input
                     onChange={this.handleChange("price")}
@@ -127,8 +138,10 @@ class EditPost extends Component {
                     value={price}
                 />
             </div>
+                </div>
 
-            <div className = "form-group">
+                <div className = "col-lg-6">
+                <div className = "form-group">
                 <label className = "text-muted">Category</label>
                 <select onChange = {this.handleChange("category")}
                         className = "form-control" value = {category}>
@@ -147,8 +160,10 @@ class EditPost extends Component {
                  <option>Automotive &amp; Industrial</option>       
                 </select>
             </div>
+                </div>
 
-            <div className="form-group">
+                <div className = "col-lg-3">
+                <div className="form-group">
                 <label className="text-muted">Quantity</label>
                 <input
                     onChange={this.handleChange("quantity")}
@@ -157,13 +172,18 @@ class EditPost extends Component {
                     value={quantity}
                 />
             </div>
+                </div>
+            </div>
 
+            <div className = "row" style = {{float: "right"}}>
             <button
                 onClick={this.clickSubmit}
                 className="btn btn-raised btn-primary"
+                style = {{borderRadius: "25px"}}
             >
-                Update Post
+                Update Listing
             </button>
+            </div>
         </form>
     );
 
@@ -186,7 +206,7 @@ class EditPost extends Component {
 
         return (
             <div className="container">
-                <h2 className="mt-5 mb-5">{title}</h2>
+                <h3 className="mt-5 mb-2">{" "}</h3>
 
                 <div
                     className="alert alert-danger"
@@ -196,27 +216,30 @@ class EditPost extends Component {
                 </div>
 
                 {loading ? (
-                    <div className="jumbotron text-center">
-                        <h2>Loading...</h2>
-                    </div>
+                   <img src = {LoadingImg} alt = "loading" />
                 ) : (
-                    ""
-                )}
-
-                <img
-                    style={{ height: "200px", width: "auto" }}
+                    <>
+                <div className = "row">
+                    <div className = "col-lg-5 mt-5">
+                    <img
+                    style={{ height: "300px", width: "auto", borderRadius: "25px"}}
                     className="img-thumbnail"
                     src={`${(process.env.NODE_ENV 
 === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${this.props.match.params.postId}?${new Date().getTime()}`}
                     onError={i => (i.target.src = `${DefaultPost}`)}
                     alt={title}
                 />
+                    </div>
 
-                {/* {isAuthenticated().user.role === "admin" &&
-                    this.editPostForm(title, body)} */}
-
-                {isAuthenticated().user._id === id &&
+                    <div className = "col-lg-7">
+                    <h4>{title}</h4>
+                    {isAuthenticated().user._id === id &&
                     this.editPostForm(title, body, price, category, quantity)}
+                    </div>
+                    
+                </div>    
+                </>
+                )}
             </div>
         );
     }

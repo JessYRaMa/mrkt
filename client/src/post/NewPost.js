@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { isAuthenticated } from "../auth";
 import { create } from "./apiPost";
 import { Redirect } from "react-router-dom";
+import LoadingImg from '../images/cart.svg';
+import './postForm.css';
 
 class NewPost extends Component {
     state = {
@@ -74,29 +76,34 @@ class NewPost extends Component {
         }
     };
 
-    
-
     newPostForm = (title, body, price, category, quantity) => (
         <form>
-            <div className="form-group">
+            <div className = "row">
+                <div className = "col-lg-2 d-flex justify-content-center">
+                <div className="form-group">
                 <label className="text-muted">Product Photo</label>
                 <input
                     onChange={this.handleChange("photo")}
                     type="file"
                     accept="image/*"
                     className="form-control pb-5"
+                    id = "fileInput"
                 />
             </div>
-            <div className="form-group">
+             </div>
+             <div className = "col-lg-10">
+             <div className="form-group">
                 <label className="text-muted">Product Name</label>
                 <input
                     onChange={this.handleChange("title")}
                     type="text"
                     className="form-control"
                     value={title}
+                    id = "productName"
                 />
             </div>
-
+             </div>
+            </div>
             <div className="form-group">
                 <label className="text-muted">Description</label>
                 <textarea
@@ -106,8 +113,9 @@ class NewPost extends Component {
                     value={body}
                 />
             </div>
-
-            <div className="form-group">
+            <div className = "row">
+                <div className = "col-lg-3">
+                <div className="form-group">
                 <label className="text-muted">Price</label>
                 <input
                     onChange={this.handleChange("price")}
@@ -115,8 +123,8 @@ class NewPost extends Component {
                     className="form-control"
                     value={price}
                 />
-            </div>
-
+            </div> </div>
+            <div className = "col-lg-6">
             <div className = "form-group">
                 <label className = "text-muted">Category</label>
                 <select onChange = {this.handleChange("category")}
@@ -136,7 +144,8 @@ class NewPost extends Component {
                  <option>Automotive&amp;Industrial</option>       
                 </select>
             </div>
-
+            </div>
+            <div className = "col-lg-3">
             <div className="form-group">
                 <label className="text-muted">Quantity</label>
                 <input
@@ -146,13 +155,17 @@ class NewPost extends Component {
                     value={quantity}
                 />
             </div>
-
+            </div>
+            </div>
+            <div className = "row d-flex align-items-right" style = {{float: "right"}}>
             <button
                 onClick={this.clickSubmit}
                 className="btn btn-raised btn-primary"
+                style = {{borderRadius: "25px"}}
             >
                 Create Listing
             </button>
+            </div>
         </form>
     );
 
@@ -175,7 +188,7 @@ class NewPost extends Component {
 
         return (
             <div className="container">
-                <h2 className="mt-5 mb-5">Create a New Listing</h2>
+                <h2 className="mt-5 mb-2">Create a New Listing</h2>
                 <div
                     className="alert alert-danger"
                     style={{ display: error ? "" : "none" }}
@@ -184,14 +197,13 @@ class NewPost extends Component {
                 </div>
 
                 {loading ? (
-                    <div className="jumbotron text-center">
-                        <h2>Loading...</h2>
-                    </div>
+                    <img src = {LoadingImg} alt = "loading" />
                 ) : (
-                    ""
+                    <>
+                    {this.newPostForm(title, body, price, category, quantity)}
+                    </>
                 )}
 
-                {this.newPostForm(title, body, price, category, quantity)}
             </div>
         );
     }

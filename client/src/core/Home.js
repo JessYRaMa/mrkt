@@ -5,11 +5,17 @@ import {isAuthenticated} from '../auth'
 import Sidebar from './Sidebar';
 import Widgets from './Widgets';
 import MessageSender from './MessageSender';
+import LoadingImg from '../images/cart.svg'
 
 export class Home extends Component {
 
     state = {
+        isLoading: true,
         redirectToSignin: false
+    }
+
+    componentDidMount() {
+        this.setState({isLoading: false})
     }
 
     renderHome = () => {
@@ -35,13 +41,14 @@ export class Home extends Component {
 
     
     render() {
-        const {redirectToSignin} = this.state
+        const {redirectToSignin, isLoading} = this.state
 
         if (redirectToSignin) {
             return(<Redirect to = "/signin" />)
         }
         return(
             <>
+            {isLoading ? <img src = {LoadingImg} alt = "loading" id = "loadingImg" /> : this.renderHome()}
             {!isAuthenticated() ? <Redirect to = "/signin" /> : (this.renderHome())}
             </>
         )

@@ -26,20 +26,12 @@ export class Posts extends Component {
         redirectToCart: false
     }
 
-    checkLike = (likes) => {
-        const userId = isAuthenticated() && isAuthenticated().user._id;
-        let match = likes.indexOf(userId) !== -1;
-        return match;
-    }
-
-
     componentDidMount = () => {
         list().then(data => {
             if(data.error){
                 console.log(data.error)
             } else{
                 this.setState({posts: data})
-                console.log(this.state.posts)
             }
         })
     }

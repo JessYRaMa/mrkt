@@ -15,6 +15,12 @@ class ModalPage extends Component {
       modal: !this.state.modal
     });
   }
+ reload = () => window.location.reload();
+
+ handleClose = () => {
+    this.toggle();
+    this.reload();
+  }
   render() {
     return (
       <MDBContainer>
@@ -28,7 +34,7 @@ class ModalPage extends Component {
         <MDBModal isOpen={this.state.modal} toggle={this.toggle}   size="lg"  >
           <MDBModalBody>
               <NewPost />
-              <MDBBtn className = "text-white ml-4" color="warning" onClick={this.toggle}>Close</MDBBtn>
+              <MDBBtn className = "text-white ml-4" color="warning" onClick={this.handleClose}>Close</MDBBtn>
           </MDBModalBody>
         </MDBModal>
       </MDBContainer>

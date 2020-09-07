@@ -35,11 +35,12 @@ export class Users extends Component {
 
 
     renderUsers = users => (
-        <MDBRow className = "mb-3">
+        <MDBRow className = "mt-2 mb-3">
             {users.map((user, i) => (
                 <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
-                <MDBCard className = "mb-3" style = {{borderRadius: "25px"}} testimonial>
-                  <MDBCardUp gradient='blue' style = {{borderRadius: "25px 25px 0px 0px"}} />
+                 <Link to = {`/user/${user._id}`}>
+                <MDBCard className = "mt-2 mb-5" style = {{borderRadius: "25px", width: "240px"}} testimonial>
+                  <MDBCardUp gradient='blue' style = {{height: "30px", borderRadius: "25px 25px 0px 0px"}} />
                   <MDBAvatar className='mx-auto'>
                     <img
                       src={`${(process.env.NODE_ENV 
@@ -51,20 +52,13 @@ export class Users extends Component {
                     />
                   </MDBAvatar>
                   <MDBCardBody>
-                    <h4 className='font-weight-bold mb-4'>{user.name}</h4>
-                    <hr />
-                    <p className='dark-grey-text mt-4'>
+                    <h5 className='font-weight-bold mb-1'>{user.name}</h5>
+                    <p className='dark-grey-text mt-2'>
                       {user.email}
                     </p>
-                    <Link
-                            to={`/user/${user._id}`}
-                            className="btn btn-raised btn-primary btn-sm"
-                            style = {{borderRadius: "25px"}}
-                        >
-                            View Profile
-                        </Link>
                   </MDBCardBody>
                 </MDBCard>
+                </Link>  
               </MDBCol>
             ))}
         </MDBRow>

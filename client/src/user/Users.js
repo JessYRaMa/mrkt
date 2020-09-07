@@ -17,6 +17,7 @@ import {Link} from 'react-router-dom'
 import {list} from './apiUser'
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 import Sidebar from '../core/Sidebar'
+import './user.css';
 
 export class Users extends Component {
     state = {
@@ -35,11 +36,11 @@ export class Users extends Component {
 
 
     renderUsers = users => (
-        <MDBRow className = "mt-2 mb-3">
+        <MDBRow className = "mt-2 mb-3 d-flex align-items-center">
             {users.map((user, i) => (
-                <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
+                <MDBCol lg='3' md='12' sm='12' className='mb-lg-0 mb-4'>
                  <Link to = {`/user/${user._id}`}>
-                <MDBCard className = "mt-2 mb-5" style = {{borderRadius: "25px", width: "240px"}} testimonial>
+                <MDBCard className = "mt-2 mb-5" id = "friendCard" testimonial>
                   <MDBCardUp gradient='blue' style = {{height: "30px", borderRadius: "25px 25px 0px 0px"}} />
                   <MDBAvatar className='mx-auto'>
                     <img
@@ -52,8 +53,8 @@ export class Users extends Component {
                     />
                   </MDBAvatar>
                   <MDBCardBody>
-                    <h5 className='font-weight-bold mb-1'>{user.name}</h5>
-                    <p className='dark-grey-text mt-2'>
+                    <h5 className='font-weight-bold mb-1' style = {{fontSize: "16px"}}>{user.name}</h5>
+                    <p className='dark-grey-text mt-2' style = {{fontSize:"12px"}}>
                       {user.email}
                     </p>
                   </MDBCardBody>
@@ -76,6 +77,7 @@ export class Users extends Component {
                     <div className = "col-lg-9 mt-4">
                     {this.renderUsers(users)}
                     </div>
+                    <div class="elfsight-app-09b0a2a5-ea11-497b-a6d0-a91f7895d725"></div>
                 </div>
             </div>
         )
@@ -83,26 +85,3 @@ export class Users extends Component {
 }
 
 export default Users
-
-
-{/* <div className="row">
-            {users.map((user, i) => (
-                <div className="card col-md-4" key={i}>
-                    <div className = "mt-2 d-flex justify-content-center"> 
-                    <img style = {{height: "150px", width: "150px", padding: '5px', objectFit: "cover", borderRadius: "50%"}} className = "img-thumbnail" src = {`${(process.env.NODE_ENV 
-=== 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${user._id }`} 
-                    onError = {i => (i.target.src = `${DefaultProfile}`)}
-                    alt = {user.name}
-                     />
-                     </div>
-                    <div className="card-body text-center">
-                        <h5 className="card-title">{user.name}</h5>
-                        <p className="card-text">{user.email}</p>
-                        <Link
-                            to={`/user/${user._id}`}
-                            className="btn btn-raised btn-primary btn-sm"
-                        >
-                            View Profile
-                        </Link>
-                    </div>
-                </div> */}

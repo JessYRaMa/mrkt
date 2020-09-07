@@ -134,17 +134,17 @@ export class Posts extends Component {
                                             <h5 className = " ml-1" id = "comments">{post.comments.length}{""} Comments</h5>
                                         </div>
                                         <hr/>
-                                        <div style = {{marginLeft: "30px", float: "left", width: "500px"}}>
+                                        <div className = "row mt-4" style = {{marginBottom: "-5px"}}>
+                                            <div className = "col-lg-5 ml-4">
                                         <h4>{post.title}</h4>
                                         {post.category ? (<p style = {{color: "gray"}}>{post.category}</p>) : (<p style = {{color: "gray"}}>No Specified Category</p>)}
                                         </div>
-                                        <div style = {{float:"right", marginTop: "15px" ,marginRight: "50px"}}>
+                                            <div className = "col-lg-6">
+                                            <div style = {{float:"right", marginTop: "15px"}}>
                                         {post.price ? (<h3 style = {{fontSize: "1.2rem"}}><b>${post.price}</b></h3>): (<h3 style = {{fontSize: "1.2rem"}}><b>Contact Lister</b></h3>)}</div>
-                                    </div>
-                                    <br/>
-                                    <div className = "mt-5" style = {{clear:"left"}}>
-                                        {""}
-                                    </div>
+                                            </div>
+                                            </div>
+                                        </div>
                                     <hr />
                                     <Comment className = "mt-2" postId={post._id} comments = {post.comments} updateComments = {this.updateComments}/>
                                 </MDBCardBody>

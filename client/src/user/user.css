@@ -1,0 +1,17 @@
+div#friendCard.testimonial-card.card.mt-2.mb-5{
+    width: 190px;
+    border-radius: 25px;
+    margin: 5px;
+    height: 200px
+
+}
+
+@media only screen and (max-width: 980px) {
+    .sidebar {
+      display: none
+    }
+
+   div#friendCard.testimonial-card.card.mt-2.mb-5{
+       width: 100%;
+   }
+  }

@@ -30,7 +30,6 @@
 }
 
 .topDiv>p:hover{
-    background-color: lightgray;
     cursor: pointer;
     border-radius: 25px;
     padding: 10px;

@@ -19,7 +19,7 @@ class ModalPage extends Component {
 
  handleClose = () => {
     this.toggle();
-    // this.reload();
+    this.reload();
   }
   render() {
     return (

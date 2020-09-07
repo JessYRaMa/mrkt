@@ -70,6 +70,7 @@ export class Signin extends Component {
     }
 
      signinForm = (email,password) => {
+       const {error} = this.state
         return (
           <>
           <div className="container-fluid">
@@ -87,6 +88,7 @@ export class Signin extends Component {
                     <div className="row">
                       <div className="col-md-9 col-lg-8 mx-auto">
                         <h3 className="login-heading mb-4">Welcome back!</h3>
+                        <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
                         <form>
                           <div className="form-label-group">
                             <input type="email" id="inputEmail" className="form-control"  onChange={this.handleChange('email')}
@@ -140,7 +142,6 @@ export class Signin extends Component {
         }
         return (
           <>
-                <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
                 {loading ? <img src = {LoadingImg} alt = "loading" id = "loadingImg" /> : (
                   <>
                 {this.signinForm(email, password)}

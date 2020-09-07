@@ -134,7 +134,7 @@ export class Posts extends Component {
                                             <h5 className = " ml-1" id = "comments">{post.comments.length}{""} Comments</h5>
                                         </div>
                                         <hr/>
-                                        <div style = {{marginLeft: "30px", float: "left"}}>
+                                        <div style = {{marginLeft: "30px", float: "left", width: "500px"}}>
                                         <h4>{post.title}</h4>
                                         {post.category ? (<p style = {{color: "gray"}}>{post.category}</p>) : (<p style = {{color: "gray"}}>No Specified Category</p>)}
                                         </div>

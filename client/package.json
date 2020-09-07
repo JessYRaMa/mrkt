@@ -14,7 +14,7 @@
     "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "getstream": "^6.1.1",
-    "mdbreact": "^4.27.0",
+    "mdbreact": "git+https://oauth2:zLX9CPbED7f1s4ygQHFy@git.mdbootstrap.com/mdb/react/re-pro.git",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-google-login": "^5.1.21",

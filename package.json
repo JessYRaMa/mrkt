@@ -41,6 +41,7 @@
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
+    "mdbreact": "git+https://oauth2:zLX9CPbED7f1s4ygQHFy@git.mdbootstrap.com/mdb/react/re-pro.git",
     "mongoose": "^5.10.2",
     "morgan": "^1.10.0",
     "stream-chat": "^2.1.1",

@@ -1,8 +1,9 @@
 .widgets{
-    height: calc(100vh);
+    height: calc(100vh - 40px);
     position: fixed;
     right: 0;
     font-family: 'Questrial', sans-serif;
     overflow-x: scroll;
     padding: 10px;
+    margin-right: 10px;
 }

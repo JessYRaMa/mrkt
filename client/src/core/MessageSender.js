@@ -2,9 +2,9 @@ import React from 'react'
 import './MessageSender.css'
 import {Avatar} from '@material-ui/core'
 import {isAuthenticated} from '../auth'
-import VideocamIcon from '@material-ui/icons/Videocam'
+import DescriptionIcon from '@material-ui/icons/Description';
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary"
-import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon"
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import PostModal from '../post/PostModal'
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 
@@ -21,21 +21,19 @@ function MessageSender() {
     (i.target.src = `${DefaultProfile}`)
 } />
                 <PostModal />
-                {/* <input type = "text" onClick = {showModal} className = "messageSender__input"placeholder = {`Have something to sell, ${isAuthenticated().user.name}?`}/>
-                <button onClick = {handleSumbit} type = "submit">Hidden Submit</button> */}
             </div>
             <div className = "messageSender__bottom">
                 <div className = "messageSender__option">
-                    <VideocamIcon style = {{color: "red"}}/>
-                    <p>Live Video</p>
+                    <DescriptionIcon style = {{color: "red"}}/>
+                    <p>Description</p>
                 </div>
                 <div className = "messageSender__option">
                     <PhotoLibraryIcon style = {{color: "green"}}/>
                     <p>Photo/Video</p>
                 </div>
                 <div className = "messageSender__option">
-                    <InsertEmoticonIcon style = {{color: "orange"}}/>
-                    <p>Feeling/Activity</p>
+                    <MonetizationOnIcon style = {{color: "orange"}}/>
+                    <p>Price/Quantity</p>
                 </div>
             </div>
             

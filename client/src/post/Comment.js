@@ -3,7 +3,7 @@ import { comment, uncomment } from "./apiPost";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import DefaultProfile from "../images/avatar.png";
-import {MDBIcon, MDBBtn} from 'mdbreact'
+import {MDBIcon} from 'mdbreact'
 import './commentDiv.css';
 
 class Comment extends Component {

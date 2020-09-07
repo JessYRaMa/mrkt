@@ -11,6 +11,11 @@
     margin-left: 5px;
 }
 
+.commentDiv>form>input{
+    outline-width: 0;
+    border: none;
+}
+
 .commentDiv>img{
     margin-top: -35px;
 }

@@ -74,6 +74,8 @@ class NewPost extends Component {
         }
     };
 
+    
+
     newPostForm = (title, body, price, category, quantity) => (
         <form>
             <div className="form-group">

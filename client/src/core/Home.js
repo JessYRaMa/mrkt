@@ -4,6 +4,7 @@ import Posts from '../post/Posts'
 import {isAuthenticated} from '../auth'
 import Sidebar from './Sidebar';
 import Widgets from './Widgets';
+import MessageSender from './MessageSender';
 
 export class Home extends Component {
 
@@ -20,6 +21,7 @@ export class Home extends Component {
             <Sidebar />  
             </div>
             <div className = "col-lg-6 ml-0">
+            <MessageSender />
             <Posts />
             </div>
             <div className = "col-lg-2 mt-3">

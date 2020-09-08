@@ -66,6 +66,9 @@ export class Category extends Component {
                 return (
                  <MDBCol md='4'>
                   <MDBCard narrow ecommerce className='mb-4' style = {{borderRadius: "25px;"}}>
+                  <Link
+                             to={`/post/${post._id}`}
+                                >
                     <MDBCardImage
                       cascade
                       top
@@ -74,7 +77,7 @@ export class Category extends Component {
                       onError={i =>
                           (i.target.src = `${DefaultPost}`)}
                       style = {{height: "200px", objectFit: "cover"}}    
-                    />
+                    /></Link>
                     <MDBCardBody cascade>
                       {post.category ? (<p> {post.category}</p>) : (<p>No Category</p>)}
                       <MDBCardTitle>
@@ -148,6 +151,7 @@ export class Category extends Component {
                     <h2 className = " mt-2 mb-3">{this.props.match.params.categoryName}</h2> 
                     <hr />
                     {posts.length === 0 ? (<h4 className = "grey-text">No listings found</h4>) : this.renderPosts(posts)}
+                    <div class="elfsight-app-09b0a2a5-ea11-497b-a6d0-a91f7895d725"></div>
                     </div>
                 </div>
             </div>
@@ -155,74 +159,3 @@ export class Category extends Component {
     }
 }
 export default Category
-
-{/* <div className="row">
-
-{posts.map((post, i) => {
-
-     const addToCart = () => {
-        addItem(post,this.setState({ redirectToCart: true }))
-    }
-    const posterId = post.postedBy
-        ? `/user/${post.postedBy._id}`
-        : "";
-    const posterName = post.postedBy
-        ? post.postedBy.name
-        : " Unknown";
-    const photoUrl = post._id ? `${(process.env.NODE_ENV 
-=== 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}` : DefaultPost;
-
-    return (
-        
-        <div className="card col-md-4" key={i}>
-            <div className="card-body">
-                <img
-                    src={photoUrl}
-                    alt={post.title}
-                    onError={i =>
-                        (i.target.src = `${DefaultPost}`)
-                    }
-                    className="img-thunbnail mb-3"
-                    style={{ height: "185px", width: "100%" }}
-                />
-                <h5 className="card-title">{post.title}</h5>
-                <p className="card-text">
-                    {post.body.substring(0, 100)}...
-                </p>
-                <div className = "d-inline-block">
-                {this.showStock(post.quantity)}
-                {post.price ? (<p>Price: ${post.price}</p>): (<p>Price: Contact Lister</p>)}
-                {post.category ? (<p>Category: {post.category}</p>) : (<p>Category: None</p>)}
-                </div>
-                <br />
-                <p className="font-italic">
-                    Posted by{" "}
-                    <Link to={`${posterId}`}>
-                        {posterName}{" "}
-                    </Link>
-                    on {new Date(post.created).toDateString()}
-                </p>
-                <div className = "d-inline-block">
-                {isAuthenticated().user && isAuthenticated().user._id === post.postedBy._id ? (<Link
-                    to={`/post/${post._id}`}
-                    className="btn btn-raised btn-primary btn-sm mr-2"
-                >
-                    View My Listing
-                </Link>) : (
-                    <>
-                <Link
-                    to={`/post/${post._id}`}
-                    className="btn btn-raised btn-primary btn-sm mr-2"
-                >
-                    View Listing
-                </Link>
-                 <button onClick = {addToCart} className="btn btn-raised btn-secondary btn-sm mr-5">Add to Cart</button>
-                 </>
-                )
-               }
-                </div>
-            </div>
-        </div>
-    );
-})}
-</div> */}

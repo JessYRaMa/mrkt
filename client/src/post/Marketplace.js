@@ -15,6 +15,7 @@ export class Marketplace extends Component {
                     <h2 className = " mt-2 mb-3">All Listings</h2> 
                     <hr />
                     <AllCategory />
+                    <div class="elfsight-app-09b0a2a5-ea11-497b-a6d0-a91f7895d725"></div>
                     </div>
                 </div>
             </div>

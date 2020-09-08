@@ -5,6 +5,9 @@ import DefaultPost from '../images/logoshirt.png'
 import {Link, Redirect} from 'react-router-dom'
 import Comment from './Comment'
 import { addItem} from './cartFunctions';
+import MarketplaceSide from '../core/MarketplaceSide'
+import './singlepost.css';
+import {MDBIcon} from 'mdbreact'
 
 export class SinglePost extends Component {
     state = {
@@ -92,9 +95,9 @@ export class SinglePost extends Component {
 
     showStock = quantity => {
         return quantity > 0 ? (
-          <span className="badge badge-primary badge-pill p-3">In Stock </span>
+          <span className="badge badge-primary badge-pill p-2" style = {{marginTop: "-10px"}}>In Stock </span>
         ) : (
-          <span className="badge badge-primary badge-pill p-3">Out of Stock </span>
+          <span className="badge badge-primary badge-pill p-2">Out of Stock </span>
         );
       };
 
@@ -107,8 +110,13 @@ export class SinglePost extends Component {
         const {like, likes} = this.state
 
         return (
-                <div className="card-body">
-                   
+                    <div className = "row mb-4">
+                        <div className = "col-md-3"> 
+                        <Link
+                             to={`/marketplace`}
+                            >
+                            <MDBIcon icon="angle-double-left" className = "mr-2" />Back to Listings
+                            </Link>
                     <img
                         src={`${(process.env.NODE_ENV 
                             === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}`}
@@ -116,40 +124,32 @@ export class SinglePost extends Component {
                         onError={i =>
                             (i.target.src = `${DefaultPost}`)
                         }
-                        className="img-thunbnail mb-3"
-                        style={{ height: "auto", width: "auto", objectFit: "cover" }}
+                        className="img-thunbnail"
+                        style={{ height: "auto", width: "450px", objectFit: "cover", borderRadius: "25px", marginTop: "22px" }}
                     />
+                        </div>
 
-                        
-                      {like ? (
-                    <h3 onClick={this.likeToggle}>
-                        <i
-                            className="fa fa-thumbs-up text-success"
-                            style={{ padding: '10px', borderRadius: '50%' }}
-                        />{' '}
-                        {likes} Like
-                    </h3>
+                        <div className = "col-md-5 mt-5 offset-3">
+                        {like ? (
+                    <p onClick={this.likeToggle}>
+                        <MDBIcon icon="heart" className = "red-text mr-2" />{" "}{likes} Likes
+                    </p>
                 ) : (
-                    <h3 onClick={this.likeToggle}>
-                        <i
-                            className="fa fa-thumbs-up text-warning"
-                            style={{ padding: '10px', borderRadius: '50%' }}
-                        />{' '}
-                        {likes} Like
-                    </h3>
+                    <p onClick={this.likeToggle}>
+                       <MDBIcon icon="heart" className = "mr-2" />{" "}{likes} Likes
+                    </p>
                 )}
-
+                {post.price && (<h3>${post.price}.00</h3>)}
 
                     <p className="card-text">
                         {post.body}
                     </p>
                     <div className = "d-inline-block">
-                    {this.showStock(post.quantity)}
-                    {post.price && (<p>Price: ${post.price}</p>)}
                     {post.category && (<p>Category: {post.category}</p>)}
+                    {this.showStock(post.quantity)}
                     </div>
                     <br />
-                    <p className="font-italic">
+                    <p className="font-italic grey-text mt-3">
                         Posted by{" "}
                         <Link to={`${posterId}`}>
                             {posterName}{" "}
@@ -157,26 +157,33 @@ export class SinglePost extends Component {
                         on {new Date(post.created).toDateString()}
                     </p>
                     <div className = "d-inline-block">
-                    <Link
-                        to={`/marketplace`}
-                        className="btn btn-raised btn-primary btn-sm mr-5"
-                    >
-                        Back to Listings
-                    </Link>
-
-                    {isAuthenticated().user && isAuthenticated().user._id === id ? (
-                        <>
-                            <Link to={`/post/edit/${post._id}`} className="btn btn-raised btn-warning btn-sm mr-5">
-                                Update Listing
-                            </Link>
-                            <button onClick={this.deleteConfirmed} className="btn btn-raised btn-danger btn-sm">
-                                Delete Listing
-                            </button>
-                        </>
-                    ) : (<button onClick = {this.addToCart}className="btn btn-raised btn-secondary btn-sm mr-5">Add to Cart</button>)}
+                            {this.renderButtons(post)}
+                            </div>
+                        </div>
                     </div>
-                </div>
         );
+    }
+
+    renderButtons = (post) => {
+
+        const posterId = post.postedBy ? `/user/${post.postedBy._id}` : '';
+        const posterName = post.postedBy ? post.postedBy.name : ' Unknown';
+        const id = post && post.postedBy ? post.postedBy._id : null;
+        const {like, likes} = this.state;
+        return(
+            <>
+            {isAuthenticated().user && isAuthenticated().user._id === id ? (
+                <>
+                    <Link to={`/post/edit/${post._id}`} className="btn btn-raised primary-color-dark text-white btn-sm" style = {{borderRadius: "25px"}}>
+                    <MDBIcon far icon="edit" className = "mr-2" />Edit Listing
+                    </Link>
+                    <button onClick={this.deleteConfirmed} className="btn btn-raised danger-color-dark text-white btn-sm" style = {{borderRadius: "25px"}}>
+                    <MDBIcon far icon="trash-alt" className = "mr-2"/>Remove Listing
+                    </button>
+                </>
+            ) : (<button onClick = {this.addToCart}className="btn btn-raised blue-gradient text-white btn-sm" style = {{borderRadius: "25px"}}><MDBIcon icon="cart-plus" className = "mr-2"/>Add to Cart</button>)}
+         </>
+        )
     }
 
 
@@ -193,11 +200,27 @@ export class SinglePost extends Component {
         }
 
         return (
-            <div className = "container">
-                <h2 className = "display-2 mt-5 mb-5">{post.title}</h2>
-                {this.renderPost(post)}
+            <div className = "container-fluid">
 
+                <div className = "row">
+                    <div className = "col-lg-3 mt-3">
+                        <MarketplaceSide />
+                    </div>
+
+                    <div className = "col-lg-8 mt-4 p-1">
+                        <div className = "row">
+                            <div className = "productNameDiv">
+                            <h2 className = " mt-2 mb-3">{post.title}</h2>
+                            </div>
+                        </div>
+                    <hr />
+                        {this.renderPost(post)}
+                   <hr />
+                  <h5><MDBIcon far icon="comments" className = "mr-2"/>{comments.length} Comments</h5>   
                 <Comment postId={post._id} comments={comments.reverse()} updateComments={this.updateComments} />
+                <div class="elfsight-app-09b0a2a5-ea11-497b-a6d0-a91f7895d725"></div>
+                    </div>
+                </div>
             </div>
         )
     }

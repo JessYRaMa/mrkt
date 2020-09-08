@@ -62,6 +62,9 @@ export class AllCategory extends Component {
                 return (
                  <MDBCol md='4'>
                   <MDBCard narrow ecommerce className='mb-4' style = {{borderRadius: "25px;"}}>
+                  <Link
+                             to={`/post/${post._id}`}
+                                >
                     <MDBCardImage
                       cascade
                       top
@@ -70,7 +73,7 @@ export class AllCategory extends Component {
                       onError={i =>
                           (i.target.src = `${DefaultPost}`)}
                       style = {{height: "200px", objectFit: "cover"}}    
-                    />
+                    /></Link>
                     <MDBCardBody cascade>
                       {post.category ? (<p> {post.category}</p>) : (<p>No Category</p>)}
                       <MDBCardTitle>

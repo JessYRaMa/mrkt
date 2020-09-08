@@ -15,6 +15,7 @@ import EditPost from './post/EditPost';
 import Cart from './post/Cart';
 import Appy from './post/Chat';
 import Category from './post/Category';
+import Marketplace from './post/Marketplace'
 
 
 
@@ -33,6 +34,7 @@ const MainRouter = () => (
             <PrivateRoute exact path = "/user/:userId" component = {Profile}></PrivateRoute>
             <PrivateRoute exact path = "/user/edit/:userId" component = {EditProfile}></PrivateRoute>
             <PrivateRoute exact path = "/findpeople" component = {FindPeople}></PrivateRoute>
+            <PrivateRoute exact path = "/marketplace" component = {Marketplace}></PrivateRoute>
             <PrivateRoute exact path = "/cart" component = {Cart}></PrivateRoute>
             <PrivateRoute exact path = "/chat" component = {Appy}></PrivateRoute>
         </Switch>

@@ -4,6 +4,7 @@ import {singleCategory} from './apiPost'
 import DefaultPost from '../images/logoshirt.png'
 import { addItem } from './cartFunctions';
 import {isAuthenticated} from '../auth';
+import MarketplaceSide from '../core/MarketplaceSide'
 
 export class Category extends Component {
     state = {
@@ -114,9 +115,17 @@ export class Category extends Component {
         }
         
         return (
-            <div className = "container">
-               <h2>{this.props.match.params.categoryName}</h2> 
-               {posts.length === 0 ? (<h2>No listings found</h2>) : this.renderPosts(posts)}
+
+            <div className = "container-fluid">
+                <div className = "row mt-1">
+                    <div className = "col-lg-3 mt-3">
+                    <MarketplaceSide />
+                    </div>
+                    <div className = "col-lg-9 mt-4">
+                    <h2>{this.props.match.params.categoryName}</h2> 
+                    {posts.length === 0 ? (<h2>No listings found</h2>) : this.renderPosts(posts)}
+                    </div>
+                </div>
             </div>
         )
     }

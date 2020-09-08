@@ -22,6 +22,11 @@ h5{
     color: black; 
 }
 
+.sidebar>h3>.MuiSvgIcon-root{
+    font-size: xx-large;
+    color: #0d47a1; 
+}
+
 
 @media only screen and (max-width: 980px) {
     .sidebar {

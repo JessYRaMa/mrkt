@@ -45,7 +45,7 @@ export class Users extends Component {
                   <MDBAvatar className='mx-auto'>
                     <img
                       src={`${(process.env.NODE_ENV 
-                        === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${user._id }`} 
+                        === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${user._id }?${new Date().getTime()}`} 
                         alt = {user.name}
                         onError = {i => (i.target.src = `${DefaultProfile}`)}
                       className='rounded-circle img-fluid'

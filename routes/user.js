@@ -6,10 +6,10 @@ const router = express.Router();
 router.put('/user/follow', requireSignin, addFollowing, addFollower);
 router.put('/user/unfollow', requireSignin, removeFollowing, removeFollower);
 
-router.get("/users", allUsers);
-router.get("/user/:userId", requireSignin, getUser);
-router.put("/user/:userId", requireSignin, updateUser);
-router.delete("/user/:userId", requireSignin, deleteUser);
+router.get("/api/users", allUsers);
+router.get("/api/user/:userId", requireSignin, getUser);
+router.put("/api/user/:userId", requireSignin, updateUser);
+router.delete("/api/user/:userId", requireSignin, deleteUser);
 router.get("/user/photo/:userId", userPhoto);
 
 //follow suggestions

@@ -2,18 +2,8 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 import {
-    MDBRow,
-    MDBCol,
-    MDBCard,
-    MDBCardUp,
-    MDBAvatar,
-    MDBCardBody,
     MDBIcon,
-    MDBBtn,
     MDBTooltip,
-    MDBCardImage,
-    MDBCardText,
-    MDBCardTitle
   } from 'mdbreact';
 import './profileHeader.css'
 
@@ -127,7 +117,11 @@ export class ProfileTabs extends Component {
                     </div>
                 </div>
                        
-                    </div>
+                </div>
+
+                <div className = "addon">
+                    <p>Privacy | Terms | Advertsing | Ad Choices | Cookies | More | MRKT &#169; 2020</p>
+                </div>
                 </>
         )
     }

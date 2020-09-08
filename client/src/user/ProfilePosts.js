@@ -30,6 +30,14 @@ export class ProfilePosts extends Component {
       };
 
 
+      renderEmpty = () => {
+          return(
+        <div className = "emptycard">
+          <h5><MDBIcon far icon="sad-cry" className = "mr-2" />This user currently has nothing to sell. </h5>
+        </div>
+          )
+      }
+
     renderPosts = posts => {
 
         return (
@@ -135,9 +143,9 @@ export class ProfilePosts extends Component {
         const {posts} = this.props
 
         return (
-                <>
-                  {this.renderPosts(posts)}
-            </>
+               <>
+                {posts.length === 0 ? this.renderEmpty() : this.renderPosts(posts)}
+               </>
         )
     }
 }

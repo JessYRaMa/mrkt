@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import MarketplaceSide from '../core/MarketplaceSide'
-import Category from './Category'
-import Posts from './Posts'
+import AllCategory from './AllCategory'
 
 export class Marketplace extends Component {
     render() {
@@ -12,8 +11,10 @@ export class Marketplace extends Component {
                     <div className = "col-lg-3 mt-3">
                     <MarketplaceSide />
                     </div>
-                    <div className = "col-lg-6 offset-1">
-                    <Posts />
+                    <div className = "col-lg-8 mt-4 p-1">
+                    <h2 className = " mt-2 mb-3">All Listings</h2> 
+                    <hr />
+                    <AllCategory />
                     </div>
                 </div>
             </div>

@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom'
-import {singleCategory} from './apiPost'
-import DefaultPost from '../images/logoshirt.png'
-import { addItem } from './cartFunctions';
-import {isAuthenticated} from '../auth';
-import MarketplaceSide from '../core/MarketplaceSide'
+import {list, like, unlike} from './apiPost'
 import {
     MDBRow,
     MDBCol,
@@ -16,25 +12,26 @@ import {
     MDBCardFooter,
     MDBTooltip
   } from 'mdbreact';
-import './category.css';  
+import DefaultPost from '../images/logoshirt.png'
+import { addItem } from './cartFunctions';
+import {isAuthenticated} from '../auth';
+import './category.css';
 
-export class Category extends Component {
+export class AllCategory extends Component {
     state = {
         posts:[],
         redirectToCart: false
     }
 
     componentDidMount = () => {
-        const categoryName = this.props.match.params.categoryName;
-        singleCategory(categoryName).then(data => {
+        list().then(data => {
             if(data.error){
                 console.log(data.error)
             } else{
-                this.setState({posts:data})
+                this.setState({posts: data})
             }
         })
     }
-
 
     showStock = quantity => {
         return quantity > 0 ? (
@@ -45,7 +42,6 @@ export class Category extends Component {
       };
 
     renderPosts = posts => {
-        
         return (
 
             <MDBRow>
@@ -138,91 +134,11 @@ export class Category extends Component {
         }
         
         return (
-
-            <div className = "container-fluid">
-                <div className = "row mt-1">
-                    <div className = "col-lg-3 mt-3">
-                    <MarketplaceSide />
-                    </div>
-                    <div className = "col-lg-8 mt-4 p-1">
-                    <h2 className = " mt-2 mb-3">{this.props.match.params.categoryName}</h2> 
-                    <hr />
-                    {posts.length === 0 ? (<h4 className = "grey-text">No listings found</h4>) : this.renderPosts(posts)}
-                    </div>
-                </div>
-            </div>
+            <>
+               {this.renderPosts(posts)}
+            </>
         )
     }
 }
-export default Category
 
-{/* <div className="row">
-
-{posts.map((post, i) => {
-
-     const addToCart = () => {
-        addItem(post,this.setState({ redirectToCart: true }))
-    }
-    const posterId = post.postedBy
-        ? `/user/${post.postedBy._id}`
-        : "";
-    const posterName = post.postedBy
-        ? post.postedBy.name
-        : " Unknown";
-    const photoUrl = post._id ? `${(process.env.NODE_ENV 
-=== 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}` : DefaultPost;
-
-    return (
-        
-        <div className="card col-md-4" key={i}>
-            <div className="card-body">
-                <img
-                    src={photoUrl}
-                    alt={post.title}
-                    onError={i =>
-                        (i.target.src = `${DefaultPost}`)
-                    }
-                    className="img-thunbnail mb-3"
-                    style={{ height: "185px", width: "100%" }}
-                />
-                <h5 className="card-title">{post.title}</h5>
-                <p className="card-text">
-                    {post.body.substring(0, 100)}...
-                </p>
-                <div className = "d-inline-block">
-                {this.showStock(post.quantity)}
-                {post.price ? (<p>Price: ${post.price}</p>): (<p>Price: Contact Lister</p>)}
-                {post.category ? (<p>Category: {post.category}</p>) : (<p>Category: None</p>)}
-                </div>
-                <br />
-                <p className="font-italic">
-                    Posted by{" "}
-                    <Link to={`${posterId}`}>
-                        {posterName}{" "}
-                    </Link>
-                    on {new Date(post.created).toDateString()}
-                </p>
-                <div className = "d-inline-block">
-                {isAuthenticated().user && isAuthenticated().user._id === post.postedBy._id ? (<Link
-                    to={`/post/${post._id}`}
-                    className="btn btn-raised btn-primary btn-sm mr-2"
-                >
-                    View My Listing
-                </Link>) : (
-                    <>
-                <Link
-                    to={`/post/${post._id}`}
-                    className="btn btn-raised btn-primary btn-sm mr-2"
-                >
-                    View Listing
-                </Link>
-                 <button onClick = {addToCart} className="btn btn-raised btn-secondary btn-sm mr-5">Add to Cart</button>
-                 </>
-                )
-               }
-                </div>
-            </div>
-        </div>
-    );
-})}
-</div> */}
+export default AllCategory

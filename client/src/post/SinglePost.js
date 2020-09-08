@@ -158,7 +158,7 @@ export class SinglePost extends Component {
                     </p>
                     <div className = "d-inline-block">
                     <Link
-                        to={`/`}
+                        to={`/marketplace`}
                         className="btn btn-raised btn-primary btn-sm mr-5"
                     >
                         Back to Listings

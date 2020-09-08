@@ -1,115 +1,134 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
-import DefaultPost from '../images/logoshirt.png'
+import {
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardUp,
+    MDBAvatar,
+    MDBCardBody,
+    MDBIcon,
+    MDBBtn,
+    MDBTooltip,
+    MDBCardImage,
+    MDBCardText,
+    MDBCardTitle
+  } from 'mdbreact';
+import './profileHeader.css'
 
 export class ProfileTabs extends Component {
     render() {
 
-        const {following, followers, posts} = this.props
+        const {following, followers} = this.props
 
         return (
-            <div>
-                 <div className="row">
-                    <div className="col-md-4">
-                        <h3 className="text-primary">
-                            {followers.length} Followers
-                        </h3>
-                        <hr />
-                        {followers.map((person, i) => (
-                            <div key={i}>
-                                <div>
-                                    <Link to={`/user/${person._id}`}>
-                                        <img
-                                            style={{
-                                                borderRadius: "50%",
-                                                border: "1px solid none"
-                                            }}
-                                            className="float-left mr-2"
-                                            height="30px"
-                                            width="30px"
-                                            onError={i =>
-                                                (i.target.src = `${DefaultProfile}`)
-                                            }
-                                            src={`${ (process.env.NODE_ENV 
-                                                === 'production') ? '' :
-                                                process.env.REACT_APP_API_URL
-                                            }/user/photo/${person._id}`}
-                                            alt={person.name}
-                                        />
-                                        <div>
-                                            <p className="lead">
-                                                {person.name}
-                                            </p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-            <div className="col-md-4">
-                        <h3 className="text-primary">
-                            {following.length} Following
-                        </h3>
-                        <hr />
-                        {following.map((person, i) => (
-                            <div key={i}>
-                                <div>
-                                    <Link to={`/user/${person._id}`}>
-                                        <img
-                                            style={{
-                                                borderRadius: "50%",
-                                                border: "1px solid none"
-                                            }}
-                                            className="float-left mr-2"
-                                            height="30px"
-                                            width="30px"
-                                            onError={i =>
-                                                (i.target.src = `${DefaultProfile}`)
-                                            }
-                                            src={`${(process.env.NODE_ENV 
-                                                === 'production') ? '' : 
-                                                process.env.REACT_APP_API_URL
-                                            }/user/photo/${person._id}`}
-                                            alt={person.name}
-                                        />
-                                        <div>
-                                            <p className="lead">
-                                                {person.name}
-                                            </p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="col-md-4">
-                    <h3 className="text-primary">{posts.length} Posts</h3>
-                        <hr />
-                        {posts.map((post, i) => (
-                            <div key={i}>
-                                <div>
-                                <img 
-                        src={`${(process.env.NODE_ENV 
-                            === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}`}
-                        alt={post.title}
-                        onError={i =>
-                            (i.target.src = `${DefaultPost}`)
-                        }
-                        className="img-thunbnail mb-3"
-                        style = {{width: "200px", objectFit: "cover", borderRadius: "10%"}}
-                    />
-                                    <Link to={`/post/${post._id}`}>
-                                        <div>
-                                            <p className="lead">{post.title}</p>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+            <>
+            <div className = "followers__card">
+                <div className = "card__top">
+                <div className = "card__header">
+                <h5><MDBIcon icon="user-friends" className = "mr-2" />Followers</h5>
+                </div>
+                <div className = "card__count">
+                <p>{followers.length} Followers</p>
+                </div>
+                </div>
+                <br/>
+                <div className = "card__bottom">
+                <div className = "row pictures">
+                {followers.map((person, i) => (
+                                    <MDBTooltip
+                                    domElement
+                                   tag="span"
+                                    material
+                                   placement="top"
+                                   style = {{marginTop: "-50px"}}
+                                   >
+                                   <span>
+                                   <Link to={`/user/${person._id}`}>
+                                                <img
+                                                    style={{
+                                                        borderRadius: "50%",
+                                                        border: "1px solid none",
+                                                        objectFit: "cover"
+                                                    }}
+                                                    className="mr-2 mb-2"
+                                                    height="50px"
+                                                    width="50px"
+                                                    onError={i =>
+                                                        (i.target.src = `${DefaultProfile}`)
+                                                    }
+                                                    src={`${(process.env.NODE_ENV 
+                                                        === 'production') ? '' : 
+                                                        process.env.REACT_APP_API_URL
+                                                    }/user/photo/${person._id}`}
+                                                    alt={person.name}
+                                                />
+                                                <div>
+                                                </div>
+                                            </Link>
+                                   </span>
+                                   <span style = {{marginTop: "-50px"}}>{person.name}</span>
+                                   </MDBTooltip>
+                                  ))}   
+                </div>
+                </div>
             </div>
-        </div>
+                    
+                <div className = "following__card">
+                <div className = "card__top">
+                <div className = "card__header">
+                <h5><MDBIcon icon="users"className = "mr-2" />Following</h5>
+                </div>
+                <div className = "card__count">
+                <p>{following.length} Following</p>
+                </div>
+                </div>
+                <br/>
+                <div className = "card__bottom">
+                <div className = "row pictures">
+                    {following.map((person, i) => (
+                         <MDBTooltip
+                         domElement
+                        tag="span"
+                         material
+                        placement="top"
+                        style = {{marginTop: "-50px"}}
+                        >
+                        <span>
+                        <Link to={`/user/${person._id}`}>
+                                     <img
+                                         style={{
+                                             borderRadius: "50%",
+                                             border: "1px solid none",
+                                             objectFit: "cover"
+                                         }}
+                                         className="mr-2 mb-2"
+                                         height="50px"
+                                         width="50px"
+                                         onError={i =>
+                                             (i.target.src = `${DefaultProfile}`)
+                                         }
+                                         src={`${(process.env.NODE_ENV 
+                                             === 'production') ? '' : 
+                                             process.env.REACT_APP_API_URL
+                                         }/user/photo/${person._id}`}
+                                         alt={person.name}
+                                     />
+                                     <div>
+                                     </div>
+                                 </Link>
+                        </span>
+                        <span style = {{marginTop: "-50px"}}>{person.name}</span>
+                        </MDBTooltip>
+                                   
+                                  ))}   
+
+                    </div>
+                </div>
+                       
+                    </div>
+                </>
         )
     }
 }

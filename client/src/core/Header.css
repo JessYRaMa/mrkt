@@ -133,3 +133,7 @@ button.navbar-toggler{
     margin-right: 0;
     justify-content: space-evenly;
 }
+
+button.dropdown-item:hover{
+    color:white;
+}

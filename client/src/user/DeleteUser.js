@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
 import {isAuthenticated, signout} from '../auth'
 import {remove} from './apiUser'
+import {MDBBtn, MDBIcon, MDBTooltip} from 'mdbreact'
 
 export class DeleteUser extends Component {
 
@@ -40,7 +41,16 @@ export class DeleteUser extends Component {
             return <Redirect to = "/signin"/>
         }
         return (
-               <button className = "btn btn-raised btn-danger" onClick = {this.deleteConfirmed}>Delete Profile</button> 
+            <MDBTooltip
+                     domElement
+                    tag="span"
+                     material
+                    placement="top"
+                    style = {{marginTop: "100px",marginRight: "400px"}}
+                    >
+            <span><MDBBtn floating size="lg" gradient="blue" onClick = {this.deleteConfirmed}><MDBIcon icon="user-times" /></MDBBtn></span>
+            <span style = {{marginTop: "100px",marginRight: "400px"}}>Delete Profile</span>
+            </MDBTooltip>
         )
     }
 }

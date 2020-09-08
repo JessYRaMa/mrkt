@@ -71,6 +71,8 @@ exports.postByUser = (req,res) => {
     console.log(req.body);
     Post.find({postedBy: req.profile._id})
     .populate("postedBy", "_id name")
+    .populate('comments', 'text created')
+    .populate('comments.postedBy', '_id name')
     .select("_id title body price quantity category created likes")
     .sort("_created")
     .exec((err, posts) => {

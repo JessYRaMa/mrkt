@@ -11,6 +11,7 @@ import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import FitnessCenterOutlinedIcon from '@material-ui/icons/FitnessCenterOutlined';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
+import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 
 function Sidebar() {
     return (
@@ -18,6 +19,7 @@ function Sidebar() {
             <div className = "profile d-flex justify-content-center mb-2">
             <img src = {`${(process.env.NODE_ENV 
     === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${isAuthenticated().user._id}?${new Date().getTime()}`} 
+                onError = {i => (i.target.src = `${DefaultProfile}`)}
                 style = {{height: "150px", width: "150px", padding: '5px', objectFit: "cover", borderRadius: "50%"}}
             />
             </div>

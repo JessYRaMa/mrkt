@@ -1,0 +1,117 @@
+.user__details>h4{
+    margin-left: -220px;
+    margin-top: -165px;
+    color: white;
+    font-size: 2rem;
+}
+
+div.mdb-rating.d-flex.justify-content-start.align-items-center{
+    margin-left: 355px;
+    margin-top: -12px;
+}
+
+.user__details>p{
+    margin-top: 4px;
+    margin-left: -230px;
+}
+
+div.buttonContainer{
+    margin-left: 850px;
+    margin-top: -160px;
+}
+
+div.followers__card{
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 25px;
+    -webkit-box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    -moz-box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    width: 100%;
+    height: 300px;
+    overflow: scroll;
+}
+
+div.following__card{
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 25px;
+    -webkit-box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    -moz-box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    width: 100%;
+    height: 300px;
+    overflow: scroll;
+}
+
+div.about__card{
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 25px;
+    -webkit-box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    -moz-box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    width: 100%;
+    height: 200px;
+    overflow: scroll;
+}
+
+div.card__header>h5{
+    float: left;
+}
+
+
+div.card__count>p{
+    float: right;
+    color: gray;
+}
+
+
+div.card__top{
+    width: 100%;
+    padding: 20px;
+}
+
+div.card__bottom{
+    padding: 20px;
+    margin-top: -50px;
+}
+
+div.row.pictures{
+    padding: 20px;
+    margin-top: -20px;
+}
+
+div.about{
+    color: gray;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+div.statistics{
+    display: flex;
+    float: right;
+    padding: 8px;
+    margin-bottom: -27px;
+    margin-right: 20px;
+    margin-top: -15px;
+}
+
+div.number__followers{
+    padding: 5px;
+}
+
+div.number__following{
+    padding: 5px;
+}
+
+div.number__listings{
+    padding: 5px;
+    margin-left: 5px;
+}

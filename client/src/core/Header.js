@@ -130,7 +130,9 @@ class Header extends Component {
                 <div className = "header__right">
                     <div className = "header__info">
                         <Avatar src = {`${(process.env.NODE_ENV 
-    === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${isAuthenticated().user._id}?${new Date().getTime()}`} />
+    === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${isAuthenticated().user._id}?${new Date().getTime()}`}
+    
+    />
                    <Link to = {`/user/${isAuthenticated().user._id}`} className = "namelink"> <p><b>{`${isAuthenticated().user.name}`}</b></p></Link>
                     </div>
                     <div className = "header__info ml-2">

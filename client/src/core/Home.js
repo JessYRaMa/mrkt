@@ -6,6 +6,7 @@ import Sidebar from './Sidebar';
 import Widgets from './Widgets';
 import MessageSender from './MessageSender';
 // import LoadingImg from '../images/cart.svg'
+// import FindPeople from '../user/FindPeople'
 
 export class Home extends Component {
 

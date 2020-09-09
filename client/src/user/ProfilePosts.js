@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom'
-import {list, like, unlike} from '../post/apiPost'
+import {listByUser} from '../post/apiPost'
+import {read} from './apiUser'
 import {
     MDBRow,
     MDBCol,
@@ -21,6 +22,12 @@ import '../post/posts.css'
 
 export class ProfilePosts extends Component {
 
+    state = {
+        posts:this.props.posts,
+        comments: [],
+        redirectToCart: false
+    }
+
     showStock = quantity => {
         return quantity > 0 ? (
           <span className="badge badge-primary badge-pill">In Stock </span>
@@ -38,7 +45,7 @@ export class ProfilePosts extends Component {
           )
       }
 
-    renderPosts = posts => {
+    renderPosts = (posts,updateComments, comments, getNewLikes, likesCount) => {
 
         return (
             <>
@@ -111,7 +118,7 @@ export class ProfilePosts extends Component {
                                         <div className = "topDiv d-flex justify-content-center">
                                             <h5 className = "mr-2">{post.likes.length} {" "} likes</h5>
                                             <h5 className = "ml-4 mr-4">|</h5>
-                                        <Likes className = "mr-2" id = "likes" likes = {post.likes} postId = {post._id} /> 
+                                        <Likes className = "mr-2" id = "likes" likes = {post.likes} likesCount = {post.likesCount} postId = {post._id} getNewLikes = {getNewLikes} /> 
                                         <h5 className = "ml-4 mr-4">|</h5>
                                             <h5 className = " ml-1" id = "comments">{post.comments.length}{""} Comments</h5>
                                         </div>
@@ -128,7 +135,7 @@ export class ProfilePosts extends Component {
                                             </div>
                                         </div>
                                     <hr />
-                                    <Comment className = "mt-2" postId={post._id} comments = {post.comments} updateComments = {this.updateComments}/>
+                                    <Comment className = "mt-2" postId={post._id} comments = {post.comments} updateComments = {updateComments}/>
                                 </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>
@@ -140,11 +147,11 @@ export class ProfilePosts extends Component {
     };
 
     render() {
-        const {posts} = this.props
+        const {posts, updateComments, comments, getNewLikes, likesCount} = this.props
 
         return (
                <>
-                {posts.length === 0 ? this.renderEmpty() : this.renderPosts(posts)}
+                {posts.length === 0 ? this.renderEmpty() : this.renderPosts(posts,updateComments, comments, getNewLikes, likesCount)}
                </>
         )
     }

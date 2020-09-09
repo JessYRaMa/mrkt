@@ -31,9 +31,7 @@ export class Profile extends Component {
         redirectToSignin:false,
         following: false,
         error: '',
-        posts: [],
-        comments: [],
-        likes: 0
+        posts: []
     }
 
     //check for follow
@@ -60,6 +58,7 @@ export class Profile extends Component {
         });
       };
 
+
       init = userId => {
         const token = isAuthenticated().token;
         read(userId, token).then(data => {
@@ -67,7 +66,7 @@ export class Profile extends Component {
             this.setState({ redirectToSignin: true });
           } else {
             let following = this.checkFollow(data);
-            this.setState({ user: data, following, comments: data.comments });
+            this.setState({ user: data, following});
             this.loadPosts(data._id)
           }
         });
@@ -79,11 +78,44 @@ export class Profile extends Component {
           if(data.error){
             console.log(data.error)
           } else{
-            this.setState({posts: data})
+            let postsArray = data.map(post => {
+              return {likesCount: post.likes.length, comments: post.comments, ...post}
+          })
+          this.setState({posts: postsArray})
           }
         })
 
       }
+
+      updateComments = () => {
+        const userId = this.state.user._id
+        const token = isAuthenticated().token;
+        listByUser(userId, token).then(data => {
+        if(data.error){
+            console.log(data.error)
+        } else{
+            let postsArray = data.map(post => {
+                return {comments: post.comments, ...post}
+            })
+            this.setState({posts: postsArray})
+        }
+    })
+    }
+
+    getNewLikes = () => {
+      const userId = this.state.user._id
+      const token = isAuthenticated().token;
+      listByUser(userId, token).then(data => {
+            if(data.error){
+                console.log(data.error)
+            } else{
+                let postsArray = data.map(post => {
+                    return {likesCount: post.likes.length, ...post}
+                })
+                this.setState({posts: postsArray})
+            }
+        })
+    }
 
     componentDidMount(){
         // console.log("user id", this.props.match.params.userId)
@@ -226,7 +258,7 @@ export class Profile extends Component {
                   </div>
                     <div className = "col-lg-8 mt-2" style = {{height: "1000px", overflow: "scroll"}}>
                       <MessageSender />
-                      <ProfilePosts posts = {posts} />
+                      <ProfilePosts posts = {posts} userId = {user._id} likes = {posts.likesCount}  getNewLikes = {this.getNewLikes} updateComments = {this.updateComments} />
                       <div class="elfsight-app-09b0a2a5-ea11-497b-a6d0-a91f7895d725"></div>
                     </div>
                 </div>

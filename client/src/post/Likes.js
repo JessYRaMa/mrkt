@@ -9,7 +9,7 @@ class Likes extends Component{
         super(props)
         this.state = {
             liked: false,
-            likes:  props.likes.length,
+            likes:  props.likesCount,
             updated: false
         }
     }
@@ -55,10 +55,12 @@ class Likes extends Component{
                 this.setState((props) =>{
                     return{
                         liked: !this.state.liked,
-                        likes: this.state.likes,
+                        likes: this.props.likesCount,
                         updated: !this.state.updated
                     }
                 })
+
+                this.props.getNewLikes()
             }
         })
     }

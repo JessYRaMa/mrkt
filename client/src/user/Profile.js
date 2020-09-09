@@ -31,7 +31,9 @@ export class Profile extends Component {
         redirectToSignin:false,
         following: false,
         error: '',
-        posts: []
+        posts: [],
+        comments: [],
+        likes: 0
     }
 
     //check for follow
@@ -65,7 +67,7 @@ export class Profile extends Component {
             this.setState({ redirectToSignin: true });
           } else {
             let following = this.checkFollow(data);
-            this.setState({ user: data, following });
+            this.setState({ user: data, following, comments: data.comments });
             this.loadPosts(data._id)
           }
         });
@@ -94,6 +96,7 @@ export class Profile extends Component {
         const userId = props.match.params.userId;
         this.init(userId);
     }
+    
 
     renderHeader = (user) => {
 

@@ -31,20 +31,40 @@ export class Posts extends Component {
             if(data.error){
                 console.log(data.error)
             } else{
-                this.setState({posts: data})
+                let postsArray = data.map(post => {
+                    return {liked: false, likesCount: post.likes.length, ...post}
+                })
+                this.setState({posts: postsArray})
             }
         })
     }
 
    updateComments = (comments) => {
         list().then(data => {
+        if(data.error){
+            console.log(data.error)
+        } else{
+            let postsArray = data.map(post => {
+                return {liked: false, likesCount: post.likes.length, ...post}
+            })
+            this.setState({posts: postsArray})
+        }
+    })
+    }
+
+    getNewLikes = () => {
+        list().then(data => {
             if(data.error){
                 console.log(data.error)
             } else{
-                this.setState({posts: data})
+                let postsArray = data.map(post => {
+                    return {liked: false, likesCount: post.likes.length, ...post}
+                })
+                this.setState({posts: postsArray})
             }
         })
     }
+
 
     showStock = quantity => {
         return quantity > 0 ? (
@@ -127,11 +147,11 @@ export class Posts extends Component {
                                 <MDBCardBody>
                                     <div className = 'social-meta'>
                                         <div className = "topDiv d-flex justify-content-center">
-                                            <h5 className = "mr-2">{post.likes.length} {" "} likes</h5>
+                                            <h5 className = "mr-2">{post.likesCount} {" "} likes</h5>
                                             <h5 className = "ml-4 mr-4">|</h5>
-                                        <Likes className = "mr-2" id = "likes" likes = {post.likes} postId = {post._id} /> 
+                                        <Likes className = "mr-2" id = "likes" getNewLikes = {this.getNewLikes}likes = {post.likes} likesCount = {post.likesCount} postId = {post._id} /> 
                                         <h5 className = "ml-4 mr-4">|</h5>
-                                            <h5 className = " ml-1" id = "comments">{post.comments.length}{""} Comments</h5>
+                                        <h5 className = " ml-1" id = "comments">{post.comments.length}{""} Comments</h5>
                                         </div>
                                         <hr/>
                                         <div className = "row mt-4" style = {{marginBottom: "-5px"}}>

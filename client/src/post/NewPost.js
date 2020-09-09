@@ -79,7 +79,7 @@ class NewPost extends Component {
     newPostForm = (title, body, price, category, quantity) => (
         <form>
             <div className = "row">
-                <div className = "col-lg-2 d-flex justify-content-center">
+                <div className = "col-lg-5 d-flex justify-content-center">
                 <div className="form-group">
                 <label className="text-muted">Product Photo</label>
                 <input
@@ -91,7 +91,7 @@ class NewPost extends Component {
                 />
             </div>
              </div>
-             <div className = "col-lg-10">
+             <div className = "col-lg-7">
              <div className="form-group">
                 <label className="text-muted">Product Name</label>
                 <input

@@ -41,7 +41,7 @@ class Header extends Component {
                 <>
             <MDBNavbar dark expand="md">
                 <div className = "header__left">
-                    <img src = {DefaultProfile} style = {{height: "60px"}} alt = "logo" />
+                   <Link to = "/"><img src = {DefaultProfile} style = {{height: "60px"}} alt = "logo" /></Link>
                 </div>
         <MDBNavbarToggler image="https://mdbootstrap.com/img/svg/hamburger3.svg?color=00000" onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
@@ -143,7 +143,7 @@ class Header extends Component {
                     placement="bottom"
                     >
                     <Link to ={`/post/create`}><AddCircleOutlineIcon /></Link>
-                    <span>Add New</span>
+                    <span>Add New Listing</span>
                     </MDBTooltip>
                     </div>
                     <div className = "header__info">

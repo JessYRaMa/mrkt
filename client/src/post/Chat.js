@@ -63,6 +63,7 @@ const sort = { last_message_at: -1 };
     state: true,
   });
 
+  console.log(chatClient);
   return(
   <Chat client={chatClient} theme={'messaging light'}>
     <ChannelList

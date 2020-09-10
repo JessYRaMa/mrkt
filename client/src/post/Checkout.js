@@ -1,8 +1,8 @@
 import React , {useState, useEffect} from 'react';
-import {Link, useRouteMatch} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {isAuthenticated} from '../auth'
 import {getBraintreeClientToken, processPayment} from './apiPost'
-import {emptyCart, itemTotal, getCart} from './cartFunctions'
+import {emptyCart, itemTotal} from './cartFunctions'
 import DropIn from 'braintree-web-drop-in-react'
 
 const Checkout = ({items, setRun = f => f, run = undefined}) => {

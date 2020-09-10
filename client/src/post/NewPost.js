@@ -181,7 +181,6 @@ class NewPost extends Component {
             price,
             category,
             quantity,
-            user,
             error,
             loading,
             redirectToProfile

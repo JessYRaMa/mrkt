@@ -106,7 +106,7 @@ export class SinglePost extends Component {
 
         const posterId = post.postedBy ? `/user/${post.postedBy._id}` : '';
         const posterName = post.postedBy ? post.postedBy.name : ' Unknown';
-        const id = post && post.postedBy ? post.postedBy._id : null;
+        // const id = post && post.postedBy ? post.postedBy._id : null;
         const {like, likes} = this.state
 
         return (
@@ -166,10 +166,10 @@ export class SinglePost extends Component {
 
     renderButtons = (post) => {
 
-        const posterId = post.postedBy ? `/user/${post.postedBy._id}` : '';
-        const posterName = post.postedBy ? post.postedBy.name : ' Unknown';
+        // const posterId = post.postedBy ? `/user/${post.postedBy._id}` : '';
+        // const posterName = post.postedBy ? post.postedBy.name : ' Unknown';
         const id = post && post.postedBy ? post.postedBy._id : null;
-        const {like, likes} = this.state;
+        // const {like, likes} = this.state;
         return(
             <>
             {isAuthenticated().user && isAuthenticated().user._id === id ? (

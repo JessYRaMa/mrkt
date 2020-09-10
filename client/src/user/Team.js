@@ -1,13 +1,11 @@
 import React from 'react'
 import {
-    MDBContainer,
     MDBRow,
     MDBCol,
     MDBCard,
     MDBCardBody,
     MDBAvatar,
-    MDBIcon,
-    MDBBtn
+    MDBIcon
   } from 'mdbreact';
 
 export default function Team() {

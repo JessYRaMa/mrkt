@@ -9,7 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home';
 import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
 import SupervisedUserCircleOutlinedIcon from '@material-ui/icons/SupervisedUserCircleOutlined';
-import {Avatar, IconButton} from "@material-ui/core";
+import {Avatar} from "@material-ui/core";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';

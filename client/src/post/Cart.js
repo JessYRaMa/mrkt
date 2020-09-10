@@ -59,7 +59,7 @@ const Cart = () => {
                     <p className = "sellerInfo">Seller:  <Link to={`/user/${post.postedBy._id}`}>
                     {post.postedBy.name}{" "}
                         </Link></p>
-                    <a className = "removeLink" onClick = {() => {
+                    <a href="#!" className = "removeLink" onClick = {() => {
                          removeItem(post._id); setRun(!run);
                      }}><u>Remove Item</u></a>
                      </div>         

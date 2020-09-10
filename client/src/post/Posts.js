@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom'
-import {list, like, unlike} from './apiPost'
+import {list} from './apiPost'
 import {
     MDBRow,
     MDBCol,
     MDBCard,
     MDBCardBody,
     MDBIcon,
-    MDBTooltip,
-    MDBInput,
     MDBCardImage
   } from 'mdbreact';
 import DefaultPost from '../images/logoshirt.png'

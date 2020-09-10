@@ -4,20 +4,15 @@ import {findPeople, follow} from './apiUser'
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 import {isAuthenticated} from '../auth'
 import {
-    MDBContainer,
     MDBRow,
     MDBCol,
-    MDBCard,
-    MDBCardUp,
     MDBAvatar,
-    MDBCardBody,
     MDBIcon,
     MDBCarousel,
     MDBCarouselInner,
     MDBCarouselItem,
     MDBTestimonial
   } from 'mdbreact';
-  import Ratings from './Ratings'
 
 
 export class FindPeople extends Component {

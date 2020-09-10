@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody} from 'mdbreact';
 import NewPost from './NewPost'
 import {isAuthenticated} from '../auth';
 import '../core/MessageSender.css'

@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
 import {
-    MDBContainer,
     MDBRow,
     MDBCol,
     MDBCard,
     MDBCardUp,
     MDBAvatar,
-    MDBCardBody,
-    MDBIcon,
-    MDBCarousel,
-    MDBCarouselInner,
-    MDBCarouselItem,
-    MDBTestimonial
+    MDBCardBody
   } from 'mdbreact';
 import {Link} from 'react-router-dom'
 import {list} from './apiUser'

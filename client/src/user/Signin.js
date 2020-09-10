@@ -135,7 +135,7 @@ export class Signin extends Component {
       };
 
     render() {
-        const {email, password, error, redirectToReferer, loading} = this.state
+        const {email, password, redirectToReferer, loading} = this.state
 
         if(redirectToReferer){
             return <Redirect to= "/" />

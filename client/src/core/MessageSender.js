@@ -10,9 +10,6 @@ import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 
 function MessageSender() {
 
-   const handleSumbit = e => {
-        e.preventDefault();
-    }
     return (
         <div className = "messageSender">
             <div className = "messageSender__top">

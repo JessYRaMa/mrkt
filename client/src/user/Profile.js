@@ -11,9 +11,7 @@ import {
   MDBCardBody,
   MDBIcon,
   MDBBtn,
-  MDBTooltip,
-  MDBCardImage,
-  MDBCardText
+  MDBTooltip
 } from 'mdbreact';
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
 import DeleteUser from './DeleteUser'
@@ -25,6 +23,7 @@ import Rating from './Ratings';
 import ProfilePosts from './ProfilePosts'
 import MessageSender from '../core/MessageSender'
 import EditProfile from './EditProfile'
+import { addItem } from '../post/cartFunctions';
 
 export class Profile extends Component {
     state = {
@@ -32,6 +31,7 @@ export class Profile extends Component {
         redirectToSignin:false,
         renderEdit: false,
         following: false,
+        redirectToCart:false,
         error: '',
         posts: []
     }
@@ -188,7 +188,7 @@ export class Profile extends Component {
                     style = {{marginTop: "-50px"}}
                     >
                      <span>
-                     <Link to ={`/chat`} onClick = {localStorage.setItem('chatID', this.props.match.params.userId), localStorage.setItem('chatName', this.state.user.name), localStorage.setItem('chatPhoto', photoUrl)}>
+                     <Link to ={`/chat`} onClick = {localStorage.setItem('chatID', this.props.match.params.userId), localStorage.setItem('chatName', this.state.user.name)}>
                      <MDBBtn floating size="lg" className = "mr-4" gradient="blue"><MDBIcon fab icon="facebook-messenger" /></MDBBtn>
                       </Link>
                      </span>
@@ -242,13 +242,20 @@ export class Profile extends Component {
       )
     }
 
+  //   addToCart = (post) => {
+  //     addItem(post,this.setState({ redirectToCart: true }))
+  // }
+
     render() {
 
-        const {redirectToSignin, user, posts, renderEdit} = this.state
+        const {redirectToSignin, user, posts, renderEdit, redirectToCart} = this.state
         if(redirectToSignin) return <Redirect to= "/signin"/>
+        if(redirectToCart){
+          return(<Redirect to = "/cart" />)
+      }
 
-        const photoUrl = user._id ? `${(process.env.NODE_ENV 
-=== 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${user._id }?${new Date().getTime()}` : DefaultProfile;
+//         const photoUrl = user._id ? `${(process.env.NODE_ENV 
+// === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${user._id }?${new Date().getTime()}` : DefaultProfile;
 
         return (
             <div className = "container">

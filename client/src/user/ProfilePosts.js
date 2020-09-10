@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 import {Link, Redirect} from 'react-router-dom'
-import {listByUser} from '../post/apiPost'
-import {read} from './apiUser'
 import {
     MDBRow,
     MDBCol,
     MDBCard,
     MDBCardBody,
     MDBIcon,
-    MDBTooltip,
-    MDBInput,
     MDBCardImage
   } from 'mdbreact';
 import DefaultPost from '../images/logoshirt.png'
@@ -81,7 +77,7 @@ export class ProfilePosts extends Component {
                                             </>
                                             ) : (
                                                 <>
-                                                <p className = "addCart" onClick = {addToCart}><MDBIcon icon="cart-plus" className = "amber-text mt-2 mb-0" id = "cartIcon"style = {{marginTop: "2px",fontSize: "1rem"}} /> Add to Cart</p>
+                                                {/* <p className = "addCart" onClick = {addToCart}><MDBIcon icon="cart-plus" className = "amber-text mt-2 mb-0" id = "cartIcon"style = {{marginTop: "2px",fontSize: "1rem"}} /> Add to Cart</p> */}
                                             </>
                                             )
                                         }
@@ -147,7 +143,11 @@ export class ProfilePosts extends Component {
     };
 
     render() {
-        const {posts, updateComments, comments, getNewLikes, likesCount} = this.props
+        const {posts, updateComments, comments, getNewLikes, likesCount, redirectToCart} = this.props
+
+        if(redirectToCart){
+            return(<Redirect to = "/cart" />)
+        }
 
         return (
                <>

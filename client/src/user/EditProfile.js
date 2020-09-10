@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
 import {isAuthenticated} from '../auth'
+import {
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardUp,
+    MDBAvatar,
+    MDBCardBody
+  } from 'mdbreact';
 import {read, update, updateUser} from './apiUser'
 import DefaultProfile from '../images/circlewhitebgMRKT.4.png'
+import './editprofile.css'
 
 export class EditProfile extends Component {
 
@@ -89,30 +98,78 @@ export class EditProfile extends Component {
     signupForm = (name, email, password, about) => {
         return(
             <form>
-                <div className="form-group">
+                <div className = "row">
+                    <div className = "col-lg-5">
+                    <div className="form-group">
                     <label className="text-muted">Profile Photo</label>
-                    <input onChange={this.handleChange("photo")} type="file" accept="image/*" className="form-control" />
-                </div>
-                <div className="form-group">
+                    <input onChange={this.handleChange("photo")} type="file" accept="image/*" id = "fileInput" className="form-control" />
+                    </div>
+                    </div>
+                    <div className = "col-lg-7">
+                    <div className="form-group">
                     <label className="text-muted">Name</label>
                     <input onChange={this.handleChange('name')} type="text" value={this.state.name} className="form-control" />
-                </div>
-                <div className="form-group">
-                    <label className="text-muted">Email</label>
-                    <input onChange={this.handleChange('email')} type="email" value={this.state.email} className="form-control" />
+                    </div>
+                    </div>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">About</label>
                     <textarea onChange={this.handleChange('about')} type="text" value={this.state.about} className="form-control" />
                 </div>
-                <div className="form-group">
+                <div className  = "row">
+                    <div className = "col-lg-6">
+                    <div className="form-group">
+                    <label className="text-muted">Email</label>
+                    <input onChange={this.handleChange('email')} type="email" value={this.state.email} className="form-control" />
+                    </div>
+                    </div>
+                    <div className = "col-lg-6">
+                    <div className="form-group">
                     <label className="text-muted">Password</label>
                     <input onChange={this.handleChange('password')} type="password" value={this.state.password} className="form-control" />
+                    </div>
+                    </div>
                 </div>
-                <button onClick={this.clickSubmit} className="btn btn-raised btn-primary">Update</button>
+                <div className = "row mb-4" style = {{float: "right"}}>
+                <button onClick={this.clickSubmit} className="btn btn-raised primary-color-dark text-white btn-sm" style = {{borderRadius: "25px"}}>Update</button>
+                </div>
             </form>
         )
     }
+
+    renderHeader = (name, id) => {
+
+        const photoUrl = id ? `${(process.env.NODE_ENV 
+            === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${id}?${new Date().getTime()}` : DefaultProfile;
+  
+        return(
+          <MDBRow>
+          <MDBCol lg='12' md='12' className='mb-lg-0 mb-4'>
+          <MDBCard testimonial style = {{borderRadius: "25px"}}>
+            <MDBCardUp style = {{background: "#0d47a1", borderRadius: "25px 25px 0px 0px"}}>
+            
+            </MDBCardUp>
+            <MDBAvatar className='p-1' style = {{height: "200px",width: "200px", float: "left", marginTop: "-100px", marginLeft: "100px"}}>
+              <img
+                src={photoUrl}
+                onError = {i => (i.target.src = `${DefaultProfile}`)}
+                alt={name}
+                className='rounded-circle img-fluid'
+                style = {{height: "200px",width: "205px",objectFit:"cover"}}
+              />
+            </MDBAvatar>
+            <MDBCardBody>
+              <div className = "user__details align-items-center">
+                <h4 className='font-weight-bold mb-4'>{this.state.name}</h4>
+                <h3>Edit Profile</h3>
+              </div>
+              <hr />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+        )
+      }
 
 
     render() {
@@ -130,10 +187,11 @@ export class EditProfile extends Component {
 
         return (
             <div className = "container">
-                <h2>Edit Profile</h2>
+                {this.renderHeader(name, id, photoUrl)}
                 <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
-                <img style = {{height: "200px", width: "auto"}} className = "img-thumbnail" src = {photoUrl} onError = {i => (i.target.src = `${DefaultProfile}`)} alt = {name} />
+                <div className = "editform mt-4 mb-5">
                 {this.signupForm(name, email, password, about)}
+                </div>
             </div>
         )
     }

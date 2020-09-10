@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getCart, removeItem} from './cartFunctions';
 import DefaultPost from '../images/logoshirt.png'
 import Checkout from './Checkout';
+import LoadingImg from '../images/cart.svg';
 
 const Cart = () => {
 
@@ -55,25 +56,43 @@ const Cart = () => {
 
     const noItemsMessage = () => {
         return(
-        <h2>Your cart is empty. <br/><Link to = "/">Continue Shopping</Link></h2>
+            <>
+            <div className = "row justify-content-center">
+                <div className = "col-lg-6 offset-3">
+                <img src = {LoadingImg} alt = "cart" />
+                </div>
+                </div>
+            <br />
+            <div className = "row justify-content-center">
+            <div className = "col-lg-6 offset-3 mr-5">
+            <h2>Your cart is empty.</h2>
+            
+            <h4><Link to = "/marketplace">Continue to the MRKT</Link></h4>
+            </div>
+            </div>
+        </>
         )
     }
 
     return(
         <div className = "container">
+              
+            {items.length === 0 ? noItemsMessage() :(
+
+                    <div className ="row">
+                    <div className = "col-6">
+                    <h2>Shopping Cart</h2>
+                       {showItems(items)}
+                    </div>
+                    <div className = "col-6">
+                        <h2 className = "mb-4">Cart Summary</h2>
+                        <hr />
+                        <Checkout items = {items} setRun = {setRun} run = {run}/>
+                    </div>
+                    </div>
+                
+            )}
             
-           <h2>Shopping Cart</h2>
-            
-            <div className ="row">
-                <div className = "col-6">
-                    {items.length > 0 ? showItems(items) : noItemsMessage()}
-                </div>
-                <div className = "col-6">
-                    <h2 className = "mb-4">Cart Summary</h2>
-                    <hr />
-                    <Checkout items = {items} setRun = {setRun} run = {run}/>
-                </div>
-            </div>
         </div>
     )
     

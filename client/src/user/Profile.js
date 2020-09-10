@@ -24,11 +24,13 @@ import './profileHeader.css'
 import Rating from './Ratings';
 import ProfilePosts from './ProfilePosts'
 import MessageSender from '../core/MessageSender'
+import EditProfile from './EditProfile'
 
 export class Profile extends Component {
     state = {
         user: {following: [], followers: []},
         redirectToSignin:false,
+        renderEdit: false,
         following: false,
         error: '',
         posts: []
@@ -164,7 +166,7 @@ export class Profile extends Component {
                     style = {{marginTop: "-50px"}}
                     >
                      <Link to ={`/user/edit/${user._id}`}>
-                            <MDBBtn floating size="lg" className = "mr-4" gradient="blue"><MDBIcon icon="user-edit" /></MDBBtn>
+                            <MDBBtn floating size="lg" className = "mr-4" gradient="blue" onClick = {() => {this.setState({renderEdit : true})}} ><MDBIcon icon="user-edit" /></MDBBtn>
                             </Link>
                     <span style = {{marginTop: "-50px"}}>Edit Profile</span>
                     </MDBTooltip>
@@ -242,7 +244,7 @@ export class Profile extends Component {
 
     render() {
 
-        const {redirectToSignin, user, posts} = this.state
+        const {redirectToSignin, user, posts, renderEdit} = this.state
         if(redirectToSignin) return <Redirect to= "/signin"/>
 
         const photoUrl = user._id ? `${(process.env.NODE_ENV 
@@ -252,7 +254,9 @@ export class Profile extends Component {
             <div className = "container">
               {this.renderHeader(user)}
                 <div className = "row">
-                  <div className = "col-lg-4 mt-2 aboutUser"style = {{height: "1000px", overflow: "scroll"}}>
+                  {renderEdit ? <EditProfile /> : (
+                    <>
+                    <div className = "col-lg-4 mt-2 aboutUser"style = {{height: "1000px", overflow: "scroll"}}>
                     {this.renderAbout(user)}
                     <ProfileTabs followers = {user.followers} following = {user.following}/>
                   </div>
@@ -261,6 +265,8 @@ export class Profile extends Component {
                       <ProfilePosts posts = {posts} userId = {user._id} likes = {posts.likesCount}  getNewLikes = {this.getNewLikes} updateComments = {this.updateComments} />
                       <div class="elfsight-app-09b0a2a5-ea11-497b-a6d0-a91f7895d725"></div>
                     </div>
+                    </>
+                  )}
                 </div>
 
             </div>

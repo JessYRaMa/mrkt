@@ -151,6 +151,8 @@ class NewPost extends Component {
                 <input
                     onChange={this.handleChange("quantity")}
                     type="number"
+                    min = "1"
+                    step = "1"
                     className="form-control"
                     value={quantity}
                 />

@@ -7,7 +7,7 @@ div.editform{
     box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
 }
 
-input.form-control{
+input#profileForm.form-control{
     outline-width: 0;
     border: none;
     padding-top: 30px;

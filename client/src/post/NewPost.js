@@ -99,7 +99,7 @@ class NewPost extends Component {
                     type="text"
                     className="form-control"
                     value={title}
-                    id = "productName"
+                    id = "postForm"
                 />
             </div>
              </div>
@@ -111,6 +111,7 @@ class NewPost extends Component {
                     type="text"
                     className="form-control"
                     value={body}
+                    id = "postForm"
                 />
             </div>
             <div className = "row">
@@ -122,6 +123,7 @@ class NewPost extends Component {
                     type="number"
                     className="form-control"
                     value={price}
+                    id = "postForm"
                 />
             </div> </div>
             <div className = "col-lg-6">
@@ -154,7 +156,8 @@ class NewPost extends Component {
                     min = "1"
                     step = "1"
                     className="form-control"
-                    value={quantity}
+                    value={Math.round(quantity)}
+                    id = "postForm"
                 />
             </div>
             </div>
@@ -162,7 +165,7 @@ class NewPost extends Component {
             <div className = "row d-flex align-items-right" style = {{float: "right"}}>
             <button
                 onClick={this.clickSubmit}
-                className="btn btn-raised btn-primary"
+                className="btn btn-raised blue-gradient text-white btn-sm"
                 style = {{borderRadius: "25px"}}
             >
                 Create Listing
@@ -199,7 +202,11 @@ class NewPost extends Component {
                 </div>
 
                 {loading ? (
+                    <>
+                    <div className = "justify-content-center">
                     <img src = {LoadingImg} alt = "loading" />
+                    </div>
+                    </>
                 ) : (
                     <>
                     {this.newPostForm(title, body, price, category, quantity)}

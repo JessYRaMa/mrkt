@@ -108,25 +108,25 @@ export class EditProfile extends Component {
                     <div className = "col-lg-7">
                     <div className="form-group">
                     <label className="text-muted">Name</label>
-                    <input onChange={this.handleChange('name')} type="text" value={this.state.name} className="form-control" />
+                    <input onChange={this.handleChange('name')} type="text" id = "profileForm" value={this.state.name} className="form-control" />
                     </div>
                     </div>
                 </div>
                 <div className="form-group">
                     <label className="text-muted">About</label>
-                    <textarea onChange={this.handleChange('about')} type="text" value={this.state.about} className="form-control" />
+                    <textarea onChange={this.handleChange('about')} type="text" id = "profileForm" value={this.state.about} className="form-control" />
                 </div>
                 <div className  = "row">
                     <div className = "col-lg-6">
                     <div className="form-group">
                     <label className="text-muted">Email</label>
-                    <input onChange={this.handleChange('email')} type="email" value={this.state.email} className="form-control" />
+                    <input onChange={this.handleChange('email')} type="email" id = "profileForm" value={this.state.email} className="form-control" />
                     </div>
                     </div>
                     <div className = "col-lg-6">
                     <div className="form-group">
                     <label className="text-muted">Password</label>
-                    <input onChange={this.handleChange('password')} type="password" value={this.state.password} className="form-control" />
+                    <input onChange={this.handleChange('password')} type="password" id = "profileForm" value={this.state.password} className="form-control" />
                     </div>
                     </div>
                 </div>

@@ -92,7 +92,7 @@ class EditPost extends Component {
     editPostForm = (title, body, price, category, quantity) => (
         <form>
             <div className = "row">
-                <div className = "col-lg-3">
+                <div className = "col-lg-4">
                 <div className="form-group">
                 <label className="text-muted">Product Photo</label>
                 <input
@@ -100,11 +100,11 @@ class EditPost extends Component {
                     type="file"
                     accept="image/*"
                     className="form-control pb-5"
-                    id = "fileInput"
+                    id = "fileInput4"
                 />
                 </div>
                 </div>
-                <div className = "col-lg-9">
+                <div className = "col-lg-8">
                 <div className="form-group">
                 <label className="text-muted">Product Name</label>
                 <input
@@ -112,7 +112,7 @@ class EditPost extends Component {
                     type="text"
                     className="form-control"
                     value={title}
-                    id = "productName"
+                    id = "postForm"
                 />
             </div>
                 </div>
@@ -125,6 +125,7 @@ class EditPost extends Component {
                     type="text"
                     className="form-control"
                     value={body}
+                    id = "postForm"
                 />
             </div>
             <div className = "row">
@@ -136,6 +137,7 @@ class EditPost extends Component {
                     type="number"
                     className="form-control"
                     value={price}
+                    id = "postForm"
                 />
             </div>
                 </div>
@@ -169,7 +171,8 @@ class EditPost extends Component {
                     onChange={this.handleChange("quantity")}
                     type="number"
                     className="form-control"
-                    value={quantity}
+                    value={Math.round(quantity)}
+                    id = "postForm"
                 />
             </div>
                 </div>

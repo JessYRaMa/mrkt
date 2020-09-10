@@ -87,7 +87,7 @@ class Header extends Component {
                      <span>Explore Categories</span>
                     </MDBTooltip>
                     </MDBDropdownToggle>
-                     <MDBDropdownMenu className="dropdown-default">
+                     <MDBDropdownMenu color = "ins">
                        <MDBDropdownItem href="/post/category/Clothing,Shoes,&amp;Jewelry">Clothing,Shoes,&amp;Jewelry</MDBDropdownItem>
                        <MDBDropdownItem href="/post/category/Food&amp;Grocery">Food&amp;Grocery</MDBDropdownItem>
                      <MDBDropdownItem href="/post/category/Books">Books</MDBDropdownItem>
@@ -148,10 +148,10 @@ class Header extends Component {
                     </div>
                     <div className = "header__info">
                     <MDBDropdown dropleft>
-                    <MDBDropdownToggle color = "primary" nav>
+                    <MDBDropdownToggle nav>
                     <ExpandMoreIcon />
                     </MDBDropdownToggle>
-                    <MDBDropdownMenu color = "default" className="dropdown-default">
+                    <MDBDropdownMenu color = "ins" className = "text-white">
                         <MDBDropdownItem> <span
                      className="nav-link"
                      style={{ cursor: 'pointer'}}

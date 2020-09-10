@@ -34,7 +34,7 @@ class ModalPage extends Component {
         <MDBModal isOpen={this.state.modal} toggle={this.toggle}   size="lg"  >
           <MDBModalBody>
               <NewPost />
-              <MDBBtn className = "text-white ml-4 " style = {{borderRadius: "25px", marginTop: "-10px"}} color="warning" onClick={this.handleClose}>Close</MDBBtn>
+              <MDBBtn className = "ml-4 primary-color-dark text-white btn-sm " style = {{borderRadius: "25px", marginTop: "-10px"}} onClick={this.handleClose}>Close</MDBBtn>
           </MDBModalBody>
         </MDBModal>
       </MDBContainer>

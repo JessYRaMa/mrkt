@@ -1,8 +1,8 @@
 import React , {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom'
+import {Link, useRouteMatch} from 'react-router-dom'
 import {isAuthenticated} from '../auth'
 import {getBraintreeClientToken, processPayment} from './apiPost'
-import {emptyCart, itemTotal} from './cartFunctions'
+import {emptyCart, itemTotal, getCart} from './cartFunctions'
 import DropIn from 'braintree-web-drop-in-react'
 
 const Checkout = ({items, setRun = f => f, run = undefined}) => {
@@ -12,7 +12,8 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
         clientToken : null,
         error: '',
         instance: {},
-        address: ''
+        address: '',
+        cart: []
     })
 
     const userId = isAuthenticated() && isAuthenticated().user._id
@@ -30,6 +31,7 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
 
     useEffect(() => {
         getToken(userId, token)
+        showCart()
     },[])
 
     const getTotal = () => {
@@ -38,6 +40,25 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
             return currentValue + nextValue.count * nextValue.price;
         },0)
     }
+
+   const showCart = () => {
+       return items.map(item => {
+           return (
+               <>
+               <div className = "row">
+                   <div className = "col-md-8">
+                   <p>{item.title}</p>
+                   </div>
+                   <div className = "col-md-4">
+                   <p>${item.price}</p>
+                   </div>
+               </div>
+               </>
+           )
+       })
+
+   }
+
 
     const showCheckout = () => {
         return isAuthenticated() ? (
@@ -92,7 +113,7 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
                             flow: 'vault'
                         }
                     }} onInstance = {instance => (data.instance = instance)}/>
-                    <button onClick = {buy} className = "btn btn-raised btn-success btn-block">Pay Now</button>
+                    <button onClick = {buy} className = "btn btn-raised primary-color-dark text-white btn-block" style = {{borderRadius: "25px"}}>Pay Now</button>
                 </div>
             ) : null}
         </div>
@@ -109,9 +130,27 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
 
     return(
         <div>
-            <h2>Total: ${getTotal()}</h2>
             {showSuccess(data.success)}
             {showError(data.error)}
+            {items.length === 0 ? <h5>Go shop!</h5> : (
+                <>
+                {showCart()}
+                <hr />
+                <div className = "row">
+                    <div className = "col-md-8">
+                        <h5>Total</h5>
+                    </div>
+                    <div className = "col-md-4">
+                        <h5>${getTotal()}</h5>
+                    </div>
+                </div>
+                </>
+            )}
+            <br /><br />
+            <div className = "row">
+                
+            <img src = "https://pngimage.net/wp-content/uploads/2018/06/paypal-credit-card-png.png" style = {{width: "100%"}} alt = "creditcard" />
+            </div>
             {showCheckout()}
 
         </div>

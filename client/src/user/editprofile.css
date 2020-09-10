@@ -40,7 +40,7 @@ input#fileInput.form-control{
     background-color:#eff2f5;
 }
 
-h3{
+h3.edit{
     color: gray;
     font-weight: bolder;
     margin-top: -10px;
@@ -48,14 +48,14 @@ h3{
 }
 
 @media only screen and (max-width: 1146px) {
-    h3{
+    h3.edit{
         margin-left: -3px;
     }
     
   }
 
 @media only screen and (max-width: 980px) {
-    h3{
+    h3.edit{
         margin-top: 15px;
         margin-left: 180px;
     }
@@ -63,14 +63,14 @@ h3{
   }
 
   @media only screen and (max-width: 640px) {
-   h3{
+   h3.edit{
         margin-left: 290px;
    }
     
   }
 
   @media only screen and (max-width: 500px) {
-   h3{
+   h3.edit{
     margin-top: 40px;
     font-size: 1.25rem;
     margin-left: 300px;

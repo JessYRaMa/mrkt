@@ -4,6 +4,9 @@ import { getCart, removeItem} from './cartFunctions';
 import DefaultPost from '../images/logoshirt.png'
 import Checkout from './Checkout';
 import LoadingImg from '../images/cart.svg';
+import {MDBIcon} from 'mdbreact'
+import './cart.css'
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 const Cart = () => {
 
@@ -16,13 +19,24 @@ const Cart = () => {
 
     const showItems = items => {
         return(
-            <div>
-                <h2>Your cart has {`${items.length}`} items</h2>
+            <div className = "cartItemSection">
+                  <Link
+                             to={`/marketplace`}
+                            >
+                            <MDBIcon icon="angle-double-left" className = "mr-2" />Back to Listings
+                            </Link>
+                <div className = "cartItems mt-2 mb-3">
+                <h2 style = {{letterSpacing: "3px"}}><ShoppingCartOutlinedIcon fontSize = "large" className = "mr-2" />MRKT CART</h2>
+                <p className = "mt-3 grey-text">Your cart has {`${items.length}`} items</p>
+                </div>
+                <br />
                 <hr />
         {items.map((post, i) => 
             <>
-            <div key = {i} setRun={setRun} run={run} className = "card">
-                <div className = "card-body">
+            <div key = {i} setRun={setRun} run={run} className = "row" style = {{clear: "left"}}>
+                <div className = "col-md-4 mt-3">
+                <Link
+                        to={`/post/${post._id}`}>
                 <img
                         src={`${(process.env.NODE_ENV 
                             === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id}`}
@@ -31,23 +45,26 @@ const Cart = () => {
                             (i.target.src = `${DefaultPost}`)
                         }
                         className="img-thunbnail mb-3"
-                        style={{ height: "150px", width: "auto", objectFit: "cover" }}
-                    />
-
-                    <h2>{post.title}</h2>
-                    <p>Price: ${post.price}</p>
-                    <br/>
-                    <Link
-                        to={`/post/${post._id}`}
-                            className="btn btn-raised btn-primary btn-sm mr-5"
-                                >
-                                View Listing
-                                </Link>
-                     <button className = "btn btn-raised btn-warning btn-sm" onClick = {() => {
-                         removeItem(post._id); setRun(!run);
-                     }}>Remove from Cart</button>         
+                        style={{ height: "auto", width: "300px", objectFit: "cover" }}
+                    /></Link>
                 </div>
-            </div>
+                <div className = "col-md-2">
+                    
+                </div>
+                <div className = "col-md-6 mt-2" style = {{float: "right"}}>
+                    <h4 className = "cartTitle">{post.title}</h4>
+                    <p className = "categorycart">{post.category}</p>
+                    <h5>${post.price}</h5>
+                    <p className = "cartQuantity">Quantity:{post.count}</p>
+                    <p className = "sellerInfo">Seller:  <Link to={`/user/${post.postedBy._id}`}>
+                    {post.postedBy.name}{" "}
+                        </Link></p>
+                    <a className = "removeLink" onClick = {() => {
+                         removeItem(post._id); setRun(!run);
+                     }}><u>Remove Item</u></a>
+                     </div>         
+                </div>
+                <hr/> 
             </>
         )}
             </div>
@@ -75,23 +92,28 @@ const Cart = () => {
     }
 
     return(
-        <div className = "container">
-              
-            {items.length === 0 ? noItemsMessage() :(
-
+        <div className = "container-fluid">
+            
+           
+                <>
                     <div className ="row">
-                    <div className = "col-6">
-                    <h2>Shopping Cart</h2>
-                       {showItems(items)}
+                    <div className = "col-7 offset-1 mb-5">
+                    {items.length === 0 ? noItemsMessage() :(  showItems(items)  )}
                     </div>
-                    <div className = "col-6">
-                        <h2 className = "mb-4">Cart Summary</h2>
+                    <div className = "col-3 mt-5">
+                        <div className = "cartSummary mt-3">
+                        <h5 style = {{letterSpacing: "3px"}}>Order Summary</h5>
                         <hr />
                         <Checkout items = {items} setRun = {setRun} run = {run}/>
+                        </div>
+                        <div className = "addon">
+                     <p>Privacy | Terms | Advertsing | Ad Choices | Cookies | More | MRKT &#169; 2020</p>
+                     </div>
                     </div>
                     </div>
+                 </>
                 
-            )}
+        
             
         </div>
     )

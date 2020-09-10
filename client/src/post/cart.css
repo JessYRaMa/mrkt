@@ -1,0 +1,46 @@
+div.cartItemSection{
+    padding: 50px;
+}
+
+div.cartItems>h2{
+    display: flex;
+    direction: column;
+    float: left;
+}
+
+div.cartItems>p{
+    display: flex;
+    direction: column;
+    float: right;
+}
+
+h4.cartTitle{
+    font-size: 1.25rem;
+}
+
+p.categorycart{
+    color: grey;
+    font-size: 0.75rem;
+}
+
+p.cartQuantity{
+    font-size: 0.9rem;
+}
+
+p.sellerInfo{
+    font-size: 0.9rem;
+    margin-top: -15px;
+}
+
+a.removeLink{
+    font-size: 0.9rem;
+}
+
+div.cartSummary{
+    padding: 40px;
+    background-color: white;
+    border-radius: 25px;
+    -webkit-box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    -moz-box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+    box-shadow: -1px 4px 17px -2px rgba(189,187,189,1);
+}

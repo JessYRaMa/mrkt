@@ -161,7 +161,7 @@ export class EditProfile extends Component {
             <MDBCardBody>
               <div className = "user__details align-items-center">
                 <h4 className='font-weight-bold mb-4'>{this.state.name}</h4>
-                <h3>Edit Profile</h3>
+                <h3 className  = "edit">Edit Profile</h3>
               </div>
               <hr />
             </MDBCardBody>

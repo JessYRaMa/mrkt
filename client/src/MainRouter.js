@@ -15,7 +15,8 @@ import EditPost from './post/EditPost';
 import Cart from './post/Cart';
 import Appy from './post/Chat';
 import Category from './post/Category';
-import Marketplace from './post/Marketplace'
+import Marketplace from './post/Marketplace';
+import Team from './user/Team';
 
 
 
@@ -31,6 +32,7 @@ const MainRouter = () => (
             <Route exact path = "/users" component = {Users}></Route>
             <Route exact path = "/signup" component = {Signup}></Route>
             <Route exact path = "/signin" component = {Signin}></Route>
+            <Route exact path = "/team" component = {Team}></Route>
             <PrivateRoute exact path = "/user/:userId" component = {Profile}></PrivateRoute>
             <PrivateRoute exact path = "/user/edit/:userId" component = {EditProfile}></PrivateRoute>
             <PrivateRoute exact path = "/findpeople" component = {FindPeople}></PrivateRoute>

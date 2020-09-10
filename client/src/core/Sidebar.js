@@ -29,12 +29,12 @@ function Sidebar() {
             <hr />
             <Link to= {`/post/create`}><button className = "btn btn-block primary-color-dark text-white mb-1 p-2" style = {{borderRadius: "25px"}}><AddRoundedIcon/> Create New Listing</button></Link>
             <a href = "https://group-project1.herokuapp.com/" target = "_blank"><SidebarRow Icon = {LocalHospitalIcon} title = "COVID-19 Information Center" /></a>
-            <SidebarRow Icon = {PeopleIcon} title = "Friends" />
+            <Link to = "/team"><SidebarRow Icon = {PeopleIcon} title = "Friends" /></Link>
             <Link to = "/chat"><SidebarRow Icon = {ChatIcon} title = "Messenger" /></Link>
             <Link to = "/marketplace"><SidebarRow Icon = {StorefrontIcon} title = "Marketplace" /></Link>
             <a href ="https://gitfit-jessyrama.herokuapp.com/" target = "_blank"><SidebarRow Icon = {FitnessCenterOutlinedIcon} title = "GitFit Fitness Tracker" /></a>
             <a href ="https://ypangilinan.github.io/Travelogged/" target = "_blank"><SidebarRow Icon = {AirplanemodeActiveIcon} title = "Travelogged" /></a>
-            <SidebarRow Icon = {VideoLibraryIcon} title = "Videos"/>
+            <a href = "https://www.youtube.com/watch?v=glii-kazad8"target = "_blank"><SidebarRow Icon = {VideoLibraryIcon} title = "Videos"/></a>
             <hr/>
         </div>
     )

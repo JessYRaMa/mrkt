@@ -123,9 +123,8 @@ class Comment extends Component {
                             <div>
                                 <Link to={`/user/${comment.postedBy._id}`}>
                                     <img
-                                    src={`${
-                                        process.env.REACT_APP_API_URL
-                                    }/user/photo/${comment.postedBy._id}?${new Date().getTime()}`}
+                                    src={`${(process.env.NODE_ENV 
+                                        === 'production') ? '' : process.env.REACT_APP_API_URL}/user/photo/${comment.postedBy._id}?${new Date().getTime()}`}
                                     alt={comment.postedBy.name}
                                         style={{
                                             borderRadius: "50%",

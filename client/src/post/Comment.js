@@ -135,7 +135,7 @@ class Comment extends Component {
                                         }
                                         src={`${
                                             process.env.REACT_APP_API_URL
-                                        }/user/photo/${comment.postedBy._id}`}
+                                        }/user/photo/${comment.postedBy._id}?${new Date().getTime()}`}
                                         alt={comment.postedBy.name}
                                     />
                                 </Link>

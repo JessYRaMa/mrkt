@@ -125,7 +125,8 @@ class Comment extends Component {
                                     <img
                                         style={{
                                             borderRadius: "50%",
-                                            border: "1px"
+                                            border: "1px",
+                                            objectFit: "cover"
                                         }}
                                         className="float-left mr-2"
                                         height="30px"

@@ -44,16 +44,14 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
    const showCart = () => {
        return items.map(item => {
            return (
-               <>
                <div className = "row">
-                   <div className = "col-md-8">
+                   <div className = "col-sm-6">
                    <p>{item.title}</p>
                    </div>
-                   <div className = "col-md-4">
+                   <div className = "col-sm-4">
                    <p>${item.price}</p>
                    </div>
                </div>
-               </>
            )
        })
 
@@ -129,7 +127,7 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
     )
 
     return(
-        <div>
+        <>
             {showSuccess(data.success)}
             {showError(data.error)}
             {items.length === 0 ? <h5>Go shop!</h5> : (
@@ -137,10 +135,10 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
                 {showCart()}
                 <hr />
                 <div className = "row">
-                    <div className = "col-md-8">
+                    <div className = "col-sm-6">
                         <h5>Total</h5>
                     </div>
-                    <div className = "col-md-4">
+                    <div className = "col-sm-4">
                         <h5>${getTotal()}</h5>
                     </div>
                 </div>
@@ -153,7 +151,7 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
             </div>
             {showCheckout()}
 
-        </div>
+       </>
     )
 }
 

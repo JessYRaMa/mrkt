@@ -293,7 +293,7 @@ div.addon>p{
     
   }
 
-@media only screen and (max-width: 985px) {
+@media only screen and (max-width: 988px) {
     .user__details>h4{
         margin-left: 210px;
         margin-top: -180px;
@@ -334,7 +334,7 @@ div.addon>p{
     
   }
 
-  @media only screen and (max-width: 737px) {
+  @media only screen and (max-width: 741px) {
     .user__details>h4{
         margin-left: 290px;
         margin-top: -160px;

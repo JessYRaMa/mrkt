@@ -92,12 +92,12 @@ const Cart = () => {
     }
 
     return(
-        <div className = "container-fluid">
-                    <div className ="row">
-                    <div className = "col-7 offset-1 mb-5">
+        <div className = "container">
+                    <div className ="d-flex flex-row flex-wrap">
+                    <div className = "col-8 mb-5">
                     {items.length === 0 ? noItemsMessage() :(  showItems(items)  )}
                     </div>
-                    <div className = "col-3 mt-5">
+                    <div className = "col-4 mt-5">
                         <div className = "cartSummary mt-3">
                         <h5 style = {{letterSpacing: "3px"}}>Order Summary</h5>
                         <hr />

@@ -39,13 +39,13 @@ const Cart = () => {
                         to={`/post/${post._id}`}>
                 <img
                         src={`${(process.env.NODE_ENV 
-                            === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id}`}
+                            === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id}?${new Date().getTime()}`}
                         alt={post.title}
                         onError={i =>
                             (i.target.src = `${DefaultPost}`)
                         }
                         className="img-thunbnail mb-3"
-                        style={{ height: "auto", width: "300px", objectFit: "cover" }}
+                        id = "productPhoto"
                     /></Link>
                 </div>
                 <div className = "col-md-2">

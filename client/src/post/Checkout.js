@@ -113,7 +113,7 @@ const Checkout = ({items, setRun = f => f, run = undefined}) => {
                             flow: 'vault'
                         }
                     }} onInstance = {instance => (data.instance = instance)}/>
-                    <button onClick = {buy} className = "btn btn-raised primary-color-dark text-white btn-block" style = {{borderRadius: "25px"}}>Pay Now</button>
+                    <button onClick = {buy} className = "btn btn-raised primary-color-dark text-white btn-block" id = "payButton" style = {{borderRadius: "25px"}}>Pay Now</button>
                 </div>
             ) : null}
         </div>

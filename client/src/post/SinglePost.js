@@ -125,7 +125,7 @@ export class SinglePost extends Component {
                             (i.target.src = `${DefaultPost}`)
                         }
                         className="img-thunbnail"
-                        style={{ height: "auto", width: "450px", objectFit: "cover", borderRadius: "25px", marginTop: "22px" }}
+                        id = "productImage"
                     />
                         </div>
 

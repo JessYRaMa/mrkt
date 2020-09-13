@@ -40,3 +40,178 @@
     margin-top: -20px;
     font-size: 16px;
 }
+
+
+@media only screen and (max-width: 411px) {
+    h3{
+        margin-top: -75px;
+        margin-right: 10px;
+    }
+
+
+  }
+
+
+  @media only screen and (max-width: 375px) {
+    a#postName.mt-5.text-dark.mb-0{
+        font-size: 1rem !important;
+        margin-left: -10px;
+    }
+
+    h4{
+        font-size: 0.75rem !important;
+    }
+
+    p{
+        font-size: 0.5rem !important;
+    }
+
+    .topDiv>p{
+        margin-bottom: -50px;
+        margin-top: -23px;
+        font-size: 16px;
+    }
+    
+    .topDiv>p:hover{
+        cursor: pointer;
+        border-radius: 25px;
+        padding: 5px;
+    }
+    
+    .topDiv>h5{
+        margin-bottom: -50px;
+        margin-top: -20px;
+        font-size: 10px;
+    }
+
+    h3{
+        margin-top: -50px;
+        font-size: 0.75rem !important;
+    }
+
+
+  }
+
+@media only screen and (max-width: 360px) {
+    a#postName.mt-5.text-dark.mb-0{
+        font-size: 1rem !important;
+        margin-left: -10px;
+    }
+
+    h4{
+        font-size: 0.75rem !important;
+    }
+
+    p{
+        font-size: 0.5rem !important;
+    }
+
+    .topDiv>p{
+        margin-bottom: -50px;
+        margin-top: -23px;
+        font-size: 16px;
+    }
+    
+    .topDiv>p:hover{
+        cursor: pointer;
+        border-radius: 25px;
+        padding: 5px;
+    }
+    
+    .topDiv>h5{
+        margin-bottom: -50px;
+        margin-top: -20px;
+        font-size: 10px;
+    }
+
+    h3{
+        margin-top: -50px;
+        font-size: 0.75rem !important;
+    }
+
+
+  }
+
+  
+  @media only screen and (max-width: 320px) {
+    a#postName.mt-5.text-dark.mb-0{
+        font-size: 1rem !important;
+        margin-left: -10px;
+    }
+
+    h4{
+        font-size: 0.75rem !important;
+    }
+
+    p{
+        font-size: 0.5rem !important;
+    }
+
+    .topDiv>p{
+        margin-bottom: -50px;
+        margin-top: -23px;
+        font-size: 16px;
+    }
+    
+    .topDiv>p:hover{
+        cursor: pointer;
+        border-radius: 25px;
+        padding: 5px;
+    }
+    
+    .topDiv>h5{
+        margin-bottom: -50px;
+        margin-top: -20px;
+        font-size: 10px;
+    }
+
+    h3{
+        margin-top: -50px;
+        font-size: 0.75rem !important;
+    }
+
+
+  }
+
+  @media only screen and (max-width: 280px) {
+    a#postName.mt-5.text-dark.mb-0{
+        font-size: 0.5rem !important;
+        margin-left: -10px;
+    }
+
+    h4{
+        font-size: 0.75rem !important;
+    }
+
+    p{
+        font-size: 0.5rem !important;
+    }
+
+    .topDiv>p{
+        margin-bottom: -50px;
+        margin-top: -23px;
+        font-size: 16px;
+    }
+    
+    .topDiv>p:hover{
+        cursor: pointer;
+        border-radius: 25px;
+        padding: 5px;
+    }
+    
+    .topDiv>h5{
+        margin-bottom: -50px;
+        margin-top: -20px;
+        font-size: 10px;
+    }
+
+    h3{
+        margin-top: -50px;
+        font-size: 0.75rem !important;
+    }
+
+
+  }
+
+
+    

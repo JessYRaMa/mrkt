@@ -93,9 +93,6 @@ const Cart = () => {
 
     return(
         <div className = "container-fluid">
-            
-           
-                <>
                     <div className ="row">
                     <div className = "col-7 offset-1 mb-5">
                     {items.length === 0 ? noItemsMessage() :(  showItems(items)  )}
@@ -111,10 +108,6 @@ const Cart = () => {
                      </div>
                     </div>
                     </div>
-                 </>
-                
-        
-            
         </div>
     )
     

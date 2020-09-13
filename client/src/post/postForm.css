@@ -58,3 +58,33 @@ select.form-control{
     border-radius: 999px;
     background-color: #eff2f5
 }
+
+@media only screen and (max-width: 320px) {
+    input#fileInput.form-control.pb-5{
+        justify-content: center;
+        outline-width: 0;
+        border: none;
+        margin: 0px 10px;
+        margin-top: 2px;
+        margin-bottom: -5px;
+        border-radius: 999px;
+        background-color:#eff2f5;
+        width: 250px;
+    }
+
+  }
+
+  @media only screen and (max-width: 320px) {
+    input#fileInput.form-control.pb-5{
+        justify-content: center;
+        outline-width: 0;
+        border: none;
+        margin: 0px 10px;
+        margin-top: 2px;
+        margin-bottom: -5px;
+        border-radius: 999px;
+        background-color:#eff2f5;
+        width: 200px;
+    }
+
+  }

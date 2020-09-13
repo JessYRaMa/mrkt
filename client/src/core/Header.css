@@ -137,3 +137,177 @@ button.navbar-toggler{
 button.dropdown-item:hover{
     color:white;
 }
+
+@media only screen and (max-width: 940px) {
+    .MuiSvgIcon-fontSizeLarge {
+        font-size: 1.75rem !important;
+    }
+    .fa-facebook-messenger:before {
+        content: "\f39f";
+        font-size: 1.55rem;
+    }
+
+  }
+
+  @media only screen and (max-width: 918px) {
+    .MuiSvgIcon-fontSizeLarge {
+        font-size: 1.5rem !important;
+    }
+    .fa-facebook-messenger:before {
+        content: "\f39f";
+        font-size: 1.4rem;
+    }
+
+    .header__input{
+        display: flex;
+        align-items: center;
+        background-color: #eff2f5;
+        padding: 2px;
+        margin-left:10px;
+        border-radius: 999px;
+    }
+
+  }
+
+  @media only screen and (max-width: 890px) {
+    .MuiSvgIcon-fontSizeLarge {
+        font-size: 1.5rem !important;
+    }
+    .fa-facebook-messenger:before {
+        content: "\f39f";
+        font-size: 1.4rem;
+    }
+
+    .header__option{
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+
+    .header__input{
+        display: flex;
+        align-items: center;
+        background-color: #eff2f5;
+        padding: 2px;
+        margin-left:10px;
+        border-radius: 999px;
+    }
+
+    a.namelink{
+        font-size: 1rem;
+    }
+
+  }
+
+  @media only screen and (max-width: 812px) {
+    .MuiSvgIcon-fontSizeLarge {
+        font-size: 1.45rem !important;
+    }
+    .fa-facebook-messenger:before {
+        content: "\f39f";
+        font-size: 1.35rem;
+    }
+
+    .header__option{
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+
+    .header__input{
+        display: flex;
+        align-items: center;
+        background-color: #eff2f5;
+        padding: 2px;
+        margin-left:10px;
+        border-radius: 999px;
+    }
+    .dropdown {
+        width: 60px;
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: space-evenly;
+    }
+
+    a.namelink{
+        font-size: 1rem;
+    }
+
+  }
+
+  @media only screen and (max-width: 768px) {
+    .MuiSvgIcon-fontSizeLarge {
+        font-size: 1.45rem !important;
+    }
+    .fa-facebook-messenger:before {
+        content: "\f39f";
+        font-size: 1.35rem;
+    }
+
+    .header__option{
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        cursor: pointer;
+    }
+
+    .header__input{
+        display: flex;
+        align-items: center;
+        background-color: #eff2f5;
+        padding: 2px;
+        margin-left:10px;
+        border-radius: 999px;
+    }
+    .dropdown {
+        width: 60px;
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: space-evenly;
+    }
+
+    a.namelink{
+        font-size: 1rem;
+    }
+
+  }
+
+  @media only screen and (max-width: 280px) {
+    .MuiSvgIcon-fontSizeLarge {
+        font-size: 1.45rem !important;
+    }
+    .fa-facebook-messenger:before {
+        content: "\f39f";
+        font-size: 1.35rem;
+    }
+
+    .header__option{
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        cursor: pointer;
+    }
+
+    .header__input{
+        display: flex;
+        align-items: center;
+        background-color: #eff2f5;
+        padding: 2px;
+        width: 245px;
+        margin-left:10px;
+        border-radius: 999px;
+    }
+    .dropdown {
+        width: 60px;
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: space-evenly;
+    }
+
+    a.namelink{
+        font-size: 1rem;
+    }
+
+  }

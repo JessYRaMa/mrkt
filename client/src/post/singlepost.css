@@ -4,3 +4,236 @@ div.productNameDiv{
 
 }
 
+#productImage{
+    height: auto;
+    width: 450px;
+    object-fit: cover;
+    border-radius: 25px;
+    margin-top: 22px;
+}
+
+
+
+@media only screen and (max-width: 1284px) {
+    #productImage{
+        height: auto;
+        width: 400px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+    }
+   
+  }
+
+  @media only screen and (max-width: 1149px) {
+    #productImage{
+        height: auto;
+        width: 375px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+    }
+   
+  }
+
+  @media only screen and (max-width: 1079px) {
+    #productImage{
+        height: auto;
+        width: 350px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+    }
+   
+  }
+
+  @media only screen and (max-width: 995px) {
+    #productImage{
+        height: auto;
+        width: 340px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+    }
+   
+  }
+
+
+  @media only screen and (max-width: 982px) {
+    #productImage{
+        height: auto;
+        width: 400px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+        margin-left: 30px;
+    }
+
+    div.productNameDiv{
+        float: left;
+        margin-bottom: -20px;
+        margin-left: 20px;
+    
+    }
+   
+  }
+
+  @media only screen and (max-width: 828px) {
+    #productImage{
+        height: auto;
+        width: 375px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+        margin-left: 30px;
+    }
+
+    div.productNameDiv{
+        float: left;
+        margin-bottom: -20px;
+        margin-left: 20px;
+    
+    }
+   
+  }
+
+  @media only screen and (max-width: 774px) {
+    #productImage{
+        height: auto;
+        width: 350px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+        margin-left: 30px;
+    }
+
+    div.productNameDiv{
+        float: left;
+        margin-bottom: -20px;
+        margin-left: 20px;
+    
+    }
+   
+  }
+
+
+  @media only screen and (max-width: 411px) {
+    #productImage{
+        height: auto;
+        width: 350px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+        margin-left: 30px;
+    }
+
+    div.productNameDiv{
+        float: left;
+        margin-bottom: -20px;
+        margin-left: 20px;
+    
+    }
+
+    p.card-text{
+        margin-top: 30px;
+    }
+   
+  }
+
+
+  @media only screen and (max-width: 400px) {
+    #productImage{
+        height: auto;
+        width: 350px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+        margin-left: 30px;
+    }
+
+    div.productNameDiv{
+        float: left;
+        margin-bottom: -20px;
+        margin-left: 20px;
+    
+    }
+
+    p.card-text{
+        margin-top: 30px;
+    }
+   
+  }
+
+  @media only screen and (max-width: 375px) {
+    #productImage{
+        height: auto;
+        width: 300px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+        margin-left: 30px;
+    }
+
+    div.productNameDiv{
+        float: left;
+        margin-bottom: -20px;
+        margin-left: 20px;
+    
+    }
+
+    p.card-text{
+        margin-top: 30px;
+    }
+   
+  }
+
+  @media only screen and (max-width: 360px) {
+    #productImage{
+        height: auto;
+        width: 300px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+        margin-left: 30px;
+    }
+
+    div.productNameDiv{
+        float: left;
+        margin-bottom: -20px;
+        margin-left: 20px;
+    
+    }
+
+    p.card-text{
+        margin-top: 30px;
+    }
+   
+  }
+
+  @media only screen and (max-width: 320px) {
+    #productImage{
+        height: auto;
+        width: 225px;
+        object-fit: cover;
+        border-radius: 25px;
+        margin-top: 22px;
+        margin-left: 30px;
+    }
+
+    div.productNameDiv{
+        float: left;
+        margin-bottom: -20px;
+        margin-left: 20px;
+    
+    }
+
+    p.card-text{
+        margin-top: 30px;
+    }
+   
+  }
+
+
+
+
+

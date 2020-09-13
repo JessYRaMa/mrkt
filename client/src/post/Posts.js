@@ -124,7 +124,7 @@ export class Posts extends Component {
                                                 className='rounded-circle avatar-img z-depth-1-half'
                                                 style = {{height:"40px", width: "40px", objectFit: "cover"}}
                                                 alt = {post.title} />
-                                                 <Link to={`${posterId}`} className = "mt-5 text-dark mb-0" style = {{fontSize:"1.25rem"}}>
+                                                 <Link to={`${posterId}`} className = "mt-5 text-dark mb-0" id = "postName" style = {{fontSize:"1.25rem"}}>
                                                  {" "}{posterName}
                                                 </Link>
                                                 <p id = "date">{new Date(post.created).toDateString()}</p>

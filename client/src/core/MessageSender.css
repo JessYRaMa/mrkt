@@ -81,3 +81,63 @@
 .btn{
     color: gray; 
 }
+
+@media only screen and (max-width: 500px) {
+    .messageSender__option{
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        color: gray;
+    }
+
+    .messageSender__option>p{
+        font-size: 0.75rem;
+        margin-top: 18px;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        color: gray;
+        cursor:pointer;
+    }
+
+
+  }
+
+
+  @media only screen and (max-width: 320px) {
+    .messageSender__option{
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        color: gray;
+    }
+
+    .messageSender__option>p{
+        font-size: 0.5rem;
+        margin-top: 18px;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        color: gray;
+        cursor:pointer;
+    }
+
+
+  }
+
+  @media only screen and (max-width: 280px) {
+    .messageSender__option{
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        color: gray;
+    }
+
+    .messageSender__option>.MuiSvgIcon-root{
+        font-size: 1rem;
+     
+    }
+
+
+  }
+

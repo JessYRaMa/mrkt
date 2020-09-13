@@ -92,6 +92,7 @@ div.about{
     color: gray;
     padding: 20px;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 div.statistics{
@@ -147,6 +148,102 @@ div.addon>p{
     color: gray;
 }
 
+@media only screen and (max-width: 1196px) {
+    .user__details>h4{
+        margin-left: 20px;
+        margin-top: -160px;
+        color: white;
+        font-size: 2rem;
+        
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: 390px;
+        margin-top: -12px;
+    }
+
+    .user__details>p{
+    margin-top: 4px;
+    margin-left: 12px;
+    }
+
+    div.buttonContainer{
+        margin-left: 700px;
+        margin-top: -170px;
+    }
+
+    div.statistics{
+        display: flex;
+    float: right;
+    padding: 8px;
+    margin-bottom: -35px;
+    margin-right: 20px;
+    margin-top: -20px;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
+@media only screen and (max-width: 1189px) {
+    .user__details>h4{
+        margin-left: 20px;
+        margin-top: -160px;
+        color: white;
+        font-size: 2rem;
+        
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: 390px;
+        margin-top: -12px;
+    }
+
+    .user__details>p{
+    margin-top: 4px;
+    margin-left: 12px;
+    }
+
+    div.buttonContainer{
+        margin-left: 700px;
+        margin-top: -170px;
+    }
+
+    div.statistics{
+        display: flex;
+    float: right;
+    padding: 8px;
+    margin-bottom: -35px;
+    margin-right: 20px;
+    margin-top: -20px;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
 
 @media only screen and (max-width: 1146px) {
     .user__details>h4{
@@ -196,7 +293,7 @@ div.addon>p{
     
   }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 985px) {
     .user__details>h4{
         margin-left: 210px;
         margin-top: -180px;
@@ -237,6 +334,49 @@ div.addon>p{
     
   }
 
+  @media only screen and (max-width: 737px) {
+    .user__details>h4{
+        margin-left: 290px;
+        margin-top: -160px;
+        color: white;
+        font-size: 1.25rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: 320px;
+        margin-top: -12px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    div.buttonContainer{
+        margin-left: 310px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+  
+
+
   @media only screen and (max-width: 640px) {
     .user__details>h4{
         margin-left: 290px;
@@ -256,6 +396,47 @@ div.addon>p{
 
     div.buttonContainer{
         margin-left: 310px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
+  @media only screen and (max-width: 528px) {
+    .user__details>h4{
+        margin-left: 290px;
+        margin-top: -190px;
+        color: white;
+        font-size: 1.25rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: 300px;
+        margin-top: -12px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    div.buttonContainer{
+        margin-left: 280px;
         margin-top: -70px;
     }
 
@@ -318,3 +499,351 @@ div.addon>p{
     }
     
   }
+
+  @media only screen and (max-width: 450px) {
+    .user__details>h4{
+        margin-left: 10px;
+        margin-top: -210px;
+        color: white;
+        font-size: 1.45rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: 125px;
+        margin-top: 80px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    div.buttonContainer{
+        margin-left: 100px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
+
+  @media only screen and (max-width: 414px) {
+    .user__details>h4{
+        margin-left: 10px;
+        margin-top: -210px;
+        color: white;
+        font-size: 1.45rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: 125px;
+        margin-top: 80px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    div.buttonContainer{
+        margin-left: 100px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
+  @media only screen and (max-width: 411px) {
+    .user__details>h4{
+        margin-left: 10px;
+        margin-top: -210px;
+        color: white;
+        font-size: 1.45rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: 125px;
+        margin-top: 80px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    div.buttonContainer{
+        margin-left: 100px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
+
+  @media only screen and (max-width: 400px) {
+    .user__details>h4{
+        margin-left: 10px;
+        margin-top: -210px;
+        color: white;
+        font-size: 1.45rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: 125px;
+        margin-top: 80px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    div.buttonContainer{
+        margin-left: 100px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
+  @media only screen and (max-width: 375px) {
+    .user__details>h4{
+        margin-left: -200px;
+        margin-top: -210px;
+        color: white;
+        font-size: 2.5rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: -20px;
+        margin-top: -30px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    div.buttonContainer{
+        margin-left: 100px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+  }
+
+  @media only screen and (max-width: 360px) {
+    .user__details>h4{
+        margin-left: -200px;
+        margin-top: -210px;
+        color: white;
+        font-size: 2.5rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: -20px;
+        margin-top: -30px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    div.buttonContainer{
+        margin-left: 100px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
+  @media only screen and (max-width: 320px) {
+    .user__details>h4{
+        margin-left: -150px;
+        margin-top: -210px;
+        color: white;
+        font-size: 2.5rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: -20px;
+        margin-top: -30px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    div.buttonContainer{
+        margin-left: 100px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
+  @media only screen and (max-width: 280px) {
+    .user__details>h4{
+        margin-left: -100px;
+        margin-top: -200px;
+        color: white;
+        font-size: 2.5rem;
+    }
+
+    div.mdb-rating.d-flex.justify-content-start.align-items-center{
+        margin-left: -20px;
+        margin-top: -30px;
+    }
+
+    .user__details>p{
+       display: none;
+    }
+
+    .testimonial-card .avatar {
+        width: 50px;
+        margin-top: -60px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+
+    img.rounded-circle.img-fluid{
+        height: 130px !important;
+        width: 140px !important;
+        object-fit: cover !important;
+    }
+
+    div.buttonContainer{
+        margin-left: 40px;
+        margin-top: -70px;
+    }
+
+    div.statistics{
+        display: none;
+    }
+    
+    div.number__followers{
+        padding: 5px;
+    }
+    
+    div.number__following{
+        padding: 5px;
+    }
+    
+    div.number__listings{
+        padding: 5px;
+        margin-left: 5px;
+    }
+    
+  }
+
+
+
+
+
+ 

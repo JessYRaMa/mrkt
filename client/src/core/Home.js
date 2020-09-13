@@ -27,7 +27,7 @@ export class Home extends Component {
             <MessageSender />
             <Posts />
             </div>
-            <div className = "col-lg-2 mt-3">
+            <div className = "col-lg-3 mt-3">
             <Widgets />
             </div>
             </div>

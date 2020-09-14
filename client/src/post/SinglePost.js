@@ -111,7 +111,7 @@ export class SinglePost extends Component {
 
         return (
                     <div className = "row mb-4">
-                        <div className = "col-md-3"> 
+                        <div className = "col-md-5"> 
                         <Link
                              to={`/marketplace`}
                             >
@@ -128,8 +128,7 @@ export class SinglePost extends Component {
                         id = "productImage"
                     />
                         </div>
-
-                        <div className = "col-md-5 mt-5 offset-3">
+                        <div className = "col-md-4 offset-3 mt-5 ">
                         {like ? (
                     <p onClick={this.likeToggle}>
                         <MDBIcon icon="heart" className = "red-text mr-2" />{" "}{likes} Likes
@@ -207,7 +206,7 @@ export class SinglePost extends Component {
                         <MarketplaceSide />
                     </div>
 
-                    <div className = "col-lg-8 mt-4 p-1">
+                    <div className = "col-lg-8 mt-4 pl-5">
                         <div className = "row">
                             <div className = "productNameDiv">
                             <h2 className = " mt-2 mb-3">{post.title}</h2>

@@ -10,6 +10,7 @@ div.productNameDiv{
     object-fit: cover;
     border-radius: 25px;
     margin-top: 22px;
+    margin-right: 25px;
 }
 
 
@@ -127,6 +128,10 @@ div.productNameDiv{
         margin-left: 30px;
     }
 
+    div.col-lg-8.mt-4.pl-5{
+        padding-left: 2px !important;
+    }
+
     div.productNameDiv{
         float: left;
         margin-bottom: -20px;
@@ -172,6 +177,10 @@ div.productNameDiv{
         border-radius: 25px;
         margin-top: 22px;
         margin-left: 30px;
+    }
+
+    div.col-lg-8.mt-4.pl-5{
+        padding-left: 2px !important;
     }
 
     div.productNameDiv{

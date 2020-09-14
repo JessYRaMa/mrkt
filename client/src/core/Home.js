@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 import Widgets from './Widgets';
 import MessageSender from './MessageSender';
 // import LoadingImg from '../images/cart.svg'
-// import FindPeople from '../user/FindPeople'
+import Suggested from '../user/Suggested'
 
 export class Home extends Component {
 
@@ -24,10 +24,11 @@ export class Home extends Component {
             <Sidebar />  
             </div>
             <div className = "col-lg-6 ml-0">
+            <Suggested /> 
             <MessageSender />
             <Posts />
             </div>
-            <div className = "col-lg-3 mt-3">
+            <div className = "col-lg-3 mt-3">  
             <Widgets />
             </div>
             </div>

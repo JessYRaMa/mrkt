@@ -94,9 +94,9 @@ export class Posts extends Component {
 === 'production') ? '' : process.env.REACT_APP_API_URL}/posts/photo/${post._id }?${new Date().getTime()}` : DefaultPost;
 
                     return (
-                        <MDBRow className = 'mt-1 mb-1 d-flex justify-content-center'>
+                        <MDBRow className = 'mb-1 d-flex justify-content-center'>
                             <MDBCol lg= "12">
-                                <MDBCard news className = "my-5" style = {{borderRadius: "25px"}}>
+                                <MDBCard news className = "my-4" style = {{borderRadius: "25px"}}>
                                     <MDBCardBody>
                                         <div className = "content">
                                             <div className = 'float right d-inline block align-items-center' style = {{float:"right"}}>

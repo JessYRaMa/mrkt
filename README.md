@@ -15,7 +15,7 @@ helper/util functions, and lifecycle methods in order to query and display books
 This application uses the full MERN (MongoDB, Express, React, Node) stack so that users can save items to their cart for later purchase or have the chance
 to reference and edit their listings later! <br>
 
-<img width="800" align = "center" alt="mrkt" src="https://user-images.githubusercontent.com/61812035/93033114-ad2fd680-f5e9-11ea-9792-93eae3af8971.png">
+<img width="800" align = "center" alt="mrkt" src="https://user-images.githubusercontent.com/61812035/93152634-082e0000-f6b4-11ea-9157-8b8d00d3e9ab.png">
 
 ### See it in action!
 *MRKT* is deployed to Heroku. Please check it out [here](https://mrkt-jessyrama.herokuapp.com/)

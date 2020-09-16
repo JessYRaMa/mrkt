@@ -76,7 +76,7 @@ export class Category extends Component {
                       alt={post.title}
                       onError={i =>
                           (i.target.src = `${DefaultPost}`)}
-                      style = {{height: "200px", width: "250px", objectFit: "cover"}}    
+                      style = {{height: "200px", objectFit: "cover"}}    
                     /></Link>
                     <MDBCardBody cascade>
                       {post.category ? (<p> {post.category}</p>) : (<p>No Category</p>)}
@@ -147,7 +147,7 @@ export class Category extends Component {
                     <div className = "col-lg-3 mt-3">
                     <MarketplaceSide />
                     </div>
-                    <div className = "col-lg-7 mt-4">
+                    <div className = "col-lg-8 mt-4">
                     <h2 className = " mt-2 mb-3">{this.props.match.params.categoryName}</h2> 
                     <hr />
                     {posts.length === 0 ? (<h4 className = "grey-text">No listings found</h4>) : this.renderPosts(posts)}

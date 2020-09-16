@@ -1,9 +1,9 @@
-.container-fluid{
+/* .container-fluid{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start
-}
+} */
 
 div.cartItemSection{
     padding: 50px;

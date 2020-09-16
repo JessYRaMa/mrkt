@@ -56,7 +56,7 @@ export class Signup extends Component {
                       <div className="col-md-9 col-lg-8 mx-auto">
                         <h3 className="login-heading mb-4">Join our MRKT Family!</h3>
                         <div className = "alert alert-danger" style = {{display: error ? "" : "none"}}>{error}</div>
-                <div className = "alert alert-info" style = {{display: open ? "" : "none"}}>New account was successfully created.<Link to ="/signin">Please sign in.</Link> </div>
+                <div className = "alert alert-warning" style = {{display: open ? "" : "none"}}>New account was successfully created.<Link to ="/signin">Please sign in.</Link> </div>
                         <form>
                         <div className="form-label-group">
                             <input type="text"  id="inputText" className="form-control"  onChange={this.handleChange('name')}

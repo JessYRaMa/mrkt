@@ -13,7 +13,7 @@ MRKT by JessYRaMa. Check out our individual GitHub Repositories!<br>
 look through other user's listings, like and comment listings and also add to cart and checkout. This application utilizes React components, 
 helper/util functions, and lifecycle methods in order to query and display books based on the user searches. 
 This application uses the full MERN (MongoDB, Express, React, Node) stack so that users can save items to their cart for later purchase or have the chance
-to reference and edit their listings later! <br>
+to reference and edit their listings late <br>
 
 <img width="800" align = "center" alt="mrkt" src="https://user-images.githubusercontent.com/61812035/93152634-082e0000-f6b4-11ea-9157-8b8d00d3e9ab.png">
 

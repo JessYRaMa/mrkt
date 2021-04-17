@@ -46,7 +46,7 @@ export default function Suggested() {
                     >
                 <a href = 'https://www.linkedin.com/in/yssabel-pangilinan/' target = "_blank" rel="noopener noreferrer"><MDBAvatar
                   tag='img'
-                  src='https://files.slack.com/files-pri/T01N29WN74Z-F01UEGZSWCW/yssa.jpeg'
+                  src='https://slack-files.com/T01N29WN74Z-F01UEGZSWCW-bba01c4753'
                   className='rounded z-depth-2 img-fluid'
                   alt='Sample avatar'
                   id = "suggestedPicture"
@@ -66,7 +66,7 @@ export default function Suggested() {
                     >
                 <a href = 'https://www.linkedin.com/in/marc-r-martinez/' target = "_blank" rel="noopener noreferrer"><MDBAvatar
                   tag='img'
-                  src='https://files.slack.com/files-pri/T01N29WN74Z-F01UMGMQSHZ/marc.jpeg'
+                  src='https://slack-files.com/T01N29WN74Z-F01UMGMQSHZ-d39ec4bd72'
                   className='rounded z-depth-2 img-fluid'
                   alt='Sample avatar'
                   id = "suggestedPicture"
@@ -86,7 +86,7 @@ export default function Suggested() {
                     >
                 <a href = 'https://www.linkedin.com/in/rafael-jimenez-4b100a1a3/' target = "_blank" rel="noopener noreferrer"><MDBAvatar
                   tag='img'
-                  src='https://files.slack.com/files-pri/T01N29WN74Z-F01UMGMSU2F/rafael.jpeg'
+                  src='https://slack-files.com/T01N29WN74Z-F01UMGMSU2F-0fac9d93cc'
                   className='rounded z-depth-2 img-fluid'
                   alt='Sample avatar'
                   id = "suggestedPicture"

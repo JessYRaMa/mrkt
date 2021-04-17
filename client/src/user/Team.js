@@ -7,6 +7,9 @@ import {
     MDBAvatar,
     MDBIcon
   } from 'mdbreact';
+import Marc from '../images/marc.jpeg'
+import Yssa from '../images/yssa.jpeg'
+import Rafael from '../images/rafael.jpeg'
 
 export default function Team() {
     return (
@@ -38,7 +41,7 @@ export default function Team() {
               <MDBCol lg='3' md='6' className='mb-lg-0 mb-5'>
                 <MDBAvatar
                   tag='img'
-                  src='https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/45330489_10217559092270437_1476428195212296192_n.jpg?_nc_cat=102&_nc_sid=09cbfe&_nc_ohc=jVgGWMhFpmMAX-ipYpt&_nc_ht=scontent-sjc3-1.xx&oh=550bf29c26f3f1145fb4e98705d14da9&oe=5F7D6F6A'
+                  src={Yssa}
                   className='rounded-circle z-depth-1 img-fluid'
                   alt='Sample avatar'
                 />
@@ -56,7 +59,7 @@ export default function Team() {
               <MDBCol lg='3' md='6' className='mb-lg-0 mb-5'>
                 <MDBAvatar
                   tag='img'
-                  src='https://media-exp1.licdn.com/dms/image/C5603AQHWy72M8yVWmQ/profile-displayphoto-shrink_800_800/0?e=1605139200&v=beta&t=S0JTdPoeys84o4yp1lVfDNaTKR3Hux14rfWzo7d2n2Q'
+                  src={Marc}
                   className='rounded-circle z-depth-1 img-fluid'
                   alt='Sample avatar'
                 />
@@ -74,7 +77,7 @@ export default function Team() {
               <MDBCol lg='3' md='6' className='mb-lg-0 mb-5'>
                 <MDBAvatar
                   tag='img'
-                  src='https://media-exp1.licdn.com/dms/image/C5603AQFkzMRgr1A15A/profile-displayphoto-shrink_800_800/0?e=1605139200&v=beta&t=B2LcuTGImJZvKgQ7a0cOwq7DZKSspRWmDNePpwOn2oY'
+                  src={Rafael}
                   className='rounded-circle z-depth-1 img-fluid'
                   alt='Sample avatar'
                 />

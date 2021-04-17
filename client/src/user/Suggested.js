@@ -8,6 +8,10 @@ import {
     MDBTooltip
   } from 'mdbreact';
 import './suggested.css'
+import Marc from '../images/marc.jpeg'
+import Yssa from '../images/yssa.jpeg'
+import Rafael from '../images/rafael.jpeg'
+
 
 export default function Suggested() {
     return (
@@ -46,7 +50,7 @@ export default function Suggested() {
                     >
                 <a href = 'https://www.linkedin.com/in/yssabel-pangilinan/' target = "_blank" rel="noopener noreferrer"><MDBAvatar
                   tag='img'
-                  src='../images/yssa.jpeg'
+                  src={Yssa}
                   className='rounded z-depth-2 img-fluid'
                   alt='Sample avatar'
                   id = "suggestedPicture"
@@ -66,7 +70,7 @@ export default function Suggested() {
                     >
                 <a href = 'https://www.linkedin.com/in/marc-r-martinez/' target = "_blank" rel="noopener noreferrer"><MDBAvatar
                   tag='img'
-                  src='../images/marc.jpeg'
+                  src={Marc}
                   className='rounded z-depth-2 img-fluid'
                   alt='Sample avatar'
                   id = "suggestedPicture"
@@ -86,7 +90,7 @@ export default function Suggested() {
                     >
                 <a href = 'https://www.linkedin.com/in/rafael-jimenez-4b100a1a3/' target = "_blank" rel="noopener noreferrer"><MDBAvatar
                   tag='img'
-                  src='../images/rafael.jpeg'
+                  src={Rafael}
                   className='rounded z-depth-2 img-fluid'
                   alt='Sample avatar'
                   id = "suggestedPicture"

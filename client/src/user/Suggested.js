@@ -9,7 +9,7 @@ import {
   } from 'mdbreact';
 import './suggested.css'
 import Marc from '../images/marc.jpeg'
-import Yssa from '../images/yssa.jpeg'
+import Yssa from '../images/yssa2.jpg'
 import Rafael from '../images/rafael.jpeg'
 
 
